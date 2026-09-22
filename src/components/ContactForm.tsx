@@ -85,22 +85,20 @@ export default function ContactForm() {
     setServerMessage("");
 
     try {
-      const body = new URLSearchParams();
-
-      body.append("form-name", "contact");
-      body.append("name", data.name);
-      body.append("email", data.email);
-      body.append("projectType", data.projectType);
-      body.append("budget", data.budget);
-      body.append("message", data.message);
-      body.append("website", data.website ?? "");
-
-      const res = await fetch("/", {
+      const res = await fetch("/contact-form.html", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: body.toString(),
+        body: new URLSearchParams({
+          "form-name": "contact",
+          name: data.name,
+          email: data.email,
+          projectType: data.projectType,
+          budget: data.budget,
+          message: data.message,
+          website: data.website ?? "",
+        }).toString(),
       });
 
       if (!res.ok) {
