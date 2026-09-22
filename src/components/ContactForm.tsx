@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, type FormEvent } from "react";
@@ -156,8 +155,6 @@ export default function ContactForm() {
     <form
       name="contact"
       method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="website"
       onSubmit={onSubmit}
       noValidate
       className="rounded-3xl border border-ink/10 bg-white p-7 shadow-[0_28px_70px_-32px_rgba(15,13,20,0.28)] sm:p-9"
@@ -344,7 +341,7 @@ export default function ContactForm() {
         >
           {status === "submitting" ? (
             <>
-              Sending your message…
+              Sending your message...
               <Loader2 size={16} className="animate-spin" aria-hidden="true" />
             </>
           ) : (
@@ -358,4 +355,3 @@ export default function ContactForm() {
     </form>
   );
 }
-
