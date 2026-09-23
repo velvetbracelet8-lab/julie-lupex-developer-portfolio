@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -30,14 +29,18 @@ export default function HomeHero() {
     >
       {/* Hero image */}
       <div className="absolute inset-0">
-        <Image
-          src="/images/julie-hero.png"
-          alt="Julie working at her desk"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+        <picture className="absolute inset-0 block">
+          <source
+            media="(max-width: 767px)"
+            srcSet="/images/julie-hero-mobile.png"
+          />
+
+          <img
+            src="/images/julie-hero.png"
+            alt="Julie working at her desk"
+            className="h-full w-full object-cover object-center"
+          />
+        </picture>
 
         {/* Editorial dark overlay */}
         <div className="absolute inset-0 bg-black/45" />
@@ -54,8 +57,6 @@ export default function HomeHero() {
             className="h-2 w-2 shrink-0 rounded-full bg-[var(--accent)]"
             aria-hidden="true"
           />
-
-        
         </div>
 
         {/* Main content */}
@@ -87,9 +88,9 @@ export default function HomeHero() {
         {/* Currently building */}
         <div className="mt-10 max-w-full sm:mt-12 md:mt-14">
           <div className="inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-md border border-white/10 bg-black/35 px-3 py-2 backdrop-blur-sm sm:px-4 sm:py-2.5">
-           <span className="font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-white/45 sm:text-xs">
-  {"// currently building:"}
-</span>
+            <span className="font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-white/45 sm:text-xs">
+              {"// currently building:"}
+            </span>
 
             <span
               key={buildingItems[currentItem]}
@@ -123,4 +124,4 @@ export default function HomeHero() {
       </div>
     </section>
   );
-} 
+}
