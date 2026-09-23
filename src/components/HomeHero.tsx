@@ -1,12 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Mail, Phone, Terminal, GitBranch, Boxes } from "lucide-react";
-import { site } from "@/lib/site";
+import { ArrowDown } from "lucide-react";
+import { useEffect, useState } from "react";
 
-const rotatingWords = [
+const buildingItems = [
   "responsive websites",
   "powerful web applications",
   "e-commerce experiences",
@@ -15,140 +13,114 @@ const rotatingWords = [
 ];
 
 export default function HomeHero() {
-  const [wordIndex, setWordIndex] = useState(0);
+  const [currentItem, setCurrentItem] = useState(0);
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReduced) return;
-    const id = window.setInterval(
-      () => setWordIndex((i) => (i + 1) % rotatingWords.length),
-      2600
-    );
-    return () => window.clearInterval(id);
+    const interval = window.setInterval(() => {
+      setCurrentItem((current) => (current + 1) % buildingItems.length);
+    }, 2600);
+
+    return () => window.clearInterval(interval);
   }, []);
 
   return (
     <section
-      className="relative overflow-hidden bg-ink pt-[8.5rem] pb-20 sm:pt-[10rem] lg:pb-28"
-      aria-labelledby="hero-heading"
+      id="home"
+      className="relative flex min-h-screen items-end overflow-hidden bg-black text-white"
     >
-      <div className="bg-grid-dark absolute inset-0" aria-hidden="true" />
-      <div
-        className="glow-violet absolute -right-32 top-24 h-[36rem] w-[36rem] rounded-full"
-        aria-hidden="true"
-      />
-      <div
-        className="glow-deep absolute -left-40 bottom-[-20%] h-[28rem] w-[28rem] rounded-full"
-        aria-hidden="true"
-      />
+      {/* Hero image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/julie-hero.png"
+          alt="Julie working at her desk"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
 
-      <div className="site-container relative grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
-        <div>
-          <p className="reveal is-visible inline-flex items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-[0.82rem] font-medium text-paper/90 backdrop-blur-sm">
-            <span
-              className="pulse-dot h-2 w-2 rounded-full bg-mint"
-              aria-hidden="true"
-            />
-            Available for freelance projects
-          </p>
+        {/* Editorial dark overlay */}
+        <div className="absolute inset-0 bg-black/45" />
 
-          <h1
-            id="hero-heading"
-            className="mt-7 font-display text-[clamp(2.6rem,6.4vw,4.6rem)] font-bold leading-[1.03] tracking-[-0.025em] text-paper text-balance"
-          >
-            I Build Digital Experiences That{" "}
-            <span className="words-rotate">Work Beautifully</span>.
-          </h1>
+        {/* Bottom fade */}
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/40 to-transparent" />
+      </div>
 
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist">
-            I&apos;m Julie Lupex, a full-stack web developer creating fast,
-            responsive websites, powerful web applications, and digital
-            experiences that turn ideas into real products.
-          </p>
-
-          <p
-            className="mt-5 inline-flex items-center rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 font-mono text-sm text-violet-2"
+      {/* Hero content */}
+      <div className="container relative z-10 w-full pb-8 pt-28 sm:pb-10 sm:pt-32 md:pb-14 md:pt-40 lg:pb-12">
+        {/* Availability */}
+        <div className="mb-8 flex items-center gap-3 sm:mb-10 md:mb-12">
+          <span
+            className="h-2 w-2 shrink-0 rounded-full bg-[var(--accent)]"
             aria-hidden="true"
-          >
-            {"// currently building: "}
-            {rotatingWords[wordIndex]}
-            <span className="caret" />
-          </p>
+          />
 
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <Link href="/portfolio" className="btn btn-primary">
-              View My Work
-              <ArrowRight size={17} aria-hidden="true" />
-            </Link>
-            <Link href="/contact" className="btn btn-ghost-light">
-              Let&apos;s Build Something
-              <ArrowRight size={17} aria-hidden="true" />
-            </Link>
-          </div>
-
-          <ul className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm text-mist">
-            <li>
-              <a
-                href={site.emailHref}
-                className="inline-flex items-center gap-2 transition-colors hover:text-violet"
-              >
-                <Mail size={15} aria-hidden="true" />
-                {site.email}
-              </a>
-            </li>
-            <li>
-              <a
-                href={site.phoneHref}
-                className="inline-flex items-center gap-2 transition-colors hover:text-violet"
-              >
-                <Phone size={15} aria-hidden="true" />
-                {site.phoneDisplay}
-              </a>
-            </li>
-          </ul>
+        
         </div>
 
-        <div className="relative">
-          <div className="card-lift relative overflow-hidden rounded-[2rem] border border-white/12 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.8)]">
-            <Image
-              src="/images/hero-workstation.jpg"
-              alt="Illustrated developer workstation: a laptop with a dark code editor, floating interface components and violet accent lighting."
-              width={1200}
-              height={1200}
-              priority
-              className="h-auto w-full object-cover"
-            />
-            <div
-              className="absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/10"
-              aria-hidden="true"
-            />
+        {/* Main content */}
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+          {/* Main heading */}
+          <div className="min-w-0 lg:col-span-10">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.1em] text-white/90 sm:mb-5 sm:text-sm md:mb-6">
+              Hello, I&apos;m Julie.
+            </p>
+
+            <h1 className="max-w-6xl text-[clamp(3rem,9vw,9.5rem)] font-medium leading-[0.86] tracking-[-0.055em]">
+              I design{" "}
+              <span className="display-font">&amp;</span> build
+              <br />
+              <span className="display-font">digital</span>{" "}
+              experiences.
+            </h1>
           </div>
 
-          <div
-            className="animate-floaty absolute -left-3 top-8 hidden items-center gap-2.5 rounded-2xl border border-white/12 bg-ink-2/90 px-4 py-3 font-mono text-xs text-violet-2 shadow-xl backdrop-blur-md sm:flex"
-            style={{ animationDelay: "0.4s" }}
-          >
-            <Terminal size={15} aria-hidden="true" />
-            GET /api/ideas → 200 OK
-          </div>
-          <div
-            className="animate-floaty absolute -right-3 top-1/3 hidden items-center gap-2.5 rounded-2xl border border-white/12 bg-ink-2/90 px-4 py-3 font-mono text-mint shadow-xl backdrop-blur-md sm:flex"
-            style={{ animationDelay: "1.4s" }}
-          >
-            <GitBranch size={15} aria-hidden="true" />
-            git push origin main
-          </div>
-          <div
-            className="animate-floaty absolute -bottom-4 left-10 hidden items-center gap-2.5 rounded-2xl border border-white/12 bg-ink-2/90 px-4 py-3 font-mono text-paper/85 shadow-xl backdrop-blur-md sm:flex"
-            style={{ animationDelay: "2.2s" }}
-          >
-            <Boxes size={15} aria-hidden="true" />
-            {"<Responsive />"} shipped
+          {/* Supporting statement */}
+          <div className="min-w-0 lg:col-span-2 lg:pb-2">
+            <p className="max-w-xs text-sm leading-6 text-white/85 sm:text-base sm:leading-7">
+              Designing intuitive experiences &amp; building high-performance
+              websites.
+            </p>
           </div>
         </div>
+
+        {/* Currently building */}
+        <div className="mt-10 max-w-full sm:mt-12 md:mt-14">
+          <div className="inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-md border border-white/10 bg-black/35 px-3 py-2 backdrop-blur-sm sm:px-4 sm:py-2.5">
+           <span className="font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-white/45 sm:text-xs">
+  {"// currently building:"}
+</span>
+
+            <span
+              key={buildingItems[currentItem]}
+              className="font-mono text-[10px] font-semibold text-white sm:text-xs md:text-sm"
+            >
+              {buildingItems[currentItem]}
+            </span>
+          </div>
+        </div>
+
+        {/* Discipline */}
+        <div className="mt-8 flex items-center gap-3 sm:mt-10 md:mt-12">
+          <span
+            className="h-px w-8 shrink-0 bg-white/40 sm:w-12"
+            aria-hidden="true"
+          />
+
+          <span className="text-[9px] font-bold uppercase tracking-[0.12em] text-white/75 sm:text-[10px] sm:tracking-[0.14em] md:text-xs">
+            Design → UX → UI → Code → Product
+          </span>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="pointer-events-none absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 md:block">
+        <ArrowDown
+          size={18}
+          strokeWidth={1.5}
+          className="animate-bounce text-white/80"
+        />
       </div>
     </section>
   );
-}
+} 
