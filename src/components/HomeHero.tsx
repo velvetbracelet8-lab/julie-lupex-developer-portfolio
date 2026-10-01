@@ -62,19 +62,17 @@ export default function HomeHero() {
         {/* Main content */}
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           {/* Main heading */}
-          <div className="min-w-0 lg:col-span-10">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.1em] text-white/90 sm:mb-5 sm:text-sm md:mb-6">
-              Hello, I&apos;m Julie.
-            </p>
-
-            <h1 className="max-w-6xl text-[clamp(3rem,9vw,9.5rem)] font-medium leading-[0.86] tracking-[-0.055em]">
-              I design{" "}
-              <span className="display-font">&amp;</span> build
-              <br />
-              <span className="display-font">digital</span>{" "}
-              experiences.
-            </h1>
-          </div>
+         {/* Main heading */}
+{/* Main heading */}
+<div className="min-w-0 lg:col-span-10">
+  <h1 className="max-w-5xl text-[clamp(2.75rem,6.5vw,7rem)] font-semibold leading-[0.9] tracking-[-0.045em]">
+    Business problems,
+    <br />
+    <span className="font-medium italic">solved</span> with design
+    <br />
+    <span className="font-medium">&amp; clean code.</span>
+  </h1>
+</div>
 
           {/* Supporting statement */}
           <div className="min-w-0 lg:col-span-2 lg:pb-2">

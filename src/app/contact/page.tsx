@@ -6,32 +6,32 @@ import ContactForm from "@/components/ContactForm";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact — Let's Build Something Great",
+  title: "Contact & Inquiries — Julie Lupex | Full-Stack Web Developer",
   description:
-    "Start a conversation with Julie Lupex about your website, web application, e-commerce, WordPress or full-stack project. Email julielupex@gmail.com or call 0797 843 007.",
+    "Get in touch with Julie Lupex for web engineering, full-stack application development, API integrations, or technical consulting. Let's discuss your project goals.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact Julie Lupex — Let's Build Something Great",
     description:
-      "Start a conversation with Julie Lupex about your website, web application, e-commerce, WordPress or full-stack project.",
+      "Initiate a conversation about your web application, e-commerce platform, or technical architecture.",
   },
 };
 
 const nextSteps = [
   {
     icon: MessageSquareText,
-    title: "You share the idea",
-    text: "A few sentences are plenty — what it is, who it's for, and when you'd love it live.",
+    title: "Share your goals & scope",
+    text: "A brief summary of your product, target audience, and ideal timeline is all we need to get started.",
   },
   {
     icon: Reply,
-    title: "Julie replies personally",
-    text: "No autoresponders pretending to be people. You get a real reply with real first thoughts.",
+    title: "I evaluate & respond directly",
+    text: "No sales reps or automated templates. I personally review your requirements and provide initial technical feedback.",
   },
   {
     icon: CalendarCheck,
-    title: "We map the build",
-    text: "Scope, timeline and a plan you understand — then the building starts, in the open.",
+    title: "We architect the roadmap",
+    text: "We align on scope, architecture, and transparent milestones before writing the first line of production code.",
   },
 ];
 
@@ -39,14 +39,15 @@ export default function ContactPage() {
   return (
     <main id="main">
       <PageHero
-        eyebrow="Contact"
-        title="Let's Build Something Great"
-        description="Have an idea, a website that needs rebuilding, or a digital product you've been thinking about? Tell Julie what you're working on and let's explore what can be built."
+        eyebrow="Get In Touch"
+        title="Let's Build Something Exceptional"
+        description="Whether you're launching a new product from scratch, modernizing an existing web platform, or seeking full-stack engineering expertise—tell me about your goals and let's map out the right solution."
         crumb="Contact"
       />
 
       <section className="bg-paper py-24 sm:py-28" aria-label="Contact details and form">
         <div className="site-container grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+          {/* ---------- Contact Details Sidebar ---------- */}
           <div>
             <Reveal>
               <div className="card-lift rounded-3xl border border-ink/10 bg-ink p-8 sm:p-9">
@@ -88,7 +89,7 @@ export default function ContactPage() {
                       </span>
                       <span>
                         <span className="block text-xs uppercase tracking-[0.18em] text-mist">
-                          Phone
+                          Direct Line
                         </span>
                         <span className="block font-medium text-paper transition-colors group-hover:text-violet-2">
                           {site.phoneDisplay}
@@ -99,11 +100,12 @@ export default function ContactPage() {
                 </ul>
                 <p className="mt-7 flex items-center gap-2.5 border-t border-white/10 pt-6 text-sm text-mist">
                   <span className="pulse-dot h-2 w-2 rounded-full bg-mint" aria-hidden="true" />
-                  Available for freelance projects — usually replies within a day or two.
+                  Available for select freelance &amp; contract projects — responding within 24 hours.
                 </p>
               </div>
             </Reveal>
 
+            {/* ---------- What Happens Next ---------- */}
             <div className="mt-8 space-y-4">
               {nextSteps.map((s, i) => (
                 <Reveal key={s.title} delay={i * 80}>
@@ -126,6 +128,7 @@ export default function ContactPage() {
             </div>
           </div>
 
+          {/* ---------- Form Section ---------- */}
           <Reveal variant="right" delay={100}>
             <div className="mb-6 flex items-center gap-3">
               <UserRound size={18} className="text-deep" aria-hidden="true" />

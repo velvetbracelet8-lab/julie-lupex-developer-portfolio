@@ -9,14 +9,14 @@ import { BlogCard } from "@/components/cards";
 import { posts, formatDate } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog — Ideas, Code & Digital Craft",
+  title: "Engineering Insights & Articles — Julie Lupex",
   description:
-    "Thoughts on web development, design, technology and building better digital experiences — written by Julie Lupex, full-stack web developer.",
+    "Practical perspectives on web engineering, system architecture, performance optimization, and modern front-end craftsmanship by Julie Lupex.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog — Ideas, Code & Digital Craft",
+    title: "Engineering Insights & Articles — Julie Lupex",
     description:
-      "Thoughts on web development, design, technology and building better digital experiences — by Julie Lupex.",
+      "Deep dives into web architecture, full-stack development, and digital product design by Julie Lupex.",
   },
 };
 
@@ -26,9 +26,9 @@ export default function BlogPage() {
   return (
     <main id="main">
       <PageHero
-        eyebrow="The Knowledge Hub"
-        title="Ideas, Code & Digital Craft"
-        description="Thoughts on web development, design, technology and building better digital experiences."
+        eyebrow="Technical Writing & Insights"
+        title="Architecture, Code & Web Craft"
+        description="In-depth breakdowns, architectural case notes, and practical perspectives on building fast, maintainable, and user-centric web applications."
         crumb="Blog"
       />
 
@@ -72,7 +72,7 @@ export default function BlogPage() {
                 </h2>
                 <p className="mt-4 leading-relaxed text-body">{featured.excerpt}</p>
                 <p className="mt-5 text-sm font-medium text-body/70">
-                  By <span className="font-semibold text-ink">Julie Lupex</span>
+                  Written by <span className="font-semibold text-ink">Julie Lupex</span>
                 </p>
                 <Link
                   href={`/blog/${featured.slug}`}
@@ -97,9 +97,10 @@ export default function BlogPage() {
         </div>
       </section>
 
+      {/* ---------- Bottom CTA ---------- */}
       <CtaBand
-        title="Enjoying the writing? Wait until you see the work."
-        text="These articles are how Julie thinks. The portfolio is how she builds. Both lead to the same place — a conversation about your idea."
+        title="From engineering principles to production code."
+        text="These articles reflect how I deconstruct technical challenges—my portfolio shows how I solve them in production. Let's discuss what we can build together."
       />
     </main>
   );
