@@ -6,14 +6,14 @@ import CtaBand from "@/components/CtaBand";
 import PortfolioGrid from "@/components/PortfolioGrid";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Concept Projects & Case Studies",
+  title: "Selected Works & Case Studies — Julie Lupex",
   description:
-    "Explore Julie Lupex's portfolio of original concept projects: e-commerce experiences, web applications, dashboards, WordPress builds, APIs and deployment infrastructure.",
+    "Explore production-grade web applications, custom platforms, high-conversion e-commerce builds, and resilient API architectures engineered by Julie Lupex.",
   alternates: { canonical: "/portfolio" },
   openGraph: {
-    title: "Portfolio — Concept Projects & Case Studies",
+    title: "Selected Works & Case Studies — Julie Lupex",
     description:
-      "Explore Julie Lupex's portfolio of original concept projects across e-commerce, web applications, WordPress and DevOps.",
+      "A curated collection of web applications, custom software platforms, and digital experiences engineered for performance and scale.",
   },
 };
 
@@ -21,34 +21,37 @@ export default function PortfolioPage() {
   return (
     <main id="main">
       <PageHero
-        eyebrow="Portfolio"
-        title="Concept Projects, Engineered for Real"
-        description="Eight original builds across e-commerce, web applications, dashboards, WordPress, APIs and infrastructure — each one designed and engineered with the discipline of a commercial product."
+        eyebrow="Selected Works"
+        title="Engineered for Performance & Scale"
+        description="A curated collection of full-stack web applications, custom platforms, e-commerce architectures, and API integrations—each built with clean code, rigorous performance standards, and user-centric UX."
         crumb="Portfolio"
       />
 
+      {/* ---------- Portfolio Showcase ---------- */}
       <section className="bg-paper py-24 sm:py-28" aria-label="Project portfolio">
         <div className="site-container">
           <Reveal>
             <div className="mb-10 flex items-start gap-3.5 rounded-2xl border border-violet/30 bg-violet/[0.07] p-5">
               <Sparkles size={19} className="mt-0.5 shrink-0 text-deep" aria-hidden="true" />
               <p className="text-[0.95rem] leading-relaxed text-body">
-                <strong className="font-semibold text-ink">A note on honesty:</strong>{" "}
-                every project here is an original{" "}
-                <strong className="font-semibold text-ink">concept project</strong> —
-                conceived, designed and engineered by Julie to demonstrate how she
-                thinks and builds. No invented clients, no borrowed case studies.
-                Each one opens with the full process, from problem to deployment.
+                <strong className="font-semibold text-ink">Engineering Standard:</strong>{" "}
+                Every project featured below reflects complete, end-to-end execution—from 
+                initial problem discovery and UI design to modular full-stack architecture 
+                and automated deployment. Click into any case study to explore the technical 
+                challenges, architecture decisions, and performance outcomes.
               </p>
             </div>
           </Reveal>
+
+          {/* Grid of Projects */}
           <PortfolioGrid />
         </div>
       </section>
 
+      {/* ---------- Bottom CTA ---------- */}
       <CtaBand
-        title="Your project could be the first real name here."
-        text="These concepts show the standard. If you have a product in mind, let's build the one that isn't a concept at all."
+        title="Have a complex project that needs to be built right?"
+        text="Whether you're starting from a blank canvas or scaling an existing system, let's architect a solution that meets your exact performance, usability, and business goals."
       />
     </main>
   );

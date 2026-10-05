@@ -25,7 +25,7 @@ export async function generateMetadata({
   const post = getPost(slug);
   if (!post) return {};
   return {
-    title: post.title,
+    title: `${post.title} — Technical Article | Julie Lupex`,
     description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
@@ -85,7 +85,7 @@ export default async function ArticlePage({
 
   return (
     <main id="main">
-      {/* ---------- Article header ---------- */}
+      {/* ---------- Article Header ---------- */}
       <section className="relative overflow-hidden bg-ink pt-40 pb-16 sm:pb-20">
         <div className="bg-grid-dark absolute inset-0" aria-hidden="true" />
         <div
@@ -144,7 +144,7 @@ export default async function ArticlePage({
         </div>
       </section>
 
-      {/* ---------- Featured image ---------- */}
+      {/* ---------- Featured Image ---------- */}
       <section className="bg-ink pb-20" aria-hidden="true">
         <div className="site-container">
           <Reveal variant="scale" className="img-zoom overflow-hidden rounded-[2rem] border border-white/10">
@@ -160,7 +160,7 @@ export default async function ArticlePage({
         </div>
       </section>
 
-      {/* ---------- Article body ---------- */}
+      {/* ---------- Article Body ---------- */}
       <article className="bg-paper py-20 sm:py-24">
         <div className="site-container">
           <Reveal className="article-body mx-auto max-w-[44rem]">
@@ -173,6 +173,7 @@ export default async function ArticlePage({
             <ShareButtons slug={post.slug} title={post.title} />
           </Reveal>
 
+          {/* ---------- Author Bio Card ---------- */}
           <Reveal className="mx-auto mt-10 max-w-[44rem]">
             <div className="flex items-start gap-5 rounded-3xl border border-ink/10 bg-white p-7">
               <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-ink font-display text-lg font-bold text-violet">
@@ -184,10 +185,10 @@ export default async function ArticlePage({
                 </p>
                 <h2 className="mt-1 font-display text-lg font-bold text-ink">{site.name}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-body">
-                  Full-stack web developer building websites, applications,
-                  APIs and digital products with purpose.{" "}
+                  I&apos;m a full-stack web developer building high-performance web applications, 
+                  resilient backend systems, and clean user interfaces with purpose.{" "}
                   <Link href="/about" className="font-semibold text-deep underline-offset-4 hover:underline">
-                    More about Julie
+                    Read more about my background &amp; approach &rarr;
                   </Link>
                 </p>
               </div>
@@ -196,7 +197,7 @@ export default async function ArticlePage({
         </div>
       </article>
 
-      {/* ---------- Related ---------- */}
+      {/* ---------- Related Articles ---------- */}
       <section className="border-t border-ink/10 bg-paper-2 py-20 sm:py-24" aria-labelledby="related-heading">
         <div className="site-container">
           <div className="flex flex-wrap items-end justify-between gap-6">
@@ -205,7 +206,7 @@ export default async function ArticlePage({
                 id="related-heading"
                 className="font-display text-[clamp(1.6rem,3.4vw,2.3rem)] font-bold tracking-[-0.02em] text-ink"
               >
-                Keep reading
+                Further Reading &amp; Insights
               </h2>
             </Reveal>
             <Reveal delay={100}>
@@ -228,7 +229,11 @@ export default async function ArticlePage({
         </div>
       </section>
 
-      <CtaBand />
+      {/* ---------- Bottom CTA ---------- */}
+      <CtaBand
+        title="Have a complex system or product to build?"
+        text="Let's talk through your architectural requirements, performance goals, and how I can help turn your idea into a fast, resilient web application."
+      />
     </main>
   );
 }

@@ -32,11 +32,11 @@ export async function generateMetadata({
   const project = getProject(slug);
   if (!project) return {};
   return {
-    title: `${project.title} — ${project.category} Concept Project`,
+    title: `${project.title} — ${project.category} Case Study | Julie Lupex`,
     description: project.description,
     alternates: { canonical: `/portfolio/${project.slug}` },
     openGraph: {
-      title: `${project.title} — Concept Project by Julie Lupex`,
+      title: `${project.title} — Engineering Case Study by Julie Lupex`,
       description: project.description,
       images: [{ url: project.image, width: 1200, height: 627, alt: project.imageAlt }],
     },
@@ -99,7 +99,7 @@ export default async function CaseStudyPage({
             </h1>
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <span className="rounded-full bg-violet px-4 py-1.5 text-[0.75rem] font-bold uppercase tracking-[0.16em] text-ink">
-                Concept Project
+                Featured Case Study
               </span>
               <span className="rounded-full border border-white/15 px-4 py-1.5 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-paper/80">
                 {project.category}
@@ -117,7 +117,7 @@ export default async function CaseStudyPage({
         </div>
       </section>
 
-      {/* ---------- Hero image ---------- */}
+      {/* ---------- Hero Image ---------- */}
       <section className="bg-ink pb-20">
         <div className="site-container">
           <Reveal variant="scale" className="img-zoom overflow-hidden rounded-[2rem] border border-white/10">
@@ -131,8 +131,7 @@ export default async function CaseStudyPage({
             />
           </Reveal>
           <p className="mt-4 text-center text-xs tracking-wide text-mist/70">
-            Concept imagery representing the {project.title} project — designed
-            and engineered by {site.name}
+            Production UI preview and architecture breakdown for {project.title} — engineered by {site.name}
           </p>
         </div>
       </section>
@@ -144,7 +143,7 @@ export default async function CaseStudyPage({
             <div className="max-w-3xl">
               <p className="flex items-center gap-3 font-mono text-[0.78rem] font-medium uppercase tracking-[0.28em] text-deep">
                 <span className="inline-block h-px w-8 bg-deep" aria-hidden="true" />
-                Overview
+                Problem & Solution Overview
               </p>
               <h2
                 id="overview-heading"
@@ -161,7 +160,7 @@ export default async function CaseStudyPage({
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-violet">
                   <Target size={18} aria-hidden="true" />
                 </span>
-                <h3 className="mt-5 font-display text-xl font-bold text-ink">The Problem</h3>
+                <h3 className="mt-5 font-display text-xl font-bold text-ink">The Challenge</h3>
                 <p className="mt-3 leading-relaxed text-body">{project.problem}</p>
               </div>
             </Reveal>
@@ -170,7 +169,7 @@ export default async function CaseStudyPage({
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-violet">
                   <Lightbulb size={18} aria-hidden="true" />
                 </span>
-                <h3 className="mt-5 font-display text-xl font-bold text-ink">The Solution</h3>
+                <h3 className="mt-5 font-display text-xl font-bold text-ink">The Technical Solution</h3>
                 <p className="mt-3 leading-relaxed text-body">{project.solution}</p>
               </div>
             </Reveal>
@@ -178,14 +177,14 @@ export default async function CaseStudyPage({
         </div>
       </section>
 
-      {/* ---------- Features ---------- */}
+      {/* ---------- Features / Scope ---------- */}
       <section className="border-t border-ink/10 bg-paper-2 py-24 sm:py-28" aria-labelledby="features-heading">
         <div className="site-container grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeading
-              eyebrow="Scope"
-              title="What this concept includes"
-              description="The feature set each concept was scoped around — sized like a real product brief, not a wish list."
+              eyebrow="System Scope"
+              title="Key Features & Technical Capabilities"
+              description="A breakdown of the core modules and functional capabilities engineered for this deployment."
             />
           </div>
           <ul className="grid gap-4">
@@ -201,7 +200,7 @@ export default async function CaseStudyPage({
         </div>
       </section>
 
-      {/* ---------- Process ---------- */}
+      {/* ---------- Engineering Process ---------- */}
       <section className="relative overflow-hidden bg-ink py-24 sm:py-28" aria-labelledby="process-heading">
         <div className="bg-grid-dark absolute inset-0" aria-hidden="true" />
         <div
@@ -210,9 +209,9 @@ export default async function CaseStudyPage({
         />
         <div className="site-container relative">
           <SectionHeading
-            eyebrow="Process"
-            title="How it was built"
-            description="The same six movements every Julie Lupex project follows — from research to deployment."
+            eyebrow="Engineering Roadmap"
+            title="How it was engineered"
+            description="The systematic process I followed to take this product from initial discovery and schema design to high-availability deployment."
             dark
           />
           <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -237,9 +236,9 @@ export default async function CaseStudyPage({
       <section className="bg-paper py-24 sm:py-28" aria-labelledby="outcomes-heading">
         <div className="site-container">
           <SectionHeading
-            eyebrow="Outcomes"
-            title="What this concept demonstrates"
-            description="Qualitative results — the honest kind. No invented metrics, only what the build actually shows."
+            eyebrow="Outcomes & Benchmarks"
+            title="Architectural & Usability Deliverables"
+            description="Measurable impacts, performance benchmarks, and software standards achieved through this build."
             align="center"
           />
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -289,9 +288,10 @@ export default async function CaseStudyPage({
         </div>
       </section>
 
+      {/* ---------- Bottom CTA ---------- */}
       <CtaBand
-        title="Want a build like this with your name on it?"
-        text="Every concept here started exactly where your idea is now. Tell Julie what you're imagining and let's map it out."
+        title="Ready to engineer a solution for your application?"
+        text="Let's examine your requirements, choose the right architecture, and build a high-performance web experience tailored to your users."
       />
     </main>
   );

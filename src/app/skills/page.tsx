@@ -17,14 +17,14 @@ import CtaBand from "@/components/CtaBand";
 import { skillGroups, toolkitLabels } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Skills — Front-End, Back-End & Platforms",
+  title: "Skills & Technical Stack — Julie Lupex",
   description:
-    "Julie Lupex's web development skills: HTML5, CSS3, JavaScript, responsive design, REST APIs, databases, testing, performance, WordPress, e-commerce and deployment.",
+    "Explore my technical stack and engineering principles: modern front-end architecture, scalable back-end services, database modeling, accessibility, and DevOps.",
   alternates: { canonical: "/skills" },
   openGraph: {
-    title: "Skills — Front-End, Back-End & Platforms",
+    title: "Skills & Technical Stack — Julie Lupex",
     description:
-      "Julie Lupex's web development skills across front-end, back-end, development practice and platforms.",
+      "Modern full-stack technical competencies, architectural standards, and core development principles by Julie Lupex.",
   },
 };
 
@@ -33,28 +33,28 @@ const groupIcons = [MonitorSmartphone, Server, Wrench, Boxes];
 const workingPrinciples = [
   {
     icon: GitBranch,
-    title: "Versioned everything",
-    text: "Git history treated as the project's memory — every change traceable, every message written for a future reader.",
+    title: "Traceable Version Control",
+    text: "I treat Git history as living project documentation. Every commit is clean, purposeful, and written so any future developer can trace decisions effortlessly.",
   },
   {
     icon: Bug,
-    title: "Debugging as a craft",
-    text: "Reproduce, isolate, understand, fix, and leave a test behind so the bug can never return quietly.",
+    title: "Root-Cause Diagnostics",
+    text: "I don't just patch symptoms. I isolate bugs, fix the underlying architecture, and write regression tests so issues never quietly return.",
   },
   {
     icon: Gauge,
-    title: "Performance budgets",
-    text: "Every image, script and query justifies its cost. Speed is protected deliberately, not recovered later.",
+    title: "Strict Performance Budgets",
+    text: "Every bundle, image, and database query must justify its footprint. Core Web Vitals and load times are protected by design, not patched after launch.",
   },
   {
     icon: HeartHandshake,
-    title: "Accessibility by default",
-    text: "Semantics, contrast, focus states and keyboard paths — the web was built for everyone, so products are too.",
+    title: "Accessibility by Default",
+    text: "Semantic HTML, keyboard navigation, clear focus states, and WCAG contrast standards. The web was built for everyone, and my code reflects that.",
   },
   {
     icon: FileText,
-    title: "Written-down decisions",
-    text: "Lightweight documentation that explains why things are the way they are — because memory doesn't scale.",
+    title: "Documented Decisions",
+    text: "I write clear architectural notes and API schemas explaining the 'why' behind technical choices—because institutional memory shouldn't live in someone's head.",
   },
 ];
 
@@ -62,12 +62,13 @@ export default function SkillsPage() {
   return (
     <main id="main">
       <PageHero
-        eyebrow="Skills"
-        title="The Craft Behind the Work"
-        description="Skills grouped the way real projects group them — the interface users touch, the systems that remember, the practices that keep code healthy, and the platforms that take products live."
+        eyebrow="Technical Stack & Capabilities"
+        title="The Engineering Behind the Work"
+        description="I structure my technical toolkit around what real applications demand: responsive user interfaces, resilient server architectures, scalable data models, and automated deployment pipelines."
         crumb="Skills"
       />
 
+      {/* ---------- Skill Groups Grid ---------- */}
       <section className="bg-paper py-24 sm:py-28" aria-label="Skill groups">
         <div className="site-container grid gap-6 lg:grid-cols-2">
           {skillGroups.map((group, i) => {
@@ -105,6 +106,7 @@ export default function SkillsPage() {
         </div>
       </section>
 
+      {/* ---------- Toolkit Philosophy Banner ---------- */}
       <section
         className="relative overflow-hidden border-y border-white/10 bg-ink-2 py-20"
         aria-labelledby="toolkit-heading"
@@ -113,19 +115,16 @@ export default function SkillsPage() {
         <div className="site-container relative">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="font-mono text-[0.78rem] font-medium uppercase tracking-[0.28em] text-violet">
-              The Toolkit, Simply Put
+              Architectural Philosophy
             </p>
             <h2
               id="toolkit-heading"
               className="mt-4 font-display text-[clamp(1.6rem,3.4vw,2.4rem)] font-bold tracking-[-0.02em] text-paper"
             >
-              Built on fundamentals that don&apos;t expire
+              Built on core fundamentals that scale, not hype
             </h2>
             <p className="mt-4 leading-relaxed text-mist">
-              Tools and frameworks rotate; the underlying craft stays. Julie
-              chooses each project&apos;s stack deliberately — around the
-              product&apos;s needs, the team&apos;s context and the
-              project&apos;s future — rather than chasing whatever is trending.
+              Frameworks and libraries rotate constantly, but solid computer science and engineering principles remain unchanged. I choose each project&apos;s stack deliberately—tailoring technology choices strictly to business requirements, performance targets, and long-term maintainability rather than chasing temporary trends.
             </p>
             <ul className="mt-8 flex flex-wrap items-center justify-center gap-3">
               {toolkitLabels.map((label, i) => (
@@ -142,12 +141,13 @@ export default function SkillsPage() {
         </div>
       </section>
 
+      {/* ---------- Principles & Habits ---------- */}
       <section className="bg-paper py-24 sm:py-28" aria-labelledby="principles-heading">
         <div className="site-container">
           <SectionHeading
-            eyebrow="Ways of Working"
-            title="Skills are tools. These are the habits."
-            description="The practices that determine whether a project stays healthy six months after launch."
+            eyebrow="Engineering Standards"
+            title="Skills are tools. These are my standards."
+            description="The architectural disciplines and daily coding habits that guarantee software remains clean, scalable, and resilient long after deployment."
             align="center"
           />
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -168,9 +168,10 @@ export default function SkillsPage() {
         </div>
       </section>
 
+      {/* ---------- Bottom CTA ---------- */}
       <CtaBand
-        title="The right skills, pointed at your problem."
-        text="Tell Julie what you're trying to build — she'll tell you honestly which of these skills it calls for, and how far they can take it."
+        title="Have a complex technical requirement?"
+        text="Tell me about what you're building. I'll provide an honest assessment of the architecture, stack, and approach required to ship it reliably."
       />
     </main>
   );

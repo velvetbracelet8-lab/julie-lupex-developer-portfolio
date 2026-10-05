@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -30,14 +29,18 @@ export default function HomeHero() {
     >
       {/* Hero image */}
       <div className="absolute inset-0">
-        <Image
-          src="/images/julie-hero.png"
-          alt="Julie working at her desk"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+        <picture className="absolute inset-0 block">
+          <source
+            media="(max-width: 767px)"
+            srcSet="/images/julie-hero-mobile.png"
+          />
+
+          <img
+            src="/images/julie-hero.png"
+            alt="Julie working at her desk"
+            className="h-full w-full object-cover object-center"
+          />
+        </picture>
 
         {/* Editorial dark overlay */}
         <div className="absolute inset-0 bg-black/45" />
@@ -54,26 +57,22 @@ export default function HomeHero() {
             className="h-2 w-2 shrink-0 rounded-full bg-[var(--accent)]"
             aria-hidden="true"
           />
-
-        
         </div>
 
         {/* Main content */}
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           {/* Main heading */}
-          <div className="min-w-0 lg:col-span-10">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.1em] text-white/90 sm:mb-5 sm:text-sm md:mb-6">
-              Hello, I&apos;m Julie.
-            </p>
-
-            <h1 className="max-w-6xl text-[clamp(3rem,9vw,9.5rem)] font-medium leading-[0.86] tracking-[-0.055em]">
-              I design{" "}
-              <span className="display-font">&amp;</span> build
-              <br />
-              <span className="display-font">digital</span>{" "}
-              experiences.
-            </h1>
-          </div>
+         {/* Main heading */}
+{/* Main heading */}
+<div className="min-w-0 lg:col-span-10">
+  <h1 className="max-w-5xl text-[clamp(2.75rem,6.5vw,7rem)] font-semibold leading-[0.9] tracking-[-0.045em]">
+    Business problems,
+    <br />
+    <span className="font-medium italic">solved</span> with design
+    <br />
+    <span className="font-medium">&amp; clean code.</span>
+  </h1>
+</div>
 
           {/* Supporting statement */}
           <div className="min-w-0 lg:col-span-2 lg:pb-2">
@@ -87,9 +86,9 @@ export default function HomeHero() {
         {/* Currently building */}
         <div className="mt-10 max-w-full sm:mt-12 md:mt-14">
           <div className="inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-md border border-white/10 bg-black/35 px-3 py-2 backdrop-blur-sm sm:px-4 sm:py-2.5">
-           <span className="font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-white/45 sm:text-xs">
-  {"// currently building:"}
-</span>
+            <span className="font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-white/45 sm:text-xs">
+              {"// currently building:"}
+            </span>
 
             <span
               key={buildingItems[currentItem]}
@@ -123,4 +122,4 @@ export default function HomeHero() {
       </div>
     </section>
   );
-} 
+}

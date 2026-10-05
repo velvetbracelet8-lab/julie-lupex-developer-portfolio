@@ -26,5 +26,5 @@ export const microcopy = [
   "Build. Solve. Improve.",
   "Ideas deserve great execution.",
   "Code with purpose. Design with intention.",
-  "From interface to infrastructure.",
+  
 ];
