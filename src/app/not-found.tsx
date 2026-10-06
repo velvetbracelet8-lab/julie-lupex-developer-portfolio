@@ -23,7 +23,7 @@ export default function NotFound() {
             <ArrowLeft size={16} aria-hidden="true" />
             Back Home
           </Link>
-          <Link href="/portfolio" className="btn btn-ghost-light">
+         <Link href="/landing-pages" className="btn btn-ghost-light">
             See the Work
             <ArrowRight size={16} aria-hidden="true" />
           </Link>

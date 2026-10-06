@@ -3,64 +3,77 @@
 import { useEffect, useRef, type ReactNode } from "react";
 
 type RevealProps = {
-  children: ReactNode;
-  variant?: "up" | "left" | "right" | "scale";
-  delay?: number;
-  className?: string;
+children: ReactNode;
+variant?: "up" | "left" | "right" | "scale";
+delay?: number;
+className?: string;
+instant?: boolean;
 };
 
 export default function Reveal({
-  children,
-  variant = "up",
-  delay = 0,
-  className = "",
+children,
+variant = "up",
+delay = 0,
+className = "",
+instant = false,
 }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
+const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+useEffect(() => {
+const el = ref.current;
+if (!el || instant || el.classList.contains("is-visible")) {
+return;
+}
 
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReduced || !("IntersectionObserver" in window)) {
-      el.classList.add("is-visible");
-      return;
-    }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
-    );
+const prefersReduced = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
 
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+if (prefersReduced || !("IntersectionObserver" in window)) {
+  el.classList.add("is-visible");
+  return;
+}
 
-  const variantClass =
-    variant === "left"
-      ? "reveal-left"
-      : variant === "right"
-        ? "reveal-right"
-        : variant === "scale"
-          ? "reveal-scale"
-          : "";
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.05,
+    rootMargin: "0px",
+  },
+);
 
-  return (
-    <div
-      ref={ref}
-      className={`reveal ${variantClass} ${className}`}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
-    >
-      {children}
-    </div>
-  );
+observer.observe(el);
+
+return () => observer.disconnect();
+
+
+}, [instant]);
+
+const variantClass =
+variant === "left"
+? "reveal-left"
+: variant === "right"
+? "reveal-right"
+: variant === "scale"
+? "reveal-scale"
+: "";
+
+const visibilityClass = instant ? "is-visible" : "";
+
+return (
+<div
+ref={ref}
+className={`reveal ${variantClass} ${visibilityClass} ${className}`}
+style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+>
+{children} </div>
+);
 }

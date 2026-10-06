@@ -4,16 +4,19 @@ import { usePathname } from "next/navigation";
 import Footer from "@/components/Footer";
 
 export default function ConditionalFooter() {
-  const pathname = usePathname();
+const pathname = usePathname();
 
-  const showFooter =
-    pathname === "/" ||
-    pathname.startsWith("/blog/") ||
-    pathname.startsWith("/portfolio/");
+// Hide the footer on About, Services, Contact, and Blog pages.
+const isExcludedPage =
+pathname === "/about" ||
+pathname === "/services" ||
+pathname === "/contact" ||
+pathname === "/blog" ||
+pathname.startsWith("/blog/");
 
-  if (!showFooter) {
-    return null;
-  }
+if (isExcludedPage) {
+return null;
+}
 
-  return <Footer />;
+return <Footer />;
 }
