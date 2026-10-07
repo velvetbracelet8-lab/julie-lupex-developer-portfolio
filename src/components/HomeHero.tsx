@@ -62,20 +62,6 @@ export default function HomeHero() {
 
       {/* Hero content */}
       <div className="site-container relative z-10 w-full pb-8 pt-28 sm:pb-10 sm:pt-32 md:pb-14 md:pt-40 lg:pb-12">
-        {/* Availability */}
-        <div className="mb-8 sm:mb-10 md:mb-12">
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-black/40 px-3.5 py-1.5 backdrop-blur-sm">
-            <span
-              className="pulse-dot h-2 w-2 shrink-0 rounded-full bg-white"
-              aria-hidden="true"
-            />
-
-            <span className="font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-white/80 sm:text-xs">
-              Available for projects
-            </span>
-          </div>
-        </div>
-
         {/* Main content */}
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           {/* Main heading */}

@@ -71,7 +71,7 @@ export default function ContactPage() {
         <div className="site-container">
           <Reveal>
             <div className="max-w-5xl">
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[var(--violet)]">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-deep">
                 Contact
               </p>
 
@@ -90,61 +90,17 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ---------- Contact Form + What Happens Next ---------- */}
+      {/* ---------- Contact Form ---------- */}
       <section
         className="bg-paper-2 py-24 sm:py-28 lg:py-32"
         aria-labelledby="contact-form-heading"
       >
         <div className="site-container">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            {/* ---------- What Happens Next ---------- */}
-            <div className="lg:col-span-5">
-              <Reveal>
-                <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[var(--violet)]">
-                  What happens next
-                </p>
-
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                  No mystery after you hit send.
-                </h2>
-              </Reveal>
-
-              <div className="mt-10 space-y-4">
-                {nextSteps.map((step, index) => (
-                  <Reveal key={step.number} delay={index * 90}>
-                    <article className="rounded-3xl border border-ink/10 bg-paper p-6 sm:p-7">
-                      <div className="flex gap-5">
-                        <span
-                          className="font-mono text-xs font-semibold tracking-[0.15em] text-[var(--violet)]"
-                          aria-hidden="true"
-                        >
-                          {step.number}
-                        </span>
-
-                        <div>
-                          <h3 className="text-lg font-semibold tracking-tight text-ink">
-                            {step.title}
-                          </h3>
-                          <p className="mt-2 text-sm leading-6 text-ink/60">
-                            {step.text}
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-
-            {/* ---------- Form ---------- */}
-            <Reveal
-              variant="right"
-              delay={100}
-              className="lg:col-span-7"
-            >
+          <div className="mx-auto max-w-4xl">
+            <Reveal>
               <div className="rounded-3xl border border-ink/10 bg-paper p-6 sm:p-8 lg:p-10">
                 <div className="mb-8">
-                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[var(--violet)]">
+                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-deep">
                     Start here
                   </p>
 
@@ -168,6 +124,54 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* ---------- What Happens Next ---------- */}
+      <section
+        className="border-t border-ink/10 bg-paper py-24 sm:py-28 lg:py-32"
+        aria-labelledby="next-steps-heading"
+      >
+        <div className="site-container">
+          <div className="mx-auto max-w-5xl">
+            <Reveal>
+              <div className="max-w-3xl">
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-deep">
+                  What happens next
+                </p>
+
+                <h2
+                  id="next-steps-heading"
+                  className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl"
+                >
+                  No mystery after you hit send.
+                </h2>
+              </div>
+            </Reveal>
+
+            <div className="mt-10 grid gap-4 md:grid-cols-3">
+              {nextSteps.map((step, index) => (
+                <Reveal key={step.number} delay={index * 90}>
+                  <article className="h-full rounded-3xl border border-ink/10 bg-paper-2 p-6 sm:p-7">
+                    <span
+                      className="font-mono text-xs font-semibold tracking-[0.15em] text-deep"
+                      aria-hidden="true"
+                    >
+                      {step.number}
+                    </span>
+
+                    <h3 className="mt-5 text-lg font-semibold tracking-tight text-ink">
+                      {step.title}
+                    </h3>
+
+                    <p className="mt-2 text-sm leading-6 text-ink/60">
+                      {step.text}
+                    </p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ---------- FAQ ---------- */}
       <section
         className="border-t border-ink/10 bg-paper py-24 sm:py-28 lg:py-32"
@@ -176,8 +180,8 @@ export default function ContactPage() {
         <div className="site-container">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-4">
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[var(--violet)]">
-                03 Questions, answered
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-deep">
+                 Questions, answered
               </p>
 
               <h2
@@ -190,7 +194,7 @@ export default function ContactPage() {
 
               <a
                 href="mailto:julielupex@gmail.com"
-                className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-[var(--violet)]"
+                className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-deep"
               >
                 Something else? Ask away
                 <ArrowUpRight size={16} aria-hidden="true" />
@@ -221,97 +225,6 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ---------- Final CTA ---------- */}
-      <section
-        className="border-t border-ink/10 bg-paper-2 py-24 sm:py-28 lg:py-32"
-        aria-labelledby="next-step-heading"
-      >
-        <div className="site-container">
-          <Reveal>
-            <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-              <div className="lg:col-span-8">
-                <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[var(--violet)]">
-                  04 Next step
-                </p>
-
-                <h2
-                  id="next-step-heading"
-                  className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl"
-                >
-                  Have a problem worth solving?
-                  <br />
-                  Let's talk.
-                </h2>
-
-                <p className="mt-6 max-w-2xl text-base leading-8 text-ink/65 sm:text-lg sm:leading-9">
-                  Describe what's not working, what you're building, or what
-                  you want to improve. We'll discuss the problem, identify the
-                  right solution, and determine the appropriate scope before
-                  development begins.
-                </p>
-
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link
-                    href="/contact"
-                    className="btn btn-primary inline-flex items-center"
-                  >
-                    Start a project
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </Link>
-
-                  <a
-                    href="mailto:julielupex@gmail.com"
-                    className="btn btn-ghost-dark inline-flex items-center"
-                  >
-                    julielupex@gmail.com
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </a>
-                </div>
-              </div>
-
-              <div className="lg:col-span-4">
-                <div className="rounded-3xl border border-ink/10 bg-paper p-7 sm:p-9">
-                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-ink/45">
-                    What you can expect
-                  </p>
-
-                  <ul className="mt-6 space-y-4">
-                    <li className="flex gap-3 text-sm leading-6 text-ink/70">
-                      <span
-                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--violet)]"
-                        aria-hidden="true"
-                      />
-                      Clear scope and deliverables before development begins
-                    </li>
-                    <li className="flex gap-3 text-sm leading-6 text-ink/70">
-                      <span
-                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--violet)]"
-                        aria-hidden="true"
-                      />
-                      Agreed milestones and timeline
-                    </li>
-                    <li className="flex gap-3 text-sm leading-6 text-ink/70">
-                      <span
-                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--violet)]"
-                        aria-hidden="true"
-                      />
-                      Post-launch support based on project scope
-                    </li>
-                    <li className="flex gap-3 text-sm leading-6 text-ink/70">
-                      <span
-                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--violet)]"
-                        aria-hidden="true"
-                      />
-                      You retain ownership of your website and content
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
     </main>
