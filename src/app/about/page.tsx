@@ -9,67 +9,67 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About — Julie Lupex | Full-Stack Developer & Designer",
   description:
-    "Meet Julie Lupex — a full-stack developer and designer building high-performing websites and digital products with a small, senior team.",
+    "Meet Julie Lupex — a full-stack developer and designer building thoughtful websites, web applications, and digital products around real business problems.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Julie Lupex — Full-Stack Developer & Designer",
     description:
-      "Designer’s eye, engineer’s brain, one inbox. Learn how Julie works, her development philosophy, process, stack, and the people behind the work.",
+      "Learn how Julie approaches product thinking, interface design, full-stack development, and practical digital solutions.",
   },
 };
 
 const stats = [
-  { value: "05+", label: "YEARS BUILDING FOR THE WEB" },
-  { value: "02", label: "DEVS, ONE DRAMA-FREE TEAM" },
-  { value: "24H", label: "MAX REPLY TIME, ALWAYS" },
-  { value: "100%", label: "PREVIEWED ON STAGING FIRST" },
+  { value: "01", label: "PROBLEM-FIRST APPROACH" },
+  { value: "01", label: "CONNECTED DESIGN + DEVELOPMENT" },
+  { value: "01", label: "DIRECT COMMUNICATION" },
+  { value: "01", label: "CLEAR PROJECT SCOPE" },
 ];
 
 const philosophy = [
   {
     number: "01",
     title: "Clarity over cleverness",
-    text: "If a user has to think, I've failed. Every page gets one job, one message, one obvious next step — and then it gets out of the way.",
+    text: "If a user has to work too hard to understand what to do next, the experience needs another pass. I aim for clear content, purposeful interfaces, and obvious paths through the product.",
   },
   {
     number: "02",
-    title: "Speed is respect",
-    text: "Every second of load time quietly costs you customers. I treat performance as a design feature, not an afterthought you bolt on later.",
+    title: "Performance is part of the experience",
+    text: "A good interface should not only look right. It should load efficiently, respond quickly, and remain usable across the devices and connections people actually use.",
   },
   {
     number: "03",
-    title: "Websites are employees",
-    text: "Your site should sell, book, qualify and answer — around the clock, without sick days. I build it to work shifts, not to sit pretty.",
+    title: "Build for the real world",
+    text: "Digital products need to work beyond the design file. I think about maintainability, accessibility, data, integrations, deployment, and the people who will use or manage the system after launch.",
   },
 ];
 
 const process = [
   {
     number: "01",
-    title: "Listen first",
-    text: "Before a single pixel, I learn how your business actually makes money. The design follows the money — honestly and unashamedly.",
+    title: "Understand the problem",
+    text: "We start with the business goal, the users, the existing system, and the friction that needs to be removed. The solution comes after the problem is understood.",
   },
   {
     number: "02",
-    title: "Prototype fast",
-    text: "You'll see something clickable in week one. Feedback on something real beats opinions about something imagined, every time.",
+    title: "Structure the solution",
+    text: "The requirements are turned into a practical information structure, user experience, technical approach, and project scope before development gets too far ahead.",
   },
   {
     number: "03",
-    title: "Build in the open",
-    text: "A live staging link, visible progress, weekly walkthroughs. You approve every stage — no big reveal, and therefore no big risk.",
+    title: "Build and review",
+    text: "Development happens in clear stages so the direction can be reviewed as the product takes shape. This keeps technical decisions connected to the original goal.",
   },
   {
     number: "04",
-    title: "Measure after launch",
-    text: "Analytics wired in from day one. If something underperforms, the data says so — and then we fix it.",
+    title: "Launch and improve",
+    text: "After launch, the work can continue through maintenance, performance improvements, content changes, and new features as the business evolves.",
   },
 ];
 
 const toolbox = [
   {
     title: "Frontend",
-    subtitle: "WHERE PIXELS GET OPINIONS",
+    subtitle: "WHERE THE EXPERIENCE TAKES SHAPE",
     tools: [
       "React",
       "Next.js",
@@ -82,7 +82,7 @@ const toolbox = [
   },
   {
     title: "Backend",
-    subtitle: "WHERE THE DATA BEHAVES",
+    subtitle: "WHERE THE SYSTEM WORKS",
     tools: [
       "Node.js",
       "Express",
@@ -95,7 +95,7 @@ const toolbox = [
   },
   {
     title: "Data & APIs",
-    subtitle: "WHERE NOTHING GETS LOST",
+    subtitle: "WHERE INFORMATION CONNECTS",
     tools: [
       "PostgreSQL",
       "Prisma",
@@ -108,7 +108,7 @@ const toolbox = [
   },
   {
     title: "CMS & E-commerce",
-    subtitle: "WHERE CLIENTS EDIT SAFELY",
+    subtitle: "WHERE CONTENT MEETS COMMERCE",
     tools: [
       "WordPress",
       "WooCommerce",
@@ -120,7 +120,7 @@ const toolbox = [
   },
   {
     title: "Design & UX",
-    subtitle: "WHERE USERS STOP THINKING",
+    subtitle: "WHERE USERS FIND THEIR WAY",
     tools: [
       "Figma",
       "Wireframing",
@@ -132,7 +132,7 @@ const toolbox = [
   },
   {
     title: "Tools & Ops",
-    subtitle: "WHERE DEPLOYS STAY BORING",
+    subtitle: "WHERE PROJECTS SHIP",
     tools: [
       "Git & GitHub",
       "Netlify",
@@ -143,14 +143,6 @@ const toolbox = [
       "Lighthouse",
     ],
   },
-];
-
-const humanDetails = [
-  "Powered by Kenyan coffee",
-  "Weekend trail runner",
-  "Open-source contributor",
-  "Mentors junior devs",
-  "Recovering perfectionist",
 ];
 
 export default function AboutPage() {
@@ -178,31 +170,27 @@ export default function AboutPage() {
             <div className="mt-12 grid gap-8 border-t border-ink/10 pt-10 lg:grid-cols-12">
               <div className="lg:col-span-8 lg:col-start-5">
                 <p className="text-lg leading-8 text-body sm:text-xl sm:leading-9">
-                  I started in web development after seeing firsthand how
-                  small businesses could get trapped by bloated quotes,
-                  complicated processes and websites that became difficult to
-                  maintain after launch. I wanted to build a better way:
-                  thoughtful digital products without unnecessary layers
-                  between the people who need them and the people building
-                  them.
+                  I started in web development after seeing how easily small
+                  businesses can get trapped by bloated quotes, complicated
+                  processes, and websites that become difficult to maintain
+                  after launch. I wanted to build a better way: thoughtful
+                  digital products without unnecessary layers between the
+                  people who need them and the people building them.
                 </p>
 
                 <p className="mt-7 text-lg leading-8 text-body sm:text-xl sm:leading-9">
-                  Five years later, that principle still shapes how I work. I
-                  work full-stack, which for you means exactly one thing:{" "}
-                  <strong className="text-ink">no hand-offs.</strong> The person
-                  who designs your product page is the person who optimizes its
-                  database queries. Fewer meetings, fewer misunderstandings,
-                  faster shipping — and one person who understands the whole
-                  system.
+                  I work across design and development, which means I can think
+                  about the interface and the underlying system together. From
+                  responsive websites and user experiences to APIs, databases,
+                  authentication, and deployment, I focus on how the pieces
+                  work as one product.
                 </p>
 
                 <p className="mt-7 text-lg leading-8 text-body sm:text-xl sm:leading-9">
-                  On larger builds I team up with Jeremy Muiruri, a backend &amp;
-                  QA engineer who finds edge cases the way other people find
-                  typos. Together we stay small on purpose — senior hands only,
-                  direct communication, and technical decisions made close to
-                  the actual work.
+                  On larger builds I can also collaborate with Jeremy Muiruri on
+                  backend engineering and QA. Keeping the working team small
+                  allows technical conversations to stay close to the actual
+                  product and keeps communication direct.
                 </p>
               </div>
             </div>
@@ -210,12 +198,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* STATS */}
+      {/* APPROACH SNAPSHOT */}
       <section className="border-y border-ink/10 bg-white py-8">
         <div className="site-container">
           <div className="grid grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-ink/10">
             {stats.map((stat, index) => (
-              <Reveal key={stat.label} delay={index * 70}>
+              <Reveal key={`${stat.label}-${index}`} delay={index * 70}>
                 <div
                   className={`px-5 py-5 text-center sm:px-8 ${
                     index > 1 ? "border-t border-ink/10 lg:border-t-0" : ""
@@ -278,8 +266,7 @@ export default function AboutPage() {
 
                 <div className="p-6 sm:p-8">
                   <p className="font-mono text-[11px] font-semibold uppercase leading-5 tracking-[0.14em] text-body/60">
-                    THE STUDIO — A SMALL, SENIOR TEAM BUILT FOR BETTER DIGITAL
-                    PRODUCTS
+                    THE STUDIO — A SMALL DEVELOPMENT COLLABORATION
                   </p>
 
                   <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-violet">
@@ -287,10 +274,10 @@ export default function AboutPage() {
                   </p>
 
                   <p className="mt-4 text-sm leading-7 text-body">
-                    Julie leads product direction, interface design and
-                    full-stack development. Jeremy brings backend engineering
-                    and QA depth to larger builds, helping the team catch
-                    technical edge cases before they reach users.
+                    Julie leads product direction, interface design, and
+                    full-stack development. Jeremy contributes backend
+                    engineering and QA support on larger builds, helping
+                    strengthen the technical side of the work.
                   </p>
                 </div>
               </div>
@@ -357,15 +344,14 @@ export default function AboutPage() {
               id="process-heading"
               className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl"
             >
-              Built in the open,{" "}
-              <span className="italic">approved by you</span> at every step.
+              Built with visibility,{" "}
+              <span className="italic">not surprises.</span>
             </h2>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-body">
-              The industry default is: disappear for six weeks, return with
-              something you didn&apos;t ask for. Mine is the opposite — you see
-              everything as it happens, and nothing ships without your
-              sign-off.
+              The goal is to keep the work understandable as it develops. You
+              should know what is being built, why it is being built, and what
+              decisions still need to be made.
             </p>
           </Reveal>
 
@@ -406,13 +392,13 @@ export default function AboutPage() {
               id="toolbox-heading"
               className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl"
             >
-              What I reach for <span className="italic">daily.</span>
+              Technologies I work with.
             </h2>
 
             <p className="mt-6 max-w-2xl text-base leading-7 text-body sm:text-lg">
               A practical production stack shaped by the needs of the project.
-              I choose tools for reliability, maintainability and the problem
-              they solve — not because they happen to be fashionable.
+              I choose technologies for reliability, maintainability, and the
+              problem they solve — not simply because they are fashionable.
             </p>
           </Reveal>
 
@@ -481,26 +467,16 @@ export default function AboutPage() {
                   className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl"
                 >
                   Serious about the work.{" "}
-                  <span className="italic">Not about myself.</span>
+                  <span className="italic">Easy to work with.</span>
                 </h2>
 
                 <p className="mt-7 max-w-2xl text-lg leading-8 text-body">
-                  You&apos;ll get plain-English updates, honest pushback when an
-                  idea will hurt your business, and a developer who answers her
-                  own messages. The best websites come from people who log off
-                  and live a little — then obsess about kerning at 1am anyway.
+                  You&apos;ll get clear updates, honest feedback when an idea
+                  needs reconsidering, and direct communication throughout the
+                  project. Good development is not just about writing code — it
+                  is about making decisions together and keeping the product
+                  moving in the right direction.
                 </p>
-
-                <div className="mt-8 flex flex-wrap gap-2">
-                  {humanDetails.map((detail) => (
-                    <span
-                      key={detail}
-                      className="rounded-full border border-ink/10 bg-white px-3 py-2 text-xs font-medium text-ink/70"
-                    >
-                      {detail}
-                    </span>
-                  ))}
-                </div>
 
                 <Link
                   href="/contact"
@@ -531,14 +507,13 @@ export default function AboutPage() {
               className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
               Have a problem worth solving?{" "}
-              <span className="italic">Let&apos;s talk — it&apos;s free.</span>
+              <span className="italic">Let&apos;s talk.</span>
             </h2>
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-white/60">
-              Describe what&apos;s broken — or what you&apos;re building — and
-              get an honest diagnosis plus a fixed quote within 24 hours. Worst
-              case, you leave with a plan. Best case, the problem is gone for
-              good.
+              Describe what&apos;s not working, what you&apos;re building, or
+              what you want to improve. We can discuss the problem, the
+              possible solution, and the right scope before development begins.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -559,10 +534,10 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-12 grid gap-3 border-t border-white/10 pt-6 text-sm text-white/50 sm:grid-cols-2 lg:grid-cols-4">
-              <span>Fixed quote in writing before work begins</span>
-              <span>Final payment only when you approve</span>
-              <span>30 days of post-launch fixes, free</span>
-              <span>You own all code, content &amp; accounts</span>
+              <span>Clear scope before development begins</span>
+              <span>Milestones agreed before work starts</span>
+              <span>Post-launch support based on project scope</span>
+              <span>You retain ownership of your website and content</span>
             </div>
           </Reveal>
         </div>

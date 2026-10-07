@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
@@ -7,30 +8,30 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact — Julie Lupex",
   description:
-    "Tell Julie Lupex about your project or the problem you're trying to solve. Get an honest reply, a clear plan, timeline, and fixed price.",
+    "Tell Julie Lupex about your project or the problem you're trying to solve. Discuss the right solution, scope, timeline, and next steps.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact Julie Lupex — Tell Me About Your Project",
     description:
-      "Describe what you're building or the problem you're stuck with and get an honest reply, plan, timeline, and fixed price.",
+      "Describe what you're building or the problem you're trying to solve. Let's discuss the right solution, scope, timeline, and next steps.",
   },
 };
 
 const nextSteps = [
   {
     number: "01",
-    title: "You hear back within 24h",
-    text: "A real reply from me — questions, first thoughts, honest take.",
+    title: "You get a considered reply",
+    text: "I'll review what you've shared, ask the important questions, and give you an honest first take.",
   },
   {
     number: "02",
-    title: "Free 30-min discovery call",
-    text: "We walk through goals, scope and whether we're a fit.",
+    title: "We discuss the problem",
+    text: "We'll clarify your goals, users, technical needs, scope, and whether I'm the right fit for the project.",
   },
   {
     number: "03",
-    title: "Fixed quote, in writing",
-    text: "Price, timeline and milestones. Yours to keep either way.",
+    title: "You get a clear proposal",
+    text: "If we're a good fit, you'll receive the agreed scope, deliverables, timeline, milestones, and project investment in writing.",
   },
 ];
 
@@ -38,27 +39,27 @@ const faqs = [
   {
     question: "How much should I budget?",
     answer:
-      "Every project begins with a clear, fixed proposal outlining the agreed scope, deliverables, and investment before development begins. Once approved, your quoted price remains fixed throughout the project.",
+      "Every project begins with understanding the scope and requirements. You'll then receive a clear proposal outlining the agreed deliverables, timeline, and investment before development begins. Business websites typically fall within the $2,900–$6,000 range, while custom web applications and e-commerce solutions are scoped individually.",
   },
   {
     question: "How long does a typical project take?",
     answer:
-      "Most business websites take 2–4 weeks, while larger websites, e-commerce platforms, and custom applications may take 4–10 weeks depending on the scope. Before development begins, you’ll receive a clear timeline with the key deliverables and milestones, so you know what’s being built and when to expect it."},
-
+      "Most business websites take 2–4 weeks, while larger websites, e-commerce platforms, and custom applications may take 4–10 weeks depending on the scope. Before development begins, you'll receive a clear timeline with the key deliverables and milestones, so you know what's being built and when to expect it.",
+  },
   {
     question: "Do you work with clients internationally?",
     answer:
-      "Yes. I work with clients internationally. Communication, project management, development, and delivery are handled online, making it easy to collaborate regardless of location.",
+      "Yes. I work with clients internationally through a fully remote process. Communication, project management, development, and delivery are handled online, making it easy to collaborate regardless of location.",
   },
   {
     question: "I already have a website. Can you rebuild it?",
     answer:
-      "Absolutely. I can audit what you already have, identify what is hurting performance or conversions, and rebuild the parts that need improvement. If a full rebuild isn't necessary, I'll tell you that too.",
+      "Absolutely. I can review what you already have, identify what is creating problems for users or the business, and recommend whether a full rebuild or targeted improvements make more sense. If a full rebuild isn't necessary, I'll tell you that too.",
   },
   {
     question: "What happens after launch?",
     answer:
-      "Every project includes 30 days of free post-launch fixes. After that, you can manage the site yourself or continue with ongoing Care & Growth support for updates, monitoring, backups, performance improvements and small changes.",
+      "Post-launch support depends on the project scope. Depending on the engagement, I can help with fixes, updates, monitoring, performance improvements, and ongoing Care & Growth support after the initial launch.",
   },
 ];
 
@@ -80,10 +81,9 @@ export default function ContactPage() {
               </h1>
 
               <p className="mt-8 max-w-3xl text-lg leading-8 text-ink/65 sm:text-xl sm:leading-9">
-                Two minutes of your time, one honest reply. Describe what
-                you&apos;re building — or the problem you&apos;re stuck with —
-                and I&apos;ll come back with a plan, a timeline and a fixed
-                price.
+                Describe what you're building — or the problem you're trying
+                to solve — and I'll help you work out the right direction,
+                scope, and next steps.
               </p>
             </div>
           </Reveal>
@@ -157,7 +157,7 @@ export default function ContactPage() {
 
                   <p className="mt-3 text-sm leading-6 text-ink/60">
                     No polished brief required. Give me the rough version and
-                    I&apos;ll help turn it into something concrete.
+                    I'll help turn it into something concrete.
                   </p>
                 </div>
 
@@ -177,7 +177,7 @@ export default function ContactPage() {
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-4">
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[var(--violet)]">
-                03Questions, answered
+                03 Questions, answered
               </p>
 
               <h2
@@ -189,7 +189,7 @@ export default function ContactPage() {
               </h2>
 
               <a
-                href="mailto:hello@julielupex.dev"
+                href="mailto:julielupex@gmail.com"
                 className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-[var(--violet)]"
               >
                 Something else? Ask away
@@ -208,10 +208,7 @@ export default function ContactPage() {
                         </span>
 
                         <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/10 text-ink/55 transition-transform duration-300 group-open:rotate-180">
-                          <ChevronDown
-                            size={17}
-                            aria-hidden="true"
-                          />
+                          <ChevronDown size={17} aria-hidden="true" />
                         </span>
                       </summary>
 
@@ -237,7 +234,7 @@ export default function ContactPage() {
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
               <div className="lg:col-span-8">
                 <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[var(--violet)]">
-                  04Next step
+                  04 Next step
                 </p>
 
                 <h2
@@ -246,14 +243,14 @@ export default function ContactPage() {
                 >
                   Have a problem worth solving?
                   <br />
-                  Let&apos;s talk — it&apos;s free.
+                  Let's talk.
                 </h2>
 
                 <p className="mt-6 max-w-2xl text-base leading-8 text-ink/65 sm:text-lg sm:leading-9">
-                  Describe what&apos;s broken — or what you&apos;re building —
-                  and get an honest diagnosis plus a fixed quote within 24
-                  hours. Worst case, you leave with a plan. Best case, the
-                  problem is gone for good.
+                  Describe what's not working, what you're building, or what
+                  you want to improve. We'll discuss the problem, identify the
+                  right solution, and determine the appropriate scope before
+                  development begins.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -266,10 +263,10 @@ export default function ContactPage() {
                   </Link>
 
                   <a
-                    href="mailto:hello@julielupex.dev"
+                    href="mailto:julielupex@gmail.com"
                     className="btn btn-ghost-dark inline-flex items-center"
                   >
-                    hello@julielupex.dev
+                    julielupex@gmail.com
                     <ArrowUpRight size={16} aria-hidden="true" />
                   </a>
                 </div>
@@ -287,28 +284,28 @@ export default function ContactPage() {
                         className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--violet)]"
                         aria-hidden="true"
                       />
-                      Fixed quote in writing before work begins
+                      Clear scope and deliverables before development begins
                     </li>
                     <li className="flex gap-3 text-sm leading-6 text-ink/70">
                       <span
                         className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--violet)]"
                         aria-hidden="true"
                       />
-                      Final payment only when you approve
+                      Agreed milestones and timeline
                     </li>
                     <li className="flex gap-3 text-sm leading-6 text-ink/70">
                       <span
                         className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--violet)]"
                         aria-hidden="true"
                       />
-                      30 days of post-launch fixes, free
+                      Post-launch support based on project scope
                     </li>
                     <li className="flex gap-3 text-sm leading-6 text-ink/70">
                       <span
                         className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--violet)]"
                         aria-hidden="true"
                       />
-                      You own all code, content &amp; accounts
+                      You retain ownership of your website and content
                     </li>
                   </ul>
                 </div>
@@ -320,3 +317,4 @@ export default function ContactPage() {
     </main>
   );
 }
+

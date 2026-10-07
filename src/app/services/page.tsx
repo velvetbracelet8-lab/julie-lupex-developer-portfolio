@@ -22,16 +22,16 @@ const services = [
     number: "01",
     title: "Websites",
     description:
-      "High-speed marketing engines engineered to turn lost traffic into qualified inquiries and sales.",
-    price: "FROM $1,400",
-    timeline: "2–4 WEEKS",
+      "Responsive, purpose-built websites designed around your business goals, audience, content, and the actions you want visitors to take.",
+    price: "TYPICALLY $2,900–$6,000",
+    timeline: "2–4 WEEKS*",
     features: [
-      "Custom design — never a template",
-      "Up to ~8 hand-built pages",
+      "Custom design and development",
+      "Business-focused page structure",
       "Contact, booking & lead forms",
-      "Speed & SEO foundations baked in",
-      "A CMS so you can edit anything",
-      "Launch included + 30-day support",
+      "Performance & SEO foundations",
+      "CMS integration when required",
+      "Launch support and handover",
     ],
     bestFor: "Service businesses, consultants, clinics, agencies",
   },
@@ -39,16 +39,16 @@ const services = [
     number: "02",
     title: "Web Applications",
     description:
-      "Custom software, portals and SaaS MVPs built to automate manual operations and scale with your users.",
+      "Custom software, portals, dashboards, and SaaS MVPs built around the workflows your business or users actually need.",
     price: "SCOPED & QUOTED",
-    timeline: "6–10 WEEKS",
+    timeline: "4–10 WEEKS*",
     features: [
       "Product UX & interface design",
       "React + TypeScript front end",
-      "Node.js APIs & databases",
-      "Auth, roles & permissions",
-      "Dashboards wired to real data",
-      "Automated tests on core flows",
+      "APIs, databases & integrations",
+      "Authentication and user roles",
+      "Dashboards connected to real data",
+      "Testing and deployment support",
     ],
     bestFor: "SaaS founders, startups, ops-heavy teams",
   },
@@ -56,33 +56,33 @@ const services = [
     number: "03",
     title: "E-commerce",
     description:
-      "Frictionless storefronts engineered to reduce cart abandonment and make more value from every visitor.",
-    price: "FROM $3,500",
-    timeline: "4–8 WEEKS",
+      "Online stores designed to make products easy to discover, evaluate, purchase, and manage across the customer journey.",
+    price: "SCOPED & QUOTED",
+    timeline: "4–8 WEEKS*",
     features: [
-      "Conversion-first product pages",
-      "One-page Stripe checkout",
-      "Inventory, orders & email flows",
-      "Sub-2-second loads on 4G",
-      "Analytics & funnel tracking",
-      "CMS for products & campaigns",
+      "Conversion-focused product pages",
+      "Secure payment integration",
+      "Products, orders & inventory flows",
+      "Performance optimization",
+      "Analytics & tracking setup",
+      "CMS for products and content",
     ],
-    bestFor: "Brands selling 1–500 products",
+    bestFor: "Brands selling physical or digital products",
   },
   {
     number: "04",
     title: "WordPress",
     description:
-      "Fast, custom-coded WordPress sites that give your team an easier editor without plugin and page-builder bloat.",
-    price: "FROM $1,800",
-    timeline: "3–5 WEEKS",
+      "Custom WordPress websites that give your team a manageable content system without relying on unnecessary page-builder complexity.",
+    price: "SCOPED & QUOTED",
+    timeline: "3–5 WEEKS*",
     features: [
-      "Custom theme built from scratch",
-      "Bespoke Gutenberg / ACF blocks",
-      "WooCommerce when you need it",
-      "Speed-tuned, backed up, secured",
-      "Editor training for your team",
-      "Zero page-builder dependency",
+      "Custom theme development",
+      "Gutenberg / ACF components",
+      "WooCommerce when required",
+      "Performance and security setup",
+      "Content management guidance",
+      "Maintainable implementation",
     ],
     bestFor: "Publishers, blogs, content-heavy brands",
   },
@@ -90,16 +90,16 @@ const services = [
     number: "05",
     title: "UI/UX Design",
     description:
-      "Clear, conversion-aware interface design that removes friction for users and gives developers a system they can actually build.",
-    price: "FROM $900",
-    timeline: "1–2 WEEKS",
+      "Clear, user-focused interface design that turns complex requirements into practical experiences developers can build and maintain.",
+    price: "SCOPED & QUOTED",
+    timeline: "1–2 WEEKS*",
     features: [
-      "Wireframes & clickable prototype",
-      "Design system in Figma",
-      "Responsive, accessible components",
-      "Usability pass on real devices",
+      "Wireframes & user flows",
+      "Clickable prototypes",
+      "Design systems in Figma",
+      "Responsive interface design",
+      "Accessibility considerations",
       "Developer-ready handoff",
-      "Or I build it myself end-to-end",
     ],
     bestFor: "Teams with developers but no designer",
   },
@@ -107,26 +107,26 @@ const services = [
     number: "06",
     title: "Care & Growth",
     description:
-      "Ongoing technical care that keeps your website fast, secure, measurable and ready for the next business change.",
+      "Ongoing technical support that helps keep your website maintained, monitored, updated, and ready for future improvements.",
     price: "FROM $120/MO",
-    timeline: "CANCEL ANYTIME",
+    timeline: "ONGOING",
     features: [
-      "Updates, backups & monitoring",
-      "Small design & content tweaks",
-      "Monthly performance report",
-      "Priority support queue",
-      "Uptime & security watch",
-      "Cancel anytime — no lock-in",
+      "Updates and maintenance",
+      "Backups and monitoring",
+      "Small design & content changes",
+      "Performance reviews",
+      "Technical support",
+      "Ongoing improvement planning",
     ],
-    bestFor: "Past clients & inherited sites",
+    bestFor: "Past clients & inherited websites",
   },
 ];
 
 const trustPoints = [
-  "Fixed quote in writing before work begins",
-  "Final payment only when you approve",
-  "30 days of post-launch fixes, free",
-  "You own all code, content & accounts",
+  "Clear scope and proposal before development begins",
+  "Project milestones agreed before work starts",
+  "Post-launch support included according to the project scope",
+  "You retain ownership of your website, content, and accounts",
 ];
 
 export default function ServicesPage() {
@@ -148,10 +148,10 @@ export default function ServicesPage() {
               </h1>
 
               <p className="mt-8 max-w-3xl text-lg leading-8 text-ink/65 sm:text-xl sm:leading-9">
-                Everything below is design-plus-build: strategy, interface and
-                code from the same pair of hands. The goal is not to sell you
-                more software — it&apos;s to solve the right problem, launch
-                it properly and leave you with something you can build on.
+                Everything below combines strategy, interface design, and
+                development. The goal is not to add unnecessary technology —
+                it is to understand the problem, choose the right approach, and
+                build a solution that can grow with the business.
               </p>
             </div>
           </Reveal>
@@ -181,6 +181,7 @@ export default function ServicesPage() {
                       <p className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-ink">
                         {service.price}
                       </p>
+
                       <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-ink/45">
                         {service.timeline}
                       </p>
@@ -210,6 +211,7 @@ export default function ServicesPage() {
                             className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--violet)]"
                             aria-hidden="true"
                           />
+
                           <span>{feature}</span>
                         </li>
                       ))}
@@ -240,6 +242,12 @@ export default function ServicesPage() {
               </Reveal>
             ))}
           </div>
+
+          <p className="mt-8 text-center text-xs leading-6 text-ink/45">
+            * Timelines are typical estimates. Final timing depends on project
+            scope, content readiness, integrations, feedback, and approval
+            cycles.
+          </p>
         </div>
       </section>
 
@@ -263,10 +271,10 @@ export default function ServicesPage() {
               </h2>
 
               <p className="mt-6 max-w-3xl text-base leading-8 text-ink/65 sm:text-lg sm:leading-9">
-                I&apos;ll recommend the smallest thing that solves it — and if
-                the honest answer is &quot;you don&apos;t need a developer for
-                this,&quot; I&apos;ll tell you that too, plus what to use
-                instead.
+                I&apos;ll recommend the smallest practical solution for the
+                problem. If you do not need custom development, I&apos;ll tell
+                you that too and help you understand what approach makes more
+                sense.
               </p>
 
               <Link
@@ -299,14 +307,14 @@ export default function ServicesPage() {
               >
                 Have a problem worth solving?
                 <br />
-                Let&apos;s talk — it&apos;s free.
+                Let&apos;s talk.
               </h2>
 
               <p className="mt-6 max-w-2xl text-base leading-8 text-ink/65 sm:text-lg sm:leading-9">
-                Describe what&apos;s broken — or what you&apos;re building —
-                and get an honest diagnosis plus a fixed quote within 24 hours.
-                Worst case, you leave with a plan. Best case, the problem is
-                gone for good.
+                Describe what&apos;s not working, what you&apos;re building,
+                or what you want to improve. We can discuss the problem, the
+                possible solution, and the right scope for the project before
+                development begins.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -331,7 +339,7 @@ export default function ServicesPage() {
             <Reveal delay={120} className="lg:col-span-5">
               <div className="rounded-3xl border border-ink/10 bg-paper p-7 sm:p-9">
                 <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-ink/45">
-                  The deal
+                  How projects work
                 </p>
 
                 <ul className="mt-6 divide-y divide-ink/10">
@@ -344,6 +352,7 @@ export default function ServicesPage() {
                         className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--violet)]"
                         aria-hidden="true"
                       />
+
                       <span>{point}</span>
                     </li>
                   ))}

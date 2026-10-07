@@ -25,7 +25,7 @@ export const posts: BlogPost[] = [
     slug: "great-websites-start-with-the-user",
     title: "Why Great Websites Start With the User",
     category: "Design Thinking",
-    date: "2018-01-14",
+    date: "2026-04-08",
     readingTime: "5 min read",
     excerpt:
       "The most elegant code in the world can't save a website that solves the wrong problem. Here's why every build I take on starts with the person on the other side of the screen.",
@@ -75,7 +75,7 @@ export const posts: BlogPost[] = [
     slug: "front-end-vs-back-end",
     title: "Front-End vs Back-End: What Really Happens Behind a Website?",
     category: "Web Development",
-    date: "2019-01-28",
+    date: "2026-04-22",
     readingTime: "6 min read",
     excerpt:
       "You click a button and a page updates. Between those two moments, an entire conversation happens between your browser, a server and a database. Here's the whole story, plainly told.",
@@ -121,7 +121,7 @@ export const posts: BlogPost[] = [
     slug: "seven-things-before-finished",
     title: "7 Things I Check Before Calling a Website \"Finished\"",
     category: "Quality",
-    date: "2020-02-11",
+    date: "2026-05-13",
     readingTime: "5 min read",
     excerpt:
       "\"It works on my machine\" is where websites start, not where they end. This is the checklist standing between a first draft and something I'd put my name on.",
@@ -176,7 +176,7 @@ export const posts: BlogPost[] = [
     slug: "interfaces-developers-love-building",
     title: "Designing Interfaces Developers Actually Love Building",
     category: "Design Systems",
-    date: "2021-02-25",
+    date: "2026-05-27",
     readingTime: "5 min read",
     excerpt:
       "The gap between design and development isn't talent — it's translation. Reusable components and honest design systems are how the two sides finally speak the same language.",
@@ -227,7 +227,7 @@ export const posts: BlogPost[] = [
     slug: "what-makes-a-web-app-feel-fast",
     title: "What Makes a Web Application Feel Fast?",
     category: "Performance",
-    date: "2022-03-04",
+    date: "2026-06-17",
     readingTime: "6 min read",
     excerpt:
       "Speed is a feeling before it's a number. The apps that feel instant aren't always the ones with the best benchmarks — they're the ones that respect your attention the most.",
@@ -282,7 +282,7 @@ export const posts: BlogPost[] = [
     slug: "idea-to-deployment-workflow",
     title: "From Idea to Deployment: My Development Workflow",
     category: "Process",
-    date: "2023-03-12",
+    date: "2026-07-08",
     readingTime: "6 min read",
     excerpt:
       "Every project I take on moves through the same six movements — requirements, structure, design, code, testing and deployment. Here's how the pipeline actually runs.",
@@ -339,7 +339,7 @@ export const posts: BlogPost[] = [
     slug: "responsive-design-is-not-optional",
     title: "Why Responsive Design Is Not Optional",
     category: "Front-End",
-    date: "2024-03-19",
+    date: "2026-08-05",
     readingTime: "4 min read",
     excerpt:
       "There is no 'main version' of your website anymore. There's the version on a cracked phone screen in the sun — and it's the one most of your visitors will actually meet.",
@@ -385,13 +385,13 @@ export const posts: BlogPost[] = [
     slug: "building-digital-products-with-purpose",
     title: "Building Digital Products With Purpose",
     category: "Personal",
-    date: "2025-03-26",
+    date: "2026-09-16",
     readingTime: "4 min read",
     excerpt:
       "Tools are easy to learn and intentions are easy to announce. What actually shapes a developer's work is the reason underneath it. A personal note on why I build the way I build.",
     image: px(8547397),
     imageAlt:
-      "A young African woman in a blazer working intently on her laptop in a modern office.",
+      "A developer working on a laptop in a modern office — representing thoughtful software development and digital product work.",
     blocks: [
       {
         t: "p",
