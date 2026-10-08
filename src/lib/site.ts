@@ -16,8 +16,6 @@ export const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Skills", href: "/skills" },
-  { label: "Portfolio", href: "/portfolio" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
@@ -26,5 +24,4 @@ export const microcopy = [
   "Build. Solve. Improve.",
   "Ideas deserve great execution.",
   "Code with purpose. Design with intention.",
-  "From interface to infrastructure.",
 ];

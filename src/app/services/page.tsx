@@ -1,117 +1,452 @@
+
 import type { Metadata } from "next";
-import { Ear, PenTool, Hammer, Rocket } from "lucide-react";
-import PageHero from "@/components/PageHero";
-import SectionHeading from "@/components/SectionHeading";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import CtaBand from "@/components/CtaBand";
-import { ServiceCard } from "@/components/cards";
-import { services } from "@/lib/data";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services — What Julie Builds",
+  title: "Services — Julie Lupex",
   description:
-    "Front-end, back-end, full-stack, e-commerce, WordPress, UI development and DevOps — web development services by Julie Lupex, from first line of code to final deployment.",
+    "Websites, web applications, backend APIs, e-commerce, WordPress, UI/UX, and ongoing web care built around real business problems.",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Services — What Julie Builds",
+    title: "Services — Julie Lupex",
     description:
-      "Front-end, back-end, full-stack, e-commerce, WordPress, UI development and DevOps — web development services by Julie Lupex.",
+      "Practical web development and digital solutions for websites, applications, backend systems, e-commerce, WordPress, UI/UX, and ongoing improvement.",
   },
 };
 
-const engagement = [
+const services = [
   {
-    icon: Ear,
-    step: "01",
-    title: "Listen",
-    text: "Every engagement starts with the problem, not the technology. What should exist that doesn't yet?",
+    number: "01",
+    id: "websites",
+    title: "Websites",
+    problem:
+      "Your current website is outdated, unclear, slow, or not turning visitors into enquiries.",
+    description:
+      "Purpose-built websites designed around your business, audience, content, and the actions you want visitors to take.",
+    price: "TYPICALLY $2,900–$6,000",
+    timeline: "2–4 WEEKS*",
+    features: [
+      "Custom design and development",
+      "Business-focused page structure",
+      "Contact, booking & lead forms",
+      "Performance & SEO foundations",
+      "CMS integration when required",
+      "Launch support and handover",
+    ],
+    bestFor: "Service businesses, consultants, clinics, agencies",
   },
   {
-    icon: PenTool,
-    step: "02",
-    title: "Define",
-    text: "Scope, structure and a clear plan — what gets built, in what order, and how success will be judged.",
+    number: "02",
+    id: "web-applications",
+    title: "Web Applications",
+    problem:
+      "Your team relies on spreadsheets, disconnected tools, or manual processes that should be software.",
+    description:
+      "Custom applications, portals, dashboards, and SaaS MVPs built around the workflows your business or users actually need.",
+    price: "SCOPED & QUOTED",
+    timeline: "4–10 WEEKS*",
+    features: [
+      "Product UX & interface design",
+      "React + TypeScript front end",
+      "APIs, databases & integrations",
+      "Authentication and user roles",
+      "Dashboards connected to real data",
+      "Testing and deployment support",
+    ],
+    bestFor: "SaaS founders, startups, ops-heavy teams",
   },
   {
-    icon: Hammer,
-    step: "03",
-    title: "Build",
-    text: "Working slices delivered in sequence, reviewed together, tested along the way — never one long silence.",
+    number: "03",
+    id: "e-commerce",
+    title: "E-commerce",
+    problem:
+      "Customers struggle to discover, trust, or purchase your products online.",
+    description:
+      "Online stores designed around the complete buying journey — from product discovery and evaluation through checkout and order management.",
+    price: "SCOPED & QUOTED",
+    timeline: "4–8 WEEKS*",
+    features: [
+      "Conversion-focused product pages",
+      "Secure payment integration",
+      "Products, orders & inventory flows",
+      "Performance optimization",
+      "Analytics & tracking setup",
+      "CMS for products and content",
+    ],
+    bestFor: "Brands selling physical or digital products",
   },
   {
-    icon: Rocket,
-    step: "04",
-    title: "Launch",
-    text: "Deployment, handover and documentation — so what's built keeps working long after launch day.",
+    number: "04",
+    id: "wordpress",
+    title: "WordPress",
+    problem:
+      "You need a manageable website your team can update without being trapped in unnecessary page-builder complexity.",
+    description:
+      "Custom WordPress websites built around maintainability, content management, performance, and the needs of your team.",
+    price: "SCOPED & QUOTED",
+    timeline: "3–5 WEEKS*",
+    features: [
+      "Custom theme development",
+      "Gutenberg / ACF components",
+      "WooCommerce when required",
+      "Performance and security setup",
+      "Content management guidance",
+      "Maintainable implementation",
+    ],
+    bestFor: "Publishers, blogs, content-heavy brands",
   },
+  {
+    number: "05",
+    id: "backend-api",
+    title: "Backend & APIs",
+    problem:
+      "Your product needs reliable data, authentication, integrations, or backend logic that your frontend cannot handle alone.",
+    description:
+      "Backend systems and APIs that connect your application to databases, users, payments, third-party services, and the business logic behind the product.",
+    price: "SCOPED & QUOTED",
+    timeline: "2–8 WEEKS*",
+    features: [
+      "REST APIs and backend services",
+      "Database design and integration",
+      "Authentication and authorization",
+      "Third-party API integrations",
+      "Payments and webhook flows",
+      "Deployment and environment setup",
+    ],
+    bestFor: "Web apps, SaaS products, custom systems",
+  },
+  {
+    number: "06",
+    id: "ui-ux",
+    title: "UI/UX Design",
+    problem:
+      "You have an idea or product, but the user journey is unclear or the interface is difficult to use.",
+    description:
+      "User-focused interface design that turns complex requirements into practical experiences developers can build and maintain.",
+    price: "SCOPED & QUOTED",
+    timeline: "1–2 WEEKS*",
+    features: [
+      "Wireframes & user flows",
+      "Clickable prototypes",
+      "Design systems in Figma",
+      "Responsive interface design",
+      "Accessibility considerations",
+      "Developer-ready handoff",
+    ],
+    bestFor: "Teams with developers but no designer",
+  },
+  {
+    number: "07",
+    id: "care-growth",
+    title: "Care & Growth",
+    problem:
+      "Your website works, but nobody is consistently looking after updates, performance, fixes, or improvements.",
+    description:
+      "Ongoing technical support that keeps your website maintained, monitored, and ready for future improvements.",
+    price: "FROM $120/MO",
+    timeline: "ONGOING",
+    features: [
+      "Updates and maintenance",
+      "Backups and monitoring",
+      "Small design & content changes",
+      "Performance reviews",
+      "Technical support",
+      "Ongoing improvement planning",
+    ],
+    bestFor: "Past clients & inherited websites",
+  },
+];
+
+const trustPoints = [
+  "Clear scope and proposal before development begins",
+  "Project milestones agreed before work starts",
+  "Post-launch support defined by the project scope",
+  "You retain ownership of your website, content, and accounts",
 ];
 
 export default function ServicesPage() {
   return (
     <main id="main">
-      <PageHero
-        eyebrow="Services"
-        title="What I Build"
-        description="From the first line of code to the final deployment, I build digital products with purpose."
-        crumb="Services"
-      />
-
-      <section className="bg-paper py-24 sm:py-28" aria-label="All services">
+      {/* ---------- Hero ---------- */}
+      <section className="border-b border-ink/10 bg-paper py-24 sm:py-32 lg:py-40">
         <div className="site-container">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, i) => (
-              <Reveal key={service.title} delay={(i % 3) * 80}>
-                <ServiceCard service={service} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+          <Reveal>
+            <div className="max-w-5xl">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+                Services
+              </p>
 
-      <section
-        className="border-t border-ink/10 bg-paper-2 py-24 sm:py-28"
-        aria-labelledby="engagement-heading"
-      >
-        <div className="site-container">
-          <SectionHeading
-            eyebrow="How It Works"
-            title="A calm, predictable process"
-            description="No mystery, no black box. Every project — from a single WordPress site to a full web application — moves through the same transparent rhythm."
-            align="center"
-          />
-          <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {engagement.map((e, i) => (
-              <Reveal key={e.step} delay={i * 80}>
-                <li className="card-lift relative h-full rounded-3xl border border-ink/10 bg-white p-7 hover:border-violet/50">
-                  <span
-                    className="absolute right-6 top-5 font-display text-3xl font-bold text-ink/[0.07]"
-                    aria-hidden="true"
-                  >
-                    {e.step}
-                  </span>
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-violet">
-                    <e.icon size={18} aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-5 font-display text-lg font-bold text-ink">{e.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-body">{e.text}</p>
-                </li>
-              </Reveal>
-            ))}
-          </ol>
-          <Reveal className="mt-10 text-center">
-            <p className="mx-auto max-w-xl text-[0.95rem] leading-relaxed text-body">
-              Not sure which service your idea needs? That&apos;s normal — most
-              projects touch several. Describe the idea and Julie will map it to
-              the right mix.
-            </p>
+              <h1 className="mt-5 max-w-4xl text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-8xl">
+                Solve the problem.
+                <br />
+                <span className="text-ink/45">Build what lasts.</span>
+              </h1>
+
+              <p className="mt-8 max-w-3xl text-lg leading-8 text-ink/65 sm:text-xl sm:leading-9">
+                You do not need to know which technology to choose. Start
+                with what is not working, what you need to build, or what you
+                want to improve. I&apos;ll help define the right solution and
+                then build it.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/contact"
+                  className="btn btn-primary inline-flex items-center"
+                >
+                  Describe your problem
+                  <ArrowRight size={16} aria-hidden="true" />
+                </Link>
+
+                <a
+                  href="#services-heading"
+                  className="btn btn-ghost-dark inline-flex items-center"
+                >
+                  Explore services
+                  <ArrowRight size={16} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      <CtaBand
-        title="Have something to build? Let's scope it together."
-        text="Whether it's a store, an application, a WordPress site or an API — the first conversation simply maps the idea to a plan."
-      />
+      {/* ---------- Services ---------- */}
+      <section
+        className="bg-paper-2 py-24 sm:py-28 lg:py-32"
+        aria-labelledby="services-heading"
+      >
+        <div className="site-container">
+          <div className="mb-12 max-w-3xl sm:mb-16">
+            <Reveal>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+                What I can build
+              </p>
+
+              <h2
+                id="services-heading"
+                className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-5xl"
+              >
+                The right solution depends on the problem.
+              </h2>
+
+              <p className="mt-5 text-base leading-7 text-ink/65 sm:text-lg sm:leading-8">
+                These are the main ways I help. If your project does not fit
+                neatly into one category, that is fine — custom work starts
+                with understanding what you actually need.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {services.map((service, index) => (
+              <Reveal key={service.number} delay={(index % 2) * 90}>
+                <article
+                  id={service.id}
+                  className="group flex h-full scroll-mt-24 flex-col rounded-3xl border border-ink/10 bg-paper p-7 transition-all duration-300 hover:-translate-y-1 hover:border-ink/30 sm:p-9"
+                >
+                  <div className="flex items-start justify-between gap-6">
+                    <span className="font-mono text-xs font-semibold tracking-[0.18em] text-muted">
+                      {service.number}
+                    </span>
+
+                    <div className="text-right">
+                      <p className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-ink">
+                        {service.price}
+                      </p>
+
+                      <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-ink/45">
+                        {service.timeline}
+                      </p>
+                    </div>
+                  </div>
+
+                  <h3 className="mt-7 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                    {service.title}
+                  </h3>
+
+                  <div className="mt-5 rounded-2xl border border-ink/10 bg-paper-2 p-5">
+                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-ink/45">
+                      The problem
+                    </p>
+
+                    <p className="mt-2 text-sm leading-6 text-ink/75">
+                      {service.problem}
+                    </p>
+                  </div>
+
+                  <p className="mt-5 max-w-xl text-base leading-7 text-ink/65 sm:text-lg sm:leading-8">
+                    {service.description}
+                  </p>
+
+                  <div className="mt-8 border-t border-ink/10 pt-7">
+                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-ink/45">
+                      What you get
+                    </p>
+
+                    <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                      {service.features.map((feature) => (
+                        <li
+                          key={feature}
+                          className="flex gap-3 text-sm leading-6 text-ink/70"
+                        >
+                          <span
+                            className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ink"
+                            aria-hidden="true"
+                          />
+
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mt-8 border-t border-ink/10 pt-6">
+                    <p className="text-sm leading-6 text-ink/55">
+                      <span className="font-semibold text-ink">Best for:</span>{" "}
+                      {service.bestFor}
+                    </p>
+                  </div>
+
+                  <div className="mt-auto pt-8">
+                    <Link
+                      href={`/contact?service=${encodeURIComponent(
+                        service.title.toLowerCase(),
+                      )}`}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-ink transition-all group-hover:gap-3 hover:text-muted"
+                    >
+                      Start with this
+                      <ArrowUpRight size={16} aria-hidden="true" />
+                    </Link>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          <p className="mt-8 text-center text-xs leading-6 text-ink/45">
+            * Timelines are typical estimates. Final timing depends on project
+            scope, content readiness, integrations, feedback, and approval
+            cycles.
+          </p>
+        </div>
+      </section>
+
+      {/* ---------- Not Sure ---------- */}
+      <section
+        className="border-t border-ink/10 bg-paper py-24 sm:py-28"
+        aria-labelledby="not-sure-heading"
+      >
+        <div className="site-container">
+          <Reveal>
+            <div className="mx-auto max-w-4xl rounded-3xl border border-ink/10 bg-paper-2 p-8 sm:p-12 lg:p-16">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+                Not sure what you need?
+              </p>
+
+              <h2
+                id="not-sure-heading"
+                className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-ink sm:text-5xl"
+              >
+                Tell me the problem, not the service.
+              </h2>
+
+              <p className="mt-6 max-w-3xl text-base leading-8 text-ink/65 sm:text-lg sm:leading-9">
+                Explain what is not working, what you are trying to build, or
+                what you want to improve. I&apos;ll help identify the smallest
+                practical solution. If custom development is not necessary,
+                I&apos;ll tell you that too.
+              </p>
+
+              <Link
+                href="/contact"
+                className="btn btn-primary mt-8 inline-flex items-center"
+              >
+                Describe your problem
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ---------- Final CTA ---------- */}
+      <section
+        className="border-t border-ink/10 bg-paper-2 py-24 sm:py-28 lg:py-32"
+        aria-labelledby="next-step-heading"
+      >
+        <div className="site-container">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <Reveal className="lg:col-span-7">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+                Next Step
+              </p>
+
+              <h2
+                id="next-step-heading"
+                className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl"
+              >
+                Have a problem worth solving?
+                <br />
+                Let&apos;s talk.
+              </h2>
+
+              <p className="mt-6 max-w-2xl text-base leading-8 text-ink/65 sm:text-lg sm:leading-9">
+                Describe what&apos;s not working, what you&apos;re building,
+                or what you want to improve. We can discuss the problem, the
+                possible solution, and the right scope before development
+                begins.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/contact"
+                  className="btn btn-primary inline-flex items-center"
+                >
+                  Start a project
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </Link>
+
+                <a
+                  href={site.emailHref}
+                  className="btn btn-ghost-dark inline-flex items-center"
+                >
+                  {site.email}
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              </div>
+            </Reveal>
+
+            <Reveal delay={120} className="lg:col-span-5">
+              <div className="rounded-3xl border border-ink/10 bg-paper p-7 sm:p-9">
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-ink/45">
+                  How projects work
+                </p>
+
+                <ul className="mt-6 divide-y divide-ink/10">
+                  {trustPoints.map((point) => (
+                    <li
+                      key={point}
+                      className="flex gap-4 py-4 text-sm leading-6 text-ink/70 first:pt-0 last:pb-0"
+                    >
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ink"
+                        aria-hidden="true"
+                      />
+
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
+

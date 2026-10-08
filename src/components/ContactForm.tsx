@@ -1,37 +1,73 @@
+
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { ArrowRight, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { useEffect, useState, type FormEvent } from "react";
+import {
+  AlertCircle,
+  ArrowRight,
+  CheckCircle2,
+  Loader2,
+} from "lucide-react";
+import { site } from "@/lib/site";
 
 const projectTypes = [
+  "Landing Page",
   "Website",
   "Web Application",
   "E-commerce",
-  "WordPress",
-  "UI Development",
+  "Existing Website",
+  "UI / Frontend Development",
   "Backend / API",
   "Full-Stack Development",
-  "Other",
-];
-
-const budgetRanges = [
-  "Not sure yet — let's talk",
-  "Small starter budget",
-  "Modest business budget",
-  "Established product budget",
-  "Ongoing / retainer work",
+  "Custom Digital Solution",
+  "Not Sure Yet",
 ];
 
 type Errors = Partial<
-  Record<"name" | "email" | "projectType" | "budget" | "message", string>
+  Record<"name" | "email" | "projectType" | "message", string>
 >;
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+const serviceToProjectType: Record<string, string> = {
+  website: "Website",
+  "web applications": "Web Application",
+  "web application": "Web Application",
+  "e-commerce": "E-commerce",
+  ecommerce: "E-commerce",
+  "landing page": "Landing Page",
+  "landing pages": "Landing Page",
+  "ui/ux": "UI / Frontend Development",
+  "ui development": "UI / Frontend Development",
+  "ui / frontend development": "UI / Frontend Development",
+  "frontend development": "UI / Frontend Development",
+  "backend / api": "Backend / API",
+  "backend/api": "Backend / API",
+  backend: "Backend / API",
+  "full-stack development": "Full-Stack Development",
+  "full stack development": "Full-Stack Development",
+};
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Errors>({});
   const [serverMessage, setServerMessage] = useState("");
+  const [projectType, setProjectType] = useState("");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get("service")?.trim().toLowerCase();
+
+    if (!service) {
+      return;
+    }
+
+    const matchedProjectType = serviceToProjectType[service];
+
+    if (matchedProjectType) {
+      setProjectType(matchedProjectType);
+    }
+  }, []);
 
   function validate(data: Record<string, string>): Errors {
     const errs: Errors = {};
@@ -50,19 +86,27 @@ export default function ContactForm() {
     }
 
     if (!data.projectType) {
-      errs.projectType = "Please choose a project type.";
-    }
-
-    if (!data.budget) {
-      errs.budget = "Please choose a budget range.";
+      errs.projectType = "Please choose what you're looking to build.";
     }
 
     if (!data.message || data.message.trim().length < 12) {
       errs.message =
-        "Tell Julie a little more — a sentence or two about your project is perfect.";
+        "Tell Julie a little more — a sentence or two about the problem is enough.";
     }
 
     return errs;
+  }
+
+  function focusFirstError(errs: Errors) {
+    const firstError = Object.keys(errs)[0];
+
+    if (!firstError) {
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      document.getElementById(firstError)?.focus();
+    });
   }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -78,6 +122,7 @@ export default function ContactForm() {
 
     if (Object.keys(errs).length > 0) {
       setStatus("idle");
+      focusFirstError(errs);
       return;
     }
 
@@ -95,9 +140,8 @@ export default function ContactForm() {
           name: data.name,
           email: data.email,
           projectType: data.projectType,
-          budget: data.budget,
           message: data.message,
-          website: data.website ?? "",
+          "bot-field": data["bot-field"] ?? "",
         }).toString(),
       });
 
@@ -106,11 +150,12 @@ export default function ContactForm() {
       }
 
       form.reset();
+      setProjectType("");
       setErrors({});
       setStatus("success");
     } catch {
       setServerMessage(
-        "The message couldn't be sent right now. Please try again, or email julielupex@gmail.com directly."
+        `The message couldn't be sent right now. Please try again, or email ${site.email} directly.`,
       );
       setStatus("error");
     }
@@ -119,11 +164,11 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div
-        className="flex h-full flex-col items-center justify-center rounded-3xl border border-violet/30 bg-white p-10 text-center"
+        className="flex h-full flex-col items-center justify-center rounded-3xl border border-ink/15 bg-ink/5 p-10 text-center"
         role="status"
         aria-live="polite"
       >
-        <span className="grid h-16 w-16 place-items-center rounded-full bg-violet/15 text-deep">
+        <span className="grid h-16 w-16 place-items-center rounded-full bg-ink/5 text-ink">
           <CheckCircle2 size={30} aria-hidden="true" />
         </span>
 
@@ -132,7 +177,7 @@ export default function ContactForm() {
         </h3>
 
         <p className="mt-3 max-w-sm leading-relaxed text-body">
-          Thank you for reaching out — your message has been received and Julie
+          Thanks for reaching out. Your message has been received and Julie
           will read it personally. Expect a reply at the email address you
           shared.
         </p>
@@ -177,7 +222,7 @@ export default function ContactForm() {
           />
 
           {errors.name && (
-            <p id="name-error" className="mt-2 text-sm text-[#c23247]">
+            <p id="name-error" className="mt-2 text-sm text-red-600">
               {errors.name}
             </p>
           )}
@@ -200,21 +245,22 @@ export default function ContactForm() {
           />
 
           {errors.email && (
-            <p id="email-error" className="mt-2 text-sm text-[#c23247]">
+            <p id="email-error" className="mt-2 text-sm text-red-600">
               {errors.email}
             </p>
           )}
         </div>
 
-        <div>
+        <div className="sm:col-span-2">
           <label htmlFor="projectType" className="field-label">
-            Project Type
+            What are you looking to build?
           </label>
 
           <select
             id="projectType"
             name="projectType"
-            defaultValue=""
+            value={projectType}
+            onChange={(e) => setProjectType(e.target.value)}
             className={`field-input ${
               errors.projectType ? "field-error" : ""
             }`}
@@ -224,7 +270,7 @@ export default function ContactForm() {
             }
           >
             <option value="" disabled>
-              What are we building?
+              Choose a project type
             </option>
 
             {projectTypes.map((type) => (
@@ -237,54 +283,28 @@ export default function ContactForm() {
           {errors.projectType && (
             <p
               id="projectType-error"
-              className="mt-2 text-sm text-[#c23247]"
+              className="mt-2 text-sm text-red-600"
             >
               {errors.projectType}
             </p>
           )}
-        </div>
 
-        <div>
-          <label htmlFor="budget" className="field-label">
-            Budget Range
-          </label>
-
-          <select
-            id="budget"
-            name="budget"
-            defaultValue=""
-            className={`field-input ${errors.budget ? "field-error" : ""}`}
-            aria-invalid={Boolean(errors.budget)}
-            aria-describedby={errors.budget ? "budget-error" : undefined}
-          >
-            <option value="" disabled>
-              Choose a comfortable range
-            </option>
-
-            {budgetRanges.map((budget) => (
-              <option key={budget} value={budget}>
-                {budget}
-              </option>
-            ))}
-          </select>
-
-          {errors.budget && (
-            <p id="budget-error" className="mt-2 text-sm text-[#c23247]">
-              {errors.budget}
-            </p>
-          )}
+          <p className="mt-2 text-xs leading-relaxed text-body/65">
+            Not sure what you need? That&apos;s okay — describe your goal
+            below and Julie can help determine the right approach.
+          </p>
         </div>
 
         <div className="sm:col-span-2">
           <label htmlFor="message" className="field-label">
-            Message
+            What&apos;s the problem?
           </label>
 
           <textarea
             id="message"
             name="message"
             rows={5}
-            placeholder="Tell Julie about your project — what it is, who it's for, and when you'd love to see it live."
+            placeholder="What are you trying to achieve, and what is getting in the way? For example: the current site is slow, checkout drops off, or you need an MVP."
             className={`field-input resize-y ${
               errors.message ? "field-error" : ""
             }`}
@@ -293,18 +313,18 @@ export default function ContactForm() {
           />
 
           {errors.message && (
-            <p id="message-error" className="mt-2 text-sm text-[#c23247]">
+            <p id="message-error" className="mt-2 text-sm text-red-600">
               {errors.message}
             </p>
           )}
         </div>
 
         <div className="hidden" aria-hidden="true">
-          <label htmlFor="website">Website</label>
+          <label htmlFor="bot-field">Do not fill this field</label>
 
           <input
-            id="website"
-            name="website"
+            id="bot-field"
+            name="bot-field"
             type="text"
             tabIndex={-1}
             autoComplete="off"
@@ -315,21 +335,22 @@ export default function ContactForm() {
       {status === "error" && (
         <p
           role="alert"
-          className="mt-5 flex items-start gap-2.5 rounded-2xl border border-[#e4b7bd] bg-[#fdf3f4] p-4 text-sm leading-relaxed text-[#a52a39]"
+          className="mt-5 flex items-start gap-2.5 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm leading-relaxed text-red-700"
         >
           <AlertCircle
             size={17}
             className="mt-0.5 shrink-0"
             aria-hidden="true"
           />
+
           {serverMessage}
         </p>
       )}
 
       <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-xs text-xs leading-relaxed text-body/70">
-          Your message is sent securely through the contact form and read
-          personally by Julie. No newsletters, no spam — just a reply.
+          Your message is sent through the contact form and read personally
+          by Julie. No newsletters, no spam — just a reply.
         </p>
 
         <button
@@ -339,12 +360,16 @@ export default function ContactForm() {
         >
           {status === "submitting" ? (
             <>
-              Sending your message...
-              <Loader2 size={16} className="animate-spin" aria-hidden="true" />
+              Sending message...
+              <Loader2
+                size={16}
+                className="animate-spin"
+                aria-hidden="true"
+              />
             </>
           ) : (
             <>
-              Start a Conversation
+              Send message
               <ArrowRight size={16} aria-hidden="true" />
             </>
           )}
@@ -353,3 +378,4 @@ export default function ContactForm() {
     </form>
   );
 }
+

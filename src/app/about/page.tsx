@@ -1,238 +1,225 @@
+
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
-import {
-  ArrowRight,
-  Search,
-  Users,
-  Code2,
-  Smartphone,
-  FlaskConical,
-  Gauge,
-  ShieldCheck,
-  Rocket,
-  CheckCircle2,
-} from "lucide-react";
-import PageHero from "@/components/PageHero";
-import SectionHeading from "@/components/SectionHeading";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import CtaBand from "@/components/CtaBand";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Julie Lupex — Web Developer",
+  title: "About — Julie Lupex | Full-Stack Web Developer",
   description:
-    "Meet Julie Lupex: a full-stack web developer who designs interfaces, builds backend systems and APIs, and ships digital products from concept to deployment.",
+    "Meet Julie Lupex, a full-stack web developer who turns business problems and product ideas into practical websites, web applications, APIs, and digital systems.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Julie Lupex — Web Developer",
+    title: "About Julie Lupex — Full-Stack Web Developer",
     description:
-      "Meet Julie Lupex: a full-stack web developer who designs interfaces, builds backend systems and APIs, and ships digital products from concept to deployment.",
+      "Learn how Julie approaches problem-solving, product thinking, interface design, full-stack development, and practical digital solutions.",
   },
 };
 
-const doing = [
-  "Designs clean, responsive interfaces that feel intuitive on every device",
-  "Develops websites and web applications end to end",
-  "Builds backend systems, REST APIs and business logic",
-  "Integrates and models databases that keep products honest",
-  "Improves performance so experiences feel instant",
-  "Helps digital products move from concept to deployment",
+const principles = [
+  "Problem-first approach",
+  "Design + development connected",
+  "Direct communication",
+  "Clear project scope",
 ];
 
-const approach = [
+const philosophy = [
   {
-    icon: Search,
-    title: "Understand the problem first",
-    text: "Before any code, the real question: what is this supposed to change for the person using it?",
+    number: "01",
+    title: "Clarity over cleverness",
+    text: "If a user has to work too hard to understand what to do next, the experience needs another pass. I aim for clear content, purposeful interfaces, and obvious paths through the product.",
   },
   {
-    icon: Users,
-    title: "Design for real users",
-    text: "Interfaces built around actual humans — their devices, their attention, their patience.",
+    number: "02",
+    title: "Performance is part of the experience",
+    text: "A good interface should not only look right. It should load efficiently, respond quickly, and remain usable across the devices and connections people actually use.",
   },
   {
-    icon: Code2,
-    title: "Write maintainable code",
-    text: "Code that the next developer can read is worth more than code that merely runs.",
-  },
-  {
-    icon: Smartphone,
-    title: "Build responsive experiences",
-    text: "Every screen earns its place on the smallest phone and the widest monitor alike.",
-  },
-  {
-    icon: FlaskConical,
-    title: "Test functionality",
-    text: "Forms, flows and edge cases exercised until the surprises are gone.",
-  },
-  {
-    icon: Gauge,
-    title: "Optimize performance",
-    text: "Speed budgets respected from day one — not patched in at the end.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Maintain security",
-    text: "Careful validation, sensible defaults and healthy respect for user data.",
-  },
-  {
-    icon: Rocket,
-    title: "Deploy reliable solutions",
-    text: "Shipping is part of the job: configured, monitored and reversible releases.",
+    number: "03",
+    title: "Build for the real world",
+    text: "Digital products need to work beyond the design file. I think about maintainability, accessibility, data, integrations, deployment, and the people who will use or manage the system after launch.",
   },
 ];
 
-const journey = [
+const process = [
   {
-    phase: "Foundations",
-    title: "Learning how the web actually works",
-    text: "HTML, CSS and JavaScript — not as syntax to memorize, but as the medium itself. Understanding what browsers do, what the network costs, and why semantics matter before any framework enters the room.",
-    areas: "HTML5 · CSS3 · JavaScript",
+    number: "01",
+    title: "Understand the problem",
+    text: "We start with the business goal, the users, the existing system, and the friction that needs to be removed. The solution comes after the problem is understood.",
   },
   {
-    phase: "Interfaces",
-    title: "Making experiences people enjoy",
-    text: "Responsive design, accessibility and UI development. Learning that a beautiful interface is one people don't have to think about — and that polish lives in states: hover, focus, loading, empty and error.",
-    areas: "Responsive Design · Accessibility · UI Development · Animations",
+    number: "02",
+    title: "Structure the solution",
+    text: "Requirements are turned into a practical information structure, user experience, technical approach, and project scope before development gets too far ahead.",
   },
   {
-    phase: "Logic & Data",
-    title: "Giving interfaces a memory",
-    text: "Server-side development, REST APIs, authentication and databases. The shift from pages that look right to products that do right — where business logic lives and data stays consistent.",
-    areas: "REST APIs · Databases · Authentication · Business Logic",
+    number: "03",
+    title: "Build and review",
+    text: "Development happens in clear stages so the direction can be reviewed as the product takes shape. Technical decisions stay connected to the original goal.",
   },
   {
-    phase: "Full-Stack",
-    title: "Connecting both halves into one product",
-    text: "Designing the front end and the back end as one continuous experience — from a pixel on the screen to a row in a database, with the API contract holding it all together.",
-    areas: "Component Architecture · API Integration · Testing · Debugging",
+    number: "04",
+    title: "Launch and improve",
+    text: "After launch, the work can continue through maintenance, performance improvements, content changes, and new features as the business evolves.",
+  },
+];
+
+const toolbox = [
+  {
+    title: "Frontend",
+    subtitle: "WHERE THE EXPERIENCE TAKES SHAPE",
+    tools: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Vite",
+      "Astro",
+    ],
   },
   {
-    phase: "Delivery",
-    title: "Shipping work that survives the real world",
-    text: "Performance optimization, hosting, deployment and cloud infrastructure. Because a product that never leaves the laptop never helped anyone — and shipping calmly is a skill of its own.",
-    areas: "Performance · Deployment · Cloud Infrastructure · Git & GitHub",
+    title: "Backend",
+    subtitle: "WHERE THE SYSTEM WORKS",
+    tools: [
+      "Node.js",
+      "Express",
+      "REST APIs",
+      "GraphQL",
+      "Auth & JWT",
+      "Stripe",
+      "Webhooks",
+    ],
+  },
+  {
+    title: "Data & APIs",
+    subtitle: "WHERE INFORMATION CONNECTS",
+    tools: [
+      "PostgreSQL",
+      "Prisma",
+      "Supabase",
+      "MongoDB",
+      "Redis",
+      "Sanity",
+      "Firebase",
+    ],
+  },
+  {
+    title: "CMS & E-commerce",
+    subtitle: "WHERE CONTENT MEETS COMMERCE",
+    tools: [
+      "WordPress",
+      "WooCommerce",
+      "ACF Pro",
+      "Gutenberg",
+      "Headless CMS",
+      "Shopify",
+    ],
+  },
+  {
+    title: "Design & UX",
+    subtitle: "WHERE USERS FIND THEIR WAY",
+    tools: [
+      "Figma",
+      "Wireframing",
+      "Prototyping",
+      "Design systems",
+      "Accessibility",
+      "Motion design",
+    ],
+  },
+  {
+    title: "Tools & Ops",
+    subtitle: "WHERE PROJECTS SHIP",
+    tools: [
+      "Git & GitHub",
+      "Netlify",
+      "Vercel",
+      "CI/CD",
+      "Docker basics",
+      "Analytics",
+      "Lighthouse",
+    ],
   },
 ];
 
 export default function AboutPage() {
   return (
     <main id="main">
-      <PageHero
-        eyebrow="About"
-        title="About Julie"
-        description="A modern developer working across the entire lifecycle of the web — from the first sketch of an interface to the moment a product goes live."
-        crumb="About"
-      />
-
-      {/* ---------- Who I Am ---------- */}
-      <section className="bg-paper py-24 sm:py-28" aria-labelledby="who-heading">
-        <div className="site-container grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-          <Reveal variant="left" className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="overflow-hidden rounded-[2rem] border border-ink/10">
-              <Image
-                src="/images/julie-portrait.jpg"
-                alt="Illustrated portrait representing Julie Lupex, a confident web developer, with violet accent lighting."
-                width={900}
-                height={1100}
-                priority
-                className="h-auto w-full object-cover"
-              />
-            </div>
-            <p className="mt-3 text-center text-xs tracking-wide text-body/70">
-              Illustrated portrait representing Julie — artwork, not a photograph.
+      {/* HERO / STORY */}
+      <section className="bg-paper py-24 sm:py-32 lg:py-40">
+        <div className="site-container">
+          <Reveal>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-ink">
+              01 Story
             </p>
-            <div className="card-lift absolute -right-3 top-8 hidden rounded-2xl border border-ink/10 bg-white p-4 shadow-[0_20px_50px_-20px_rgba(15,13,20,0.3)] sm:block lg:-right-6">
-              <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-deep">
-                Julie Lupex
-              </p>
-              <p className="mt-1 font-display text-sm font-bold text-ink">
-                Full-Stack Web Developer
-              </p>
-            </div>
+
+            <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-ink sm:text-6xl md:text-7xl lg:text-8xl">
+              Hey, I&apos;m Julie.
+              <br />
+              <span className="text-ink/45">I understand the problem,</span>
+              <br />
+              then I build the solution.
+            </h1>
           </Reveal>
 
-          <div>
-            <SectionHeading
-              eyebrow="Who I Am"
-              title="A creative mind with an engineer's discipline"
-              description="Julie is a creative and technically minded web developer who enjoys solving real-world problems through technology. She is equally at home sketching an interface, designing a database schema, or tracing a stubborn bug through an API response."
-            />
-            <Reveal delay={120}>
-              <p className="mt-5 text-[1.05rem] leading-relaxed text-body">
-                What ties it together is a simple conviction: technology should
-                feel like help. The best compliment a product can receive is
-                that someone used it without ever having to think about it —
-                and building products that earn that compliment is the work
-                Julie loves most.
-              </p>
-              <div className="mt-7 flex flex-wrap items-center gap-3 text-sm text-body">
-                <span className="rounded-full border border-ink/10 bg-white px-4 py-2 font-medium">
-                  Based online · working with ideas everywhere
-                </span>
-                <span className="rounded-full border border-violet/40 bg-violet/10 px-4 py-2 font-medium text-deep">
-                  Open to freelance projects
-                </span>
+          <Reveal delay={120}>
+            <div className="mt-12 grid gap-8 border-t border-ink/10 pt-10 lg:grid-cols-12">
+              <div className="lg:col-span-8 lg:col-start-5">
+                <p className="text-lg leading-8 text-body sm:text-xl sm:leading-9">
+                  I&apos;m a full-stack web developer focused on turning
+                  business problems, technical challenges, and product ideas
+                  into practical digital solutions.
+                </p>
+
+                <p className="mt-7 text-lg leading-8 text-body sm:text-xl sm:leading-9">
+                  My work sits between product thinking, interface design, and
+                  software development. I can work through the user experience
+                  and the underlying system together — from responsive
+                  websites and web applications to APIs, databases,
+                  authentication, integrations, and deployment.
+                </p>
+
+                <p className="mt-7 text-lg leading-8 text-body sm:text-xl sm:leading-9">
+                  That does not mean every project needs more technology. It
+                  means choosing the right amount of technology for the problem.
+                  The goal is to remove friction, make the product easier to
+                  use, and leave behind a system that can be maintained and
+                  improved.
+                </p>
+
+                <p className="mt-7 text-lg leading-8 text-body sm:text-xl sm:leading-9">
+                  On larger builds, I can also collaborate with Jeremy Muiruri
+                  on backend engineering and QA. The working team stays small
+                  so technical decisions remain close to the product and
+                  communication stays direct.
+                </p>
               </div>
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* ---------- What I Do ---------- */}
-      <section className="border-t border-ink/10 bg-paper-2 py-24 sm:py-28" aria-labelledby="doing-heading">
-        <div className="site-container grid gap-12 lg:grid-cols-2">
-          <div>
-            <SectionHeading
-              eyebrow="What I Do"
-              title="One developer, the whole journey"
-              description="Most products need more than one kind of developer. Julie's work spans the full distance a digital product travels — which means fewer handoffs and a more coherent result."
-            />
-            <Reveal delay={140}>
-              <Link href="/services" className="btn btn-dark mt-8">
-                See All Services
-                <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-            </Reveal>
-          </div>
-          <ul className="grid gap-4">
-            {doing.map((item, i) => (
-              <Reveal key={item} delay={i * 60}>
-                <li className="card-lift flex items-start gap-3.5 rounded-2xl border border-ink/10 bg-white p-5">
-                  <CheckCircle2
-                    size={19}
-                    className="mt-0.5 shrink-0 text-deep"
-                    aria-hidden="true"
-                  />
-                  <span className="text-[0.98rem] leading-relaxed text-ink">{item}</span>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ---------- My Approach ---------- */}
-      <section className="bg-paper py-24 sm:py-28" aria-labelledby="approach-heading">
+      {/* APPROACH SNAPSHOT */}
+      <section className="border-y border-ink/10 bg-white py-8">
         <div className="site-container">
-          <SectionHeading
-            eyebrow="My Approach"
-            title="How every project gets built"
-            description="Eight habits that show up in every build — regardless of size, budget or deadline."
-            align="center"
-          />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {approach.map((a, i) => (
-              <Reveal key={a.title} delay={(i % 4) * 80}>
-                <div className="card-lift h-full rounded-3xl border border-ink/10 bg-white p-6 hover:border-violet/50">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-violet">
-                    <a.icon size={18} aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-5 font-display text-[1.05rem] font-bold leading-snug text-ink">
-                    {a.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-body">{a.text}</p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-ink/10">
+            {principles.map((principle, index) => (
+              <Reveal key={principle} delay={index * 70}>
+                <div
+                  className={`px-5 py-5 text-center sm:px-8 ${
+                    index > 1 ? "border-t border-ink/10 lg:border-t-0" : ""
+                  }`}
+                >
+                  <p className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+
+                  <p className="mt-2 font-mono text-[11px] font-semibold uppercase leading-4 tracking-[0.14em] text-body/60">
+                    {principle}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -240,74 +227,327 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ---------- Skills journey ---------- */}
-      <section className="border-t border-ink/10 bg-paper-2 py-24 sm:py-28" aria-labelledby="journey-heading">
-        <div className="site-container grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="lg:sticky lg:top-28 lg:self-start">
-            <SectionHeading
-              eyebrow="The Journey"
-              title="How the craft evolved"
-              description="Not a résumé of job titles — a map of focus areas, each one building on the last, from foundations to full-stack delivery."
-            />
-            <Reveal delay={140}>
-              <Link href="/skills" className="btn btn-ghost-dark mt-8">
-                View Skills in Detail
-                <ArrowRight size={16} aria-hidden="true" />
-              </Link>
+      {/* PEOPLE / STUDIO */}
+      <section className="bg-paper py-24 sm:py-32">
+        <div className="site-container">
+          <div className="grid gap-8 lg:grid-cols-2">
+            <Reveal variant="left">
+              <div className="group overflow-hidden rounded-[2rem] border border-ink/10 bg-white">
+                <div className="relative aspect-[4/5]">
+                  <Image
+                    src="/images/julie-founder.png"
+                    alt="Julie Lupex — Founder and Full-Stack Web Developer"
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    priority
+                  />
+                </div>
+
+                <div className="p-6 sm:p-8">
+                  <h2 className="text-2xl font-semibold tracking-tight text-ink">
+                    Julie Lupex
+                  </h2>
+
+                  <p className="mt-2 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-body/60">
+                    FOUNDER · FULL-STACK WEB DEVELOPER
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <div className="group overflow-hidden rounded-[2rem] border border-ink/10 bg-white">
+                <div className="relative aspect-[4/5]">
+                  <Image
+                    src="/images/about/julie-jeremy.jpg"
+                    alt="Julie Lupex and Jeremy Muiruri collaborating on a web project"
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
+                </div>
+
+                <div className="p-6 sm:p-8">
+                  <p className="font-mono text-[11px] font-semibold uppercase leading-5 tracking-[0.14em] text-body/60">
+                    THE STUDIO · A SMALL DEVELOPMENT COLLABORATION
+                  </p>
+
+                  <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-ink">
+                    JULIE LUPEX × JEREMY MUIRURI · DEVELOPMENT &amp; ENGINEERING
+                  </p>
+
+                  <p className="mt-4 text-sm leading-7 text-body">
+                    Julie leads product direction, interface design, and
+                    full-stack development. Jeremy contributes backend
+                    engineering and QA support on larger builds, helping
+                    strengthen the technical side of the work.
+                  </p>
+                </div>
+              </div>
             </Reveal>
           </div>
-          <ol className="space-y-8">
-            {journey.map((j, i) => (
-              <li key={j.phase} className="timeline-item">
-                <span className="timeline-dot" aria-hidden="true" />
-                <Reveal delay={i * 60}>
-                  <div className="card-lift rounded-3xl border border-ink/10 bg-white p-7">
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                      <p className="font-mono text-[0.72rem] font-medium uppercase tracking-[0.24em] text-deep">
-                        Phase {String(i + 1).padStart(2, "0")} — {j.phase}
-                      </p>
-                    </div>
-                    <h3 className="mt-2.5 font-display text-xl font-bold text-ink">{j.title}</h3>
-                    <p className="mt-2.5 text-[0.95rem] leading-relaxed text-body">{j.text}</p>
-                    <p className="mt-4 font-mono text-xs tracking-wide text-body/70">{j.areas}</p>
-                  </div>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
-      {/* ---------- Philosophy ---------- */}
-      <section className="relative overflow-hidden bg-ink py-24 sm:py-28" aria-labelledby="philosophy-heading">
-        <div className="bg-grid-dark absolute inset-0" aria-hidden="true" />
-        <div
-          className="glow-violet absolute left-1/2 top-1/2 h-[26rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full"
-          aria-hidden="true"
-        />
-        <div className="site-container relative">
-          <Reveal className="mx-auto max-w-4xl text-center">
-            <p className="font-mono text-[0.78rem] font-medium uppercase tracking-[0.28em] text-violet">
-              Developer Philosophy
+      {/* DEVELOPMENT PHILOSOPHY */}
+      <section
+        className="border-t border-ink/10 bg-white py-24 sm:py-32"
+        aria-labelledby="philosophy-heading"
+      >
+        <div className="site-container">
+          <Reveal>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-ink">
+              02 Development philosophy
             </p>
-            <blockquote
+
+            <h2
               id="philosophy-heading"
-              className="mt-6 font-display text-[clamp(1.7rem,4.2vw,3.1rem)] font-bold leading-[1.18] tracking-[-0.02em] text-paper text-balance"
+              className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl"
             >
-              “Good software should not only work. It should{" "}
-              <span className="text-violet">make the user&apos;s life easier</span>.”
-            </blockquote>
-            <p className="mt-6 text-lg text-mist">
-              — Julie Lupex · {site.shortRole}
+              Three rules I <span className="italic">don&apos;t break.</span>
+            </h2>
+          </Reveal>
+
+          <div className="mt-14 divide-y divide-ink/10 border-y border-ink/10">
+            {philosophy.map((item, index) => (
+              <Reveal key={item.number} delay={index * 90}>
+                <article className="grid gap-5 py-9 sm:grid-cols-[80px_1fr] sm:gap-8">
+                  <p className="font-mono text-xs font-semibold text-ink">
+                    {item.number}
+                  </p>
+
+                  <div>
+                    <h3 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-3 max-w-3xl text-base leading-7 text-body sm:text-lg sm:leading-8">
+                      {item.text}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section
+        className="bg-paper py-24 sm:py-32"
+        aria-labelledby="process-heading"
+      >
+        <div className="site-container">
+          <Reveal>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-ink">
+              03 How I approach projects
             </p>
+
+            <h2
+              id="process-heading"
+              className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl"
+            >
+              Built with visibility,{" "}
+              <span className="italic">not surprises.</span>
+            </h2>
+
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-body">
+              The goal is to keep the work understandable as it develops. You
+              should know what is being built, why it is being built, and what
+              decisions still need to be made.
+            </p>
+          </Reveal>
+
+          <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-ink/10 bg-ink/10 md:grid-cols-2">
+            {process.map((item, index) => (
+              <Reveal key={item.number} delay={index * 80}>
+                <article className="h-full bg-white p-7 sm:p-9">
+                  <p className="font-mono text-xs font-semibold text-ink">
+                    {item.number}
+                  </p>
+
+                  <h3 className="mt-5 text-2xl font-semibold tracking-tight text-ink">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-base leading-7 text-body">
+                    {item.text}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TOOLBOX */}
+      <section
+        className="border-t border-ink/10 bg-white py-24 sm:py-32"
+        aria-labelledby="toolbox-heading"
+      >
+        <div className="site-container">
+          <Reveal>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-ink">
+              04 The toolbox
+            </p>
+
+            <h2
+              id="toolbox-heading"
+              className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl"
+            >
+              The technology sits underneath the solution.
+            </h2>
+
+            <p className="mt-6 max-w-2xl text-base leading-7 text-body sm:text-lg">
+              These are tools I can work with across different types of
+              projects. The stack changes according to the problem, the
+              existing system, the requirements, and what needs to happen
+              after launch.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {toolbox.map((group, index) => (
+              <Reveal key={group.title} delay={(index % 3) * 70}>
+                <article className="h-full rounded-3xl border border-ink/10 bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-ink/30 hover:shadow-lg">
+                  <h3 className="text-xl font-semibold tracking-tight text-ink">
+                    {group.title}
+                  </h3>
+
+                  <p className="mt-2 font-mono text-[11px] font-semibold uppercase tracking-[0.15em] text-ink">
+                    {group.subtitle}
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {group.tools.map((tool) => (
+                      <span
+                        key={tool}
+                        className="rounded-full border border-ink/10 bg-white px-3 py-1.5 text-xs font-medium text-ink/75"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HUMAN PART */}
+      <section
+        className="bg-paper py-24 sm:py-32"
+        aria-labelledby="human-heading"
+      >
+        <div className="site-container">
+          <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+            <Reveal variant="left">
+              <div className="overflow-hidden rounded-[2rem] border border-ink/10 bg-white">
+                <div className="relative aspect-[4/5]">
+                  <Image
+                    src="/images/about/architecture-diagram.png"
+                    alt="Software architecture diagram showing how a digital system is structured"
+                    fill
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+
+                <p className="border-t border-ink/10 px-6 py-4 font-mono text-[11px] font-semibold uppercase tracking-[0.13em] text-body/60">
+                  WHERE THE WORK TAKES SHAPE — ARCHITECTURE BEFORE IMPLEMENTATION
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <div>
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-ink">
+                  05 The human part
+                </p>
+
+                <h2
+                  id="human-heading"
+                  className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl"
+                >
+                  Serious about the work.{" "}
+                  <span className="italic">Easy to work with.</span>
+                </h2>
+
+                <p className="mt-7 max-w-2xl text-lg leading-8 text-body">
+                  You&apos;ll get clear updates, honest feedback when an idea
+                  needs reconsidering, and direct communication throughout the
+                  project. Good development is not just about writing code — it
+                  is about making decisions together and keeping the product
+                  moving in the right direction.
+                </p>
+
+                <Link
+                  href="/contact"
+                  className="btn btn-primary mt-9 inline-flex items-center"
+                >
+                  Work with me
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section
+        className="bg-ink py-24 sm:py-32"
+        aria-labelledby="next-step-heading"
+      >
+        <div className="site-container">
+          <Reveal>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white">
+              06 Next step
+            </p>
+
+            <h2
+              id="next-step-heading"
+              className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
+            >
+              Have a problem worth solving?{" "}
+              <span className="italic">Let&apos;s talk.</span>
+            </h2>
+
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/60">
+              Describe what&apos;s not working, what you&apos;re building, or
+              what you want to improve. We can discuss the problem, the
+              possible solution, and the right scope before development begins.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:bg-white/90"
+              >
+                Start a project
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </Link>
+
+              <a
+                href={site.emailHref}
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-white/30"
+              >
+                {site.email}
+              </a>
+            </div>
+
+            <div className="mt-12 grid gap-3 border-t border-white/10 pt-6 text-sm text-white/50 sm:grid-cols-2 lg:grid-cols-4">
+              <span>Clear scope before development begins</span>
+              <span>Milestones agreed before work starts</span>
+              <span>Post-launch support based on project scope</span>
+              <span>You retain ownership of your website and content</span>
+            </div>
           </Reveal>
         </div>
       </section>
-
-      <CtaBand
-        title="Like the way Julie thinks? You'll like the way she builds."
-        text="Share the idea you're sitting on — the conversation is free, and the possibilities usually aren't what you expected."
-      />
     </main>
   );
 }
+

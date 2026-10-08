@@ -1,25 +1,30 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
-import { projects } from "@/lib/data";
 import { posts } from "@/lib/blog";
+import { landingPageConcepts } from "@/lib/landing-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/about", "/services", "/skills", "/portfolio", "/blog", "/contact"].map(
-    (path) => ({
-      url: `${site.url}${path}`,
-      lastModified: new Date(),
-    })
-  );
-
-  const projectPages = projects.map((p) => ({
-    url: `${site.url}/portfolio/${p.slug}`,
+  const staticPages = [
+    "",
+    "/about",
+    "/services",
+    "/landing-pages",
+    "/blog",
+    "/contact",
+  ].map((path) => ({
+    url: `${site.url}${path}`,
     lastModified: new Date(),
   }));
 
-  const blogPages = posts.map((p) => ({
-    url: `${site.url}/blog/${p.slug}`,
-    lastModified: new Date(p.date + "T12:00:00"),
+  const blogPages = posts.map((post) => ({
+    url: `${site.url}/blog/${post.slug}`,
+    lastModified: new Date(),
   }));
 
-  return [...staticPages, ...projectPages, ...blogPages];
+  const landingPages = landingPageConcepts.map((page) => ({
+    url: `${site.url}/landing-pages/${page.slug}`,
+    lastModified: new Date(),
+  }));
+
+  return [...staticPages, ...landingPages, ...blogPages];
 }
