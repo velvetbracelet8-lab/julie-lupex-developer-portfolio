@@ -7,22 +7,22 @@ import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About — Julie Lupex | Full-Stack Developer & Designer",
+  title: "About — Julie Lupex | Full-Stack Web Developer",
   description:
-    "Meet Julie Lupex — a full-stack developer and designer building thoughtful websites, web applications, and digital products around real business problems.",
+    "Meet Julie Lupex, a full-stack web developer who turns business problems and product ideas into practical websites, web applications, APIs, and digital systems.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Julie Lupex — Full-Stack Developer & Designer",
+    title: "About Julie Lupex — Full-Stack Web Developer",
     description:
-      "Learn how Julie approaches product thinking, interface design, full-stack development, and practical digital solutions.",
+      "Learn how Julie approaches problem-solving, product thinking, interface design, full-stack development, and practical digital solutions.",
   },
 };
 
-const stats = [
-  { value: "01", label: "PROBLEM-FIRST APPROACH" },
-  { value: "01", label: "CONNECTED DESIGN + DEVELOPMENT" },
-  { value: "01", label: "DIRECT COMMUNICATION" },
-  { value: "01", label: "CLEAR PROJECT SCOPE" },
+const principles = [
+  "Problem-first approach",
+  "Design + development connected",
+  "Direct communication",
+  "Clear project scope",
 ];
 
 const philosophy = [
@@ -52,12 +52,12 @@ const process = [
   {
     number: "02",
     title: "Structure the solution",
-    text: "The requirements are turned into a practical information structure, user experience, technical approach, and project scope before development gets too far ahead.",
+    text: "Requirements are turned into a practical information structure, user experience, technical approach, and project scope before development gets too far ahead.",
   },
   {
     number: "03",
     title: "Build and review",
-    text: "Development happens in clear stages so the direction can be reviewed as the product takes shape. This keeps technical decisions connected to the original goal.",
+    text: "Development happens in clear stages so the direction can be reviewed as the product takes shape. Technical decisions stay connected to the original goal.",
   },
   {
     number: "04",
@@ -152,17 +152,16 @@ export default function AboutPage() {
       <section className="bg-paper py-24 sm:py-32 lg:py-40">
         <div className="site-container">
           <Reveal>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-violet">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-ink">
               01 Story
             </p>
 
             <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-ink sm:text-6xl md:text-7xl lg:text-8xl">
               Hey, I&apos;m Julie.
               <br />
-              <span className="text-violet">Designer&apos;s eye,</span>
+              <span className="text-ink/45">I understand the problem,</span>
               <br />
-              engineer&apos;s brain,{" "}
-              <span className="italic">one inbox.</span>
+              then I build the solution.
             </h1>
           </Reveal>
 
@@ -170,27 +169,32 @@ export default function AboutPage() {
             <div className="mt-12 grid gap-8 border-t border-ink/10 pt-10 lg:grid-cols-12">
               <div className="lg:col-span-8 lg:col-start-5">
                 <p className="text-lg leading-8 text-body sm:text-xl sm:leading-9">
-                  I started in web development after seeing how easily small
-                  businesses can get trapped by bloated quotes, complicated
-                  processes, and websites that become difficult to maintain
-                  after launch. I wanted to build a better way: thoughtful
-                  digital products without unnecessary layers between the
-                  people who need them and the people building them.
+                  I&apos;m a full-stack web developer focused on turning
+                  business problems, technical challenges, and product ideas
+                  into practical digital solutions.
                 </p>
 
                 <p className="mt-7 text-lg leading-8 text-body sm:text-xl sm:leading-9">
-                  I work across design and development, which means I can think
-                  about the interface and the underlying system together. From
-                  responsive websites and user experiences to APIs, databases,
-                  authentication, and deployment, I focus on how the pieces
-                  work as one product.
+                  My work sits between product thinking, interface design, and
+                  software development. I can work through the user experience
+                  and the underlying system together — from responsive
+                  websites and web applications to APIs, databases,
+                  authentication, integrations, and deployment.
                 </p>
 
                 <p className="mt-7 text-lg leading-8 text-body sm:text-xl sm:leading-9">
-                  On larger builds I can also collaborate with Jeremy Muiruri on
-                  backend engineering and QA. Keeping the working team small
-                  allows technical conversations to stay close to the actual
-                  product and keeps communication direct.
+                  That does not mean every project needs more technology. It
+                  means choosing the right amount of technology for the problem.
+                  The goal is to remove friction, make the product easier to
+                  use, and leave behind a system that can be maintained and
+                  improved.
+                </p>
+
+                <p className="mt-7 text-lg leading-8 text-body sm:text-xl sm:leading-9">
+                  On larger builds, I can also collaborate with Jeremy Muiruri
+                  on backend engineering and QA. The working team stays small
+                  so technical decisions remain close to the product and
+                  communication stays direct.
                 </p>
               </div>
             </div>
@@ -202,19 +206,19 @@ export default function AboutPage() {
       <section className="border-y border-ink/10 bg-white py-8">
         <div className="site-container">
           <div className="grid grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-ink/10">
-            {stats.map((stat, index) => (
-              <Reveal key={`${stat.label}-${index}`} delay={index * 70}>
+            {principles.map((principle, index) => (
+              <Reveal key={principle} delay={index * 70}>
                 <div
                   className={`px-5 py-5 text-center sm:px-8 ${
                     index > 1 ? "border-t border-ink/10 lg:border-t-0" : ""
                   }`}
                 >
-                  <p className="text-3xl font-semibold tracking-tight text-violet sm:text-4xl">
-                    {stat.value}
+                  <p className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+                    {String(index + 1).padStart(2, "0")}
                   </p>
 
                   <p className="mt-2 font-mono text-[11px] font-semibold uppercase leading-4 tracking-[0.14em] text-body/60">
-                    {stat.label}
+                    {principle}
                   </p>
                 </div>
               </Reveal>
@@ -232,7 +236,7 @@ export default function AboutPage() {
                 <div className="relative aspect-[4/5]">
                   <Image
                     src="/images/julie-founder.png"
-                    alt="Julie Lupex — Founder, Full-Stack Developer and Designer"
+                    alt="Julie Lupex — Founder and Full-Stack Web Developer"
                     fill
                     sizes="(min-width: 1024px) 50vw, 100vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
@@ -246,7 +250,7 @@ export default function AboutPage() {
                   </h2>
 
                   <p className="mt-2 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-body/60">
-                    FOUNDER, FULL-STACK DEV &amp; DESIGNER
+                    FOUNDER · FULL-STACK WEB DEVELOPER
                   </p>
                 </div>
               </div>
@@ -266,10 +270,10 @@ export default function AboutPage() {
 
                 <div className="p-6 sm:p-8">
                   <p className="font-mono text-[11px] font-semibold uppercase leading-5 tracking-[0.14em] text-body/60">
-                    THE STUDIO — A SMALL DEVELOPMENT COLLABORATION
+                    THE STUDIO · A SMALL DEVELOPMENT COLLABORATION
                   </p>
 
-                  <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-violet">
+                  <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-ink">
                     JULIE LUPEX × JEREMY MUIRURI · DEVELOPMENT &amp; ENGINEERING
                   </p>
 
@@ -293,7 +297,7 @@ export default function AboutPage() {
       >
         <div className="site-container">
           <Reveal>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-violet">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-ink">
               02 Development philosophy
             </p>
 
@@ -309,7 +313,7 @@ export default function AboutPage() {
             {philosophy.map((item, index) => (
               <Reveal key={item.number} delay={index * 90}>
                 <article className="grid gap-5 py-9 sm:grid-cols-[80px_1fr] sm:gap-8">
-                  <p className="font-mono text-xs font-semibold text-violet">
+                  <p className="font-mono text-xs font-semibold text-ink">
                     {item.number}
                   </p>
 
@@ -336,7 +340,7 @@ export default function AboutPage() {
       >
         <div className="site-container">
           <Reveal>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-violet">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-ink">
               03 How I approach projects
             </p>
 
@@ -359,7 +363,7 @@ export default function AboutPage() {
             {process.map((item, index) => (
               <Reveal key={item.number} delay={index * 80}>
                 <article className="h-full bg-white p-7 sm:p-9">
-                  <p className="font-mono text-xs font-semibold text-violet">
+                  <p className="font-mono text-xs font-semibold text-ink">
                     {item.number}
                   </p>
 
@@ -384,7 +388,7 @@ export default function AboutPage() {
       >
         <div className="site-container">
           <Reveal>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-violet">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-ink">
               04 The toolbox
             </p>
 
@@ -392,25 +396,26 @@ export default function AboutPage() {
               id="toolbox-heading"
               className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl"
             >
-              Technologies I work with.
+              The technology sits underneath the solution.
             </h2>
 
             <p className="mt-6 max-w-2xl text-base leading-7 text-body sm:text-lg">
-              A practical production stack shaped by the needs of the project.
-              I choose technologies for reliability, maintainability, and the
-              problem they solve — not simply because they are fashionable.
+              These are tools I can work with across different types of
+              projects. The stack changes according to the problem, the
+              existing system, the requirements, and what needs to happen
+              after launch.
             </p>
           </Reveal>
 
           <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {toolbox.map((group, index) => (
               <Reveal key={group.title} delay={(index % 3) * 70}>
-                <article className="h-full rounded-3xl border border-ink/10 bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-violet/40 hover:shadow-lg">
+                <article className="h-full rounded-3xl border border-ink/10 bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-ink/30 hover:shadow-lg">
                   <h3 className="text-xl font-semibold tracking-tight text-ink">
                     {group.title}
                   </h3>
 
-                  <p className="mt-2 font-mono text-[11px] font-semibold uppercase tracking-[0.15em] text-violet">
+                  <p className="mt-2 font-mono text-[11px] font-semibold uppercase tracking-[0.15em] text-ink">
                     {group.subtitle}
                   </p>
 
@@ -458,7 +463,7 @@ export default function AboutPage() {
 
             <Reveal delay={120}>
               <div>
-                <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-violet">
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-ink">
                   05 The human part
                 </p>
 
@@ -498,7 +503,7 @@ export default function AboutPage() {
       >
         <div className="site-container">
           <Reveal>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-violet">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white">
               06 Next step
             </p>
 
@@ -519,7 +524,7 @@ export default function AboutPage() {
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-violet px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-violet/90"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:bg-white/90"
               >
                 Start a project
                 <ArrowUpRight size={16} aria-hidden="true" />

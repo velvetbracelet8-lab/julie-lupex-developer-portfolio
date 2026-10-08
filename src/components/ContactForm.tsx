@@ -2,14 +2,12 @@
 "use client";
 
 import { useEffect, useState, type FormEvent } from "react";
-
 import {
   AlertCircle,
   ArrowRight,
   CheckCircle2,
   Loader2,
 } from "lucide-react";
-
 import { site } from "@/lib/site";
 
 const projectTypes = [
@@ -45,7 +43,7 @@ const serviceToProjectType: Record<string, string> = {
   "frontend development": "UI / Frontend Development",
   "backend / api": "Backend / API",
   "backend/api": "Backend / API",
-  "backend": "Backend / API",
+  backend: "Backend / API",
   "full-stack development": "Full-Stack Development",
   "full stack development": "Full-Stack Development",
 };
@@ -93,7 +91,7 @@ export default function ContactForm() {
 
     if (!data.message || data.message.trim().length < 12) {
       errs.message =
-        "Tell Julie a little more — a sentence or two about the problem is perfect.";
+        "Tell Julie a little more — a sentence or two about the problem is enough.";
     }
 
     return errs;
@@ -166,11 +164,11 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div
-        className="flex h-full flex-col items-center justify-center rounded-3xl border border-violet/30 bg-white p-10 text-center"
+        className="flex h-full flex-col items-center justify-center rounded-3xl border border-ink/15 bg-ink/5 p-10 text-center"
         role="status"
         aria-live="polite"
       >
-        <span className="grid h-16 w-16 place-items-center rounded-full bg-violet/15 text-deep">
+        <span className="grid h-16 w-16 place-items-center rounded-full bg-ink/5 text-ink">
           <CheckCircle2 size={30} aria-hidden="true" />
         </span>
 
@@ -179,9 +177,9 @@ export default function ContactForm() {
         </h3>
 
         <p className="mt-3 max-w-sm leading-relaxed text-body">
-          Thank you for reaching out — your project brief has been received
-          and Julie will read it personally. Expect a reply at the email
-          address you shared.
+          Thanks for reaching out. Your message has been received and Julie
+          will read it personally. Expect a reply at the email address you
+          shared.
         </p>
 
         <button
@@ -306,7 +304,7 @@ export default function ContactForm() {
             id="message"
             name="message"
             rows={5}
-            placeholder="What is the main problem holding your business back right now? For example: the current site is slow, checkout drops off, or you need an MVP to pitch investors."
+            placeholder="What are you trying to achieve, and what is getting in the way? For example: the current site is slow, checkout drops off, or you need an MVP."
             className={`field-input resize-y ${
               errors.message ? "field-error" : ""
             }`}
@@ -351,8 +349,8 @@ export default function ContactForm() {
 
       <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-xs text-xs leading-relaxed text-body/70">
-          Your message is sent securely through the contact form and read
-          personally by Julie. No newsletters, no spam — just a reply.
+          Your message is sent through the contact form and read personally
+          by Julie. No newsletters, no spam — just a reply.
         </p>
 
         <button
@@ -362,7 +360,7 @@ export default function ContactForm() {
         >
           {status === "submitting" ? (
             <>
-              Sending your project brief...
+              Sending message...
               <Loader2
                 size={16}
                 className="animate-spin"
@@ -371,7 +369,7 @@ export default function ContactForm() {
             </>
           ) : (
             <>
-              Send Project Brief
+              Send message
               <ArrowRight size={16} aria-hidden="true" />
             </>
           )}

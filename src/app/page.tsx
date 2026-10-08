@@ -9,6 +9,33 @@ import TeamSection from "@/components/TeamSection";
 import { BlogCard } from "@/components/cards";
 import { posts } from "@/lib/blog";
 
+const solutions = [
+  {
+    number: "01",
+    title: "Websites",
+    text: "Fast, responsive websites built to communicate clearly, guide visitors, and support business goals.",
+    href: "/services#websites",
+  },
+  {
+    number: "02",
+    title: "Web Applications",
+    text: "Custom systems that replace manual workflows, connect information, and make complex processes easier to manage.",
+    href: "/services#web-applications",
+  },
+  {
+    number: "03",
+    title: "E-commerce",
+    text: "Customer-focused shopping experiences designed around product discovery, trust, checkout, and growth.",
+    href: "/services#e-commerce",
+  },
+  {
+    number: "04",
+    title: "APIs & Backend",
+    text: "Reliable backend systems, APIs, databases, and integrations that give digital products a solid foundation.",
+    href: "/services#backend-api",
+  },
+];
+
 export default function HomePage() {
   const latestPosts = posts.slice(0, 3);
 
@@ -37,22 +64,21 @@ export default function HomePage() {
 
             <div className="mx-auto mt-10 max-w-3xl space-y-6 text-base leading-8 text-[var(--body)] sm:text-lg sm:leading-9">
               <p>
-                I&apos;m Julie Lupex, a full-stack developer helping businesses
-                turn ideas, technical challenges, and opportunities for
-                improvement into practical digital products.
+                I&apos;m Julie Lupex, a full-stack developer focused on turning
+                business problems, technical challenges, and ideas into
+                practical digital products.
               </p>
 
               <p>
-                From responsive websites and intuitive interfaces to APIs,
-                databases, and custom web applications, I focus on understanding
-                the problem first and then building the right solution around
-                it.
+                I work across the full stack — from responsive interfaces and
+                user journeys to APIs, databases, integrations, and the
+                application logic behind them.
               </p>
 
               <p>
-                The goal is simple: reduce friction, make technology easier to
-                use, and create digital experiences that help a business move
-                forward.
+                The goal is not to use technology for its own sake. It is to
+                remove friction, improve the experience for users, and build
+                something that makes the business easier to run or grow.
               </p>
             </div>
 
@@ -89,8 +115,7 @@ export default function HomePage() {
                 <span className="font-medium text-[var(--ink)]">
                   Core Focus
                 </span>{" "}
-                Full-Stack Development • Web Applications • UI/UX • Digital
-                Solutions
+                Websites • Web Applications • APIs • E-commerce
               </p>
             </div>
 
@@ -107,6 +132,65 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ---------- Solutions ---------- */}
+      <section
+        className="border-t border-ink/10 bg-paper py-24 sm:py-28"
+        aria-labelledby="solutions-heading"
+      >
+        <div className="site-container">
+          <div className="grid gap-12 md:grid-cols-12 md:items-end md:gap-16">
+            <Reveal className="md:col-span-7">
+              <SectionHeading
+                eyebrow="What I build"
+                title="The right solution starts with the problem."
+                description="You do not need to know which technology to choose. Start by explaining what is not working, what you want to build, or what you want to improve."
+              />
+            </Reveal>
+
+            <Reveal delay={120} className="md:col-span-5">
+              <div className="border-t border-ink/15 pt-5">
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+                  Problem → Solution
+                </p>
+
+                <p className="mt-3 text-sm leading-6 text-[var(--body)]">
+                  I help turn unclear requirements into a practical technical
+                  direction, then build the product around that direction.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {solutions.map((solution, index) => (
+              <Reveal key={solution.number} delay={index * 70}>
+                <Link
+                  href={solution.href}
+                  className="group flex h-full flex-col border-t border-ink/15 pt-6 transition-colors duration-300 hover:border-ink"
+                >
+                  <span className="font-mono text-xs font-semibold text-muted">
+                    {solution.number}
+                  </span>
+
+                  <h3 className="mt-5 text-xl font-semibold tracking-[-0.02em] text-[var(--ink)]">
+                    {solution.title}
+                  </h3>
+
+                  <p className="mt-3 flex-1 text-sm leading-6 text-[var(--body)]">
+                    {solution.text}
+                  </p>
+
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ink transition-all duration-300 group-hover:gap-3">
+                    Explore
+                    <ArrowRight size={15} aria-hidden="true" />
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ---------- Problem-solving showcase ---------- */}
       <section
         className="bg-paper-2 py-24 sm:py-28"
@@ -115,9 +199,9 @@ export default function HomePage() {
         <div className="site-container">
           <div className="mb-12">
             <SectionHeading
-              eyebrow="Selected Work"
-              title="See how I turn problems into digital solutions."
-              description="A closer look at how I approach structure, user experience, responsive implementation, and technical execution."
+              eyebrow="Featured Concept"
+              title="See the problem-solving approach in practice."
+              description="A closer look at how structure, user experience, responsive implementation, and technical thinking come together in a real interface concept."
             />
           </div>
 
@@ -144,9 +228,9 @@ export default function HomePage() {
                     </h2>
 
                     <p className="mt-4 max-w-2xl text-base leading-7 text-ink/65">
-                      A healthcare website concept focused on making services
-                      easier to understand, improving navigation, and giving
-                      patients a clearer path toward an appointment.
+                      A healthcare website concept designed to make dental
+                      services easier to understand, establish trust quickly,
+                      and give prospective patients a clearer route to booking.
                     </p>
                   </div>
 
@@ -156,9 +240,10 @@ export default function HomePage() {
                     </p>
 
                     <p className="mt-2 text-sm leading-6 text-ink/65">
-                      Important healthcare information can become difficult to
-                      find when services, trust-building content, and booking
-                      actions are not organized around the visitor&apos;s needs.
+                      Patients need to understand services, feel confident in
+                      the practice, and know what to do next. When that
+                      information is fragmented or difficult to navigate,
+                      important actions can become harder to find.
                     </p>
                   </div>
 
@@ -168,9 +253,10 @@ export default function HomePage() {
                     </p>
 
                     <p className="mt-2 text-sm leading-6 text-ink/65">
-                      The concept reorganizes the experience around clear
-                      content hierarchy, responsive layouts, service discovery,
-                      and visible next steps across desktop and mobile.
+                      The concept uses clearer content hierarchy, focused
+                      service discovery, visible calls to action, and
+                      responsive layouts so the same journey remains usable
+                      across desktop and mobile.
                     </p>
                   </div>
 
@@ -193,7 +279,7 @@ export default function HomePage() {
                       href="/landing-pages/dentalcleans"
                       className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-ink"
                     >
-                      View case study
+                      View project
                       <ArrowUpRight size={16} aria-hidden="true" />
                     </Link>
 
@@ -215,15 +301,6 @@ export default function HomePage() {
               </div>
             </div>
           </Reveal>
-
-          <div className="mt-10 flex justify-center">
-            <Reveal delay={280}>
-              <Link href="/landing-pages" className="btn btn-ghost-dark">
-                Explore More Concepts
-                <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-            </Reveal>
-          </div>
         </div>
       </section>
 

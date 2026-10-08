@@ -8,12 +8,12 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact — Julie Lupex",
   description:
-    "Tell Julie Lupex about your project or the problem you're trying to solve. Discuss the right solution, scope, timeline, and next steps.",
+    "Tell Julie Lupex about your project or the problem you're trying to solve. Get clarity on the right solution, scope, timeline, and next steps.",
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact Julie Lupex — Tell Me About Your Project",
+    title: "Contact Julie Lupex — Start With the Problem",
     description:
-      "Describe what you're building or the problem you're trying to solve. Let's discuss the right solution, scope, timeline, and next steps.",
+      "Describe what you're building or the problem you're trying to solve. Let's work out the right solution, scope, timeline, and next steps.",
   },
 };
 
@@ -21,12 +21,12 @@ const nextSteps = [
   {
     number: "01",
     title: "You get a considered reply",
-    text: "I'll review what you've shared, ask the important questions, and give you an honest first take.",
+    text: "I'll review what you've shared, identify the important questions, and give you an honest first take.",
   },
   {
     number: "02",
-    title: "We discuss the problem",
-    text: "We'll clarify your goals, users, technical needs, scope, and whether I'm the right fit for the project.",
+    title: "We clarify the problem",
+    text: "We'll discuss your goals, users, technical needs, scope, and whether I'm the right fit for the work.",
   },
   {
     number: "03",
@@ -39,12 +39,12 @@ const faqs = [
   {
     question: "How much should I budget?",
     answer:
-      "Every project begins with understanding the scope and requirements. You'll then receive a clear proposal outlining the agreed deliverables, timeline, and investment before development begins. Business websites typically fall within the $2,900–$6,000 range, while custom web applications and e-commerce solutions are scoped individually.",
+      "It depends on the scope and requirements. Business websites typically fall within the $2,900–$6,000 range. Custom web applications and e-commerce projects are scoped individually. Before development begins, you'll receive a clear proposal covering the agreed deliverables, timeline, and investment.",
   },
   {
     question: "How long does a typical project take?",
     answer:
-      "Most business websites take 2–4 weeks, while larger websites, e-commerce platforms, and custom applications may take 4–10 weeks depending on the scope. Before development begins, you'll receive a clear timeline with the key deliverables and milestones, so you know what's being built and when to expect it.",
+      "Most business websites take around 2–4 weeks. Larger websites, e-commerce platforms, and custom applications can take 4–10 weeks or more depending on scope, integrations, content readiness, and feedback. The final proposal will include a project-specific timeline and milestones.",
   },
   {
     question: "Do you work with clients internationally?",
@@ -54,12 +54,12 @@ const faqs = [
   {
     question: "I already have a website. Can you rebuild it?",
     answer:
-      "Absolutely. I can review what you already have, identify what is creating problems for users or the business, and recommend whether a full rebuild or targeted improvements make more sense. If a full rebuild isn't necessary, I'll tell you that too.",
+      "Yes. I can review what you already have, identify what is creating problems for users or the business, and recommend whether a full rebuild or targeted improvements make more sense. If a rebuild is unnecessary, I'll tell you that too.",
   },
   {
     question: "What happens after launch?",
     answer:
-      "Post-launch support depends on the project scope. Depending on the engagement, I can help with fixes, updates, monitoring, performance improvements, and ongoing Care & Growth support after the initial launch.",
+      "Post-launch support depends on the project scope. Depending on the engagement, I can help with fixes, updates, monitoring, performance improvements, and ongoing Care & Growth support.",
   },
 ];
 
@@ -71,19 +71,19 @@ export default function ContactPage() {
         <div className="site-container">
           <Reveal>
             <div className="max-w-5xl">
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-deep">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-muted">
                 Contact
               </p>
 
               <h1 className="mt-5 max-w-4xl text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-8xl">
-                Tell me about{" "}
-                <span className="text-ink/45">your project.</span>
+                Start with the{" "}
+                <span className="text-ink/45">problem.</span>
               </h1>
 
               <p className="mt-8 max-w-3xl text-lg leading-8 text-ink/65 sm:text-xl sm:leading-9">
-                Describe what you're building — or the problem you're trying
-                to solve — and I'll help you work out the right direction,
-                scope, and next steps.
+                Tell me what is not working, what you&apos;re building, or
+                what you want to improve. You do not need a polished brief —
+                just enough context to start a useful conversation.
               </p>
             </div>
           </Reveal>
@@ -100,7 +100,7 @@ export default function ContactPage() {
             <Reveal>
               <div className="rounded-3xl border border-ink/10 bg-paper p-6 sm:p-8 lg:p-10">
                 <div className="mb-8">
-                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-deep">
+                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-muted">
                     Start here
                   </p>
 
@@ -108,12 +108,14 @@ export default function ContactPage() {
                     id="contact-form-heading"
                     className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl"
                   >
-                    Tell me about your project.
+                    Tell me what you&apos;re trying to solve.
                   </h2>
 
-                  <p className="mt-3 text-sm leading-6 text-ink/60">
-                    No polished brief required. Give me the rough version and
-                    I'll help turn it into something concrete.
+                  <p className="mt-3 max-w-2xl text-sm leading-6 text-ink/60">
+                    Give me the rough version. Share what you&apos;re
+                    building, what is getting in the way, or what you want to
+                    improve, and I&apos;ll help turn it into something
+                    concrete.
                   </p>
                 </div>
 
@@ -133,7 +135,7 @@ export default function ContactPage() {
           <div className="mx-auto max-w-5xl">
             <Reveal>
               <div className="max-w-3xl">
-                <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-deep">
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-muted">
                   What happens next
                 </p>
 
@@ -141,8 +143,13 @@ export default function ContactPage() {
                   id="next-steps-heading"
                   className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl"
                 >
-                  No mystery after you hit send.
+                  A clear process after you hit send.
                 </h2>
+
+                <p className="mt-4 max-w-2xl text-base leading-7 text-ink/60 sm:text-lg sm:leading-8">
+                  The first conversation is about understanding the problem,
+                  not pushing you into a predefined package.
+                </p>
               </div>
             </Reveal>
 
@@ -151,7 +158,7 @@ export default function ContactPage() {
                 <Reveal key={step.number} delay={index * 90}>
                   <article className="h-full rounded-3xl border border-ink/10 bg-paper-2 p-6 sm:p-7">
                     <span
-                      className="font-mono text-xs font-semibold tracking-[0.15em] text-deep"
+                      className="font-mono text-xs font-semibold tracking-[0.15em] text-muted"
                       aria-hidden="true"
                     >
                       {step.number}
@@ -180,21 +187,21 @@ export default function ContactPage() {
         <div className="site-container">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-4">
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-deep">
-                 Questions, answered
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+                Questions, answered
               </p>
 
               <h2
                 id="faq-heading"
                 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl"
               >
-                The things everyone asks{" "}
-                <span className="text-ink/45">before they hire me.</span>
+                The things people ask{" "}
+                <span className="text-ink/45">before starting.</span>
               </h2>
 
               <a
                 href="mailto:julielupex@gmail.com"
-                className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-deep"
+                className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-muted"
               >
                 Something else? Ask away
                 <ArrowUpRight size={16} aria-hidden="true" />

@@ -87,8 +87,8 @@ Share this blueprint </span>
     onClick={copyLink}
     className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all ${
       copied
-        ? "border-mint bg-mint/10 text-ink"
-        : "border-ink/15 bg-white text-body hover:border-violet/60 hover:text-ink"
+        ? "border-ink/15 bg-ink/5 text-ink"
+        : "border-ink/15 bg-white text-body hover:border-ink/30 hover:text-ink"
     }`}
     aria-label={copied ? "Link copied" : "Copy article link"}
   >
@@ -104,7 +104,7 @@ Share this blueprint </span>
     <button
       type="button"
       onClick={nativeShare}
-      className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold text-body transition-all hover:border-violet/60 hover:text-ink"
+      className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold text-body transition-all hover:border-ink/30 hover:text-ink"
       aria-label="Share this article"
     >
       <Share2 size={15} aria-hidden="true" />
@@ -116,7 +116,7 @@ Share this blueprint </span>
     href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`}
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold text-body transition-all hover:border-violet/60 hover:text-ink"
+    className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold text-body transition-all hover:border-ink/30 hover:text-ink"
     aria-label="Share on X"
   >
     <span

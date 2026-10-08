@@ -4,7 +4,6 @@ import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import ConditionalFooter from "@/components/ConditionalFooter";
-
 import { site } from "@/lib/site";
 
 const spaceGrotesk = Space_Grotesk({
@@ -85,7 +84,7 @@ export default function RootLayout({
       <body id="top" className="antialiased">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-xl focus:bg-[var(--violet)] focus:px-5 focus:py-2.5 focus:font-display focus:text-sm focus:font-bold focus:text-[var(--ink)]"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-xl focus:bg-ink focus:px-5 focus:py-2.5 focus:font-display focus:text-sm focus:font-bold focus:text-white"
         >
           Skip to main content
         </a>
@@ -97,4 +96,3 @@ export default function RootLayout({
     </html>
   );
 }
-
