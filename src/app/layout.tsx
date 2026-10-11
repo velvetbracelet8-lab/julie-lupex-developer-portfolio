@@ -1,10 +1,12 @@
 
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
-import "./globals.css";
+
 import Navbar from "@/components/Navbar";
 import ConditionalFooter from "@/components/ConditionalFooter";
 import { site } from "@/lib/site";
+
+import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -79,7 +81,6 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} scroll-smooth`}
-      suppressHydrationWarning
     >
       <body id="top" className="antialiased">
         <a

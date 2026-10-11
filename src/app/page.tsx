@@ -1,13 +1,13 @@
 
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BriefcaseBusiness } from "lucide-react";
+
 import HomeHero from "@/components/HomeHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import DentalWebsitePreview from "@/components/DentalWebsitePreview";
-import TeamSection from "@/components/TeamSection";
 import { BlogCard } from "@/components/cards";
 import { posts } from "@/lib/blog";
+import { createSupabaseServerClient } from "@/lib/supabase-server";
 
 const solutions = [
   {
@@ -22,28 +22,38 @@ const solutions = [
     text: "Custom systems that replace manual workflows, connect information, and make complex processes easier to manage.",
     href: "/services#web-applications",
   },
-  {
-    number: "03",
-    title: "E-commerce",
-    text: "Customer-focused shopping experiences designed around product discovery, trust, checkout, and growth.",
-    href: "/services#e-commerce",
-  },
-  {
-    number: "04",
-    title: "APIs & Backend",
-    text: "Reliable backend systems, APIs, databases, and integrations that give digital products a solid foundation.",
-    href: "/services#backend-api",
-  },
 ];
 
-export default function HomePage() {
+type FeaturedProject = {
+  id: string;
+  title: string;
+  slug: string;
+  subtitle: string | null;
+  project_type: string;
+  category: string | null;
+  summary: string | null;
+};
+
+export default async function HomePage() {
   const latestPosts = posts.slice(0, 3);
+  const supabase = await createSupabaseServerClient();
+
+  const { data: projectData } = await supabase
+    .from("projects")
+    .select("id, title, slug, subtitle, project_type, category, summary")
+    .eq("published", true)
+    .eq("featured", true)
+    .order("sort_order", { ascending: true })
+    .order("created_at", { ascending: false })
+    .limit(3);
+
+  const featuredProjects = (projectData ?? []) as FeaturedProject[];
 
   return (
     <main id="main">
       <HomeHero />
 
-      {/* ---------- Intro / About preview ---------- */}
+      {/* Intro / About preview */}
       <section
         id="about"
         className="border-t border-[var(--border)] bg-[var(--paper)] py-24 md:py-32 lg:py-40"
@@ -51,136 +61,121 @@ export default function HomePage() {
       >
         <div className="site-container">
           <div className="mx-auto max-w-5xl text-center">
-            <p className="mb-6 text-xs font-bold uppercase tracking-[0.18em] text-white">
-              Meet Julie
-            </p>
-
-            <h2
-              id="about-preview-heading"
-              className="mx-auto max-w-4xl text-4xl font-medium leading-[1.05] tracking-[-0.045em] sm:text-5xl md:text-6xl lg:text-7xl"
-            >
-              I build digital solutions around real problems.
-            </h2>
-
-            <div className="mx-auto mt-10 max-w-3xl space-y-6 text-base leading-8 text-[var(--body)] sm:text-lg sm:leading-9">
-              <p>
-                I&apos;m Julie Lupex, a full-stack developer focused on turning
-                business problems, technical challenges, and ideas into
-                practical digital products.
+            <Reveal>
+              <p className="mb-6 text-xs font-bold uppercase tracking-[0.18em] text-[var(--ink)]">
+                Meet Julie
               </p>
 
-              <p>
-                I work across the full stack — from responsive interfaces and
-                user journeys to APIs, databases, integrations, and the
-                application logic behind them.
-              </p>
+              <h2
+                id="about-preview-heading"
+                className="mx-auto max-w-4xl text-4xl font-medium leading-[1.05] tracking-[-0.045em] sm:text-5xl md:text-6xl lg:text-7xl"
+              >
+                I build digital solutions around real problems.
+              </h2>
 
-              <p>
-                The goal is not to use technology for its own sake. It is to
-                remove friction, improve the experience for users, and build
-                something that makes the business easier to run or grow.
-              </p>
-            </div>
+              <div className="mx-auto mt-10 max-w-3xl space-y-6 text-base leading-8 text-[var(--body)] sm:text-lg sm:leading-9">
+                <p>
+                  I&apos;m Julie Lupex, a full-stack developer focused on
+                  turning business needs, technical challenges, and ideas into
+                  practical digital products.
+                </p>
+              </div>
+            </Reveal>
 
-            <div className="mx-auto mt-14 max-w-4xl border-y border-[var(--border)] py-8">
-              <div className="flex flex-col items-center justify-center gap-5 text-sm leading-7 text-[var(--body)] md:flex-row md:gap-8">
-                <span className="inline-flex items-center gap-3">
-                  <span
-                    className="relative flex h-2.5 w-2.5 shrink-0"
-                    aria-hidden="true"
-                  >
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-60" />
-                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-ink" />
+            <Reveal delay={100}>
+              <div className="mx-auto mt-14 max-w-4xl border-y border-[var(--border)] py-8">
+                <div className="flex flex-col items-center justify-center gap-5 text-sm leading-7 text-[var(--body)] md:flex-row md:gap-8">
+                  <span className="inline-flex items-center gap-3">
+                    <span
+                      className="relative flex h-2.5 w-2.5 shrink-0"
+                      aria-hidden="true"
+                    >
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-60" />
+                      <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-ink" />
+                    </span>
+
+                    <span>
+                      <span className="font-medium text-[var(--ink)]">
+                        Available
+                      </span>{" "}
+                      for freelance projects
+                    </span>
                   </span>
+
+                  <span className="hidden h-5 w-px bg-[var(--border)] md:block" />
 
                   <span>
                     <span className="font-medium text-[var(--ink)]">
-                      Available
+                      Working remotely
                     </span>{" "}
-                    for freelance projects &amp; contract roles
+                    · Available worldwide
                   </span>
-                </span>
-
-                <span className="hidden h-5 w-px bg-[var(--border)] md:block" />
-
-                <span>
-                  <span className="font-medium text-[var(--ink)]">
-                    Location
-                  </span>{" "}
-                  Remote / Worldwide
-                </span>
+                </div>
               </div>
+            </Reveal>
 
-              <p className="mt-5 text-sm leading-7 text-[var(--body)]">
-                <span className="font-medium text-[var(--ink)]">
-                  Core Focus
-                </span>{" "}
-                Websites • Web Applications • APIs • E-commerce
-              </p>
-            </div>
-
-            <div className="mt-10">
-              <Link
-                href="/about"
-                className="btn btn-primary inline-flex items-center"
-              >
-                More About Julie
-                <ArrowUpRight size={16} />
-              </Link>
-            </div>
+            <Reveal delay={160}>
+              <div className="mt-10">
+                <Link
+                  href="/about"
+                  className="btn btn-primary inline-flex items-center"
+                >
+                  More About Julie
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </Link>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* ---------- Solutions ---------- */}
+      {/* What I Build */}
       <section
+        id="solutions"
         className="border-t border-ink/10 bg-paper py-24 sm:py-28"
         aria-labelledby="solutions-heading"
       >
         <div className="site-container">
-          <div className="grid gap-12 md:grid-cols-12 md:items-end md:gap-16">
-            <Reveal className="md:col-span-7">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <Reveal>
               <SectionHeading
                 eyebrow="What I build"
-                title="The right solution starts with the problem."
-                description="You do not need to know which technology to choose. Start by explaining what is not working, what you want to build, or what you want to improve."
+                title="Digital solutions built around the problem."
+                description="You do not need to know which technology to choose."
               />
             </Reveal>
 
-            <Reveal delay={120} className="md:col-span-5">
-              <div className="border-t border-ink/15 pt-5">
-                <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-                  Problem → Solution
-                </p>
-
-                <p className="mt-3 text-sm leading-6 text-[var(--body)]">
-                  I help turn unclear requirements into a practical technical
-                  direction, then build the product around that direction.
-                </p>
-              </div>
+            <Reveal delay={120}>
+              <Link
+                href="/services"
+                className="inline-flex w-fit items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-muted"
+              >
+                View all services
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </Link>
             </Reveal>
           </div>
 
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
             {solutions.map((solution, index) => (
-              <Reveal key={solution.number} delay={index * 70}>
+              <Reveal key={solution.number} delay={index * 90}>
                 <Link
                   href={solution.href}
-                  className="group flex h-full flex-col border-t border-ink/15 pt-6 transition-colors duration-300 hover:border-ink"
+                  className="group flex h-full flex-col rounded-3xl border border-ink/10 bg-paper-2 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-ink/30 sm:p-9"
                 >
-                  <span className="font-mono text-xs font-semibold text-muted">
+                  <span className="font-mono text-xs font-semibold tracking-[0.18em] text-muted">
                     {solution.number}
                   </span>
 
-                  <h3 className="mt-5 text-xl font-semibold tracking-[-0.02em] text-[var(--ink)]">
+                  <h3 className="mt-6 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
                     {solution.title}
                   </h3>
 
-                  <p className="mt-3 flex-1 text-sm leading-6 text-[var(--body)]">
+                  <p className="mt-3 max-w-xl flex-1 text-sm leading-6 text-ink/65 sm:text-base sm:leading-7">
                     {solution.text}
                   </p>
 
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ink transition-all duration-300 group-hover:gap-3">
+                  <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ink transition-all duration-300 group-hover:gap-3">
                     Explore
                     <ArrowRight size={15} aria-hidden="true" />
                   </span>
@@ -191,203 +186,124 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ---------- Problem-solving showcase ---------- */}
+      {/* Featured projects from Supabase */}
       <section
-        className="bg-paper-2 py-24 sm:py-28"
-        aria-labelledby="work-showcase-heading"
+        id="featured-work"
+        className="border-t border-ink/10 bg-paper-2 py-24 sm:py-28"
+        aria-labelledby="featured-work-heading"
       >
         <div className="site-container">
-          <div className="mb-12">
-            <SectionHeading
-              eyebrow="Featured Concept"
-              title="See the problem-solving approach in practice."
-              description="A closer look at how structure, user experience, responsive implementation, and technical thinking come together in a real interface concept."
-            />
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <Reveal>
+              <SectionHeading
+                eyebrow="Selected work"
+                title="Projects built with purpose."
+                description="Explore completed work and proposed solutions, each shaped around a clear problem and a thoughtful approach."
+              />
+            </Reveal>
+
+            <Reveal delay={100}>
+              <Link
+                href="/work"
+                className="inline-flex w-fit shrink-0 items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-muted"
+              >
+                All projects
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </Link>
+            </Reveal>
           </div>
 
-          <Reveal delay={120}>
-            <div className="grid items-center gap-10 rounded-3xl border border-ink/10 bg-paper p-6 sm:p-10 lg:grid-cols-12 lg:gap-14">
-              <div className="lg:col-span-5">
-                <div className="space-y-6">
-                  <div>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-ink">
-                        Healthcare Website
-                      </p>
+          {featuredProjects.length > 0 ? (
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {featuredProjects.map((project, index) => (
+                <Reveal key={project.id} delay={index * 80}>
+                  <article className="flex h-full flex-col rounded-3xl border border-ink/10 bg-paper p-7 transition-all duration-300 hover:-translate-y-1 hover:border-ink/30 hover:shadow-[0_24px_50px_-24px_rgba(15,13,20,0.2)] sm:p-8">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="grid h-11 w-11 place-items-center rounded-2xl bg-ink text-white">
+                        <BriefcaseBusiness size={20} aria-hidden="true" />
+                      </span>
 
-                      <span className="rounded-full border border-black/8 bg-black/[0.025] px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-ink/55">
-                        Concept
+                      <span className="rounded-full border border-ink/10 px-3 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-ink/65">
+                        {project.project_type === "complete"
+                          ? "Completed"
+                          : "Proposed"}
                       </span>
                     </div>
 
-                    <h2
-                      id="work-showcase-heading"
-                      className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl"
-                    >
-                      DentalCleans
-                    </h2>
-
-                    <p className="mt-4 max-w-2xl text-base leading-7 text-ink/65">
-                      A healthcare website concept designed to make dental
-                      services easier to understand, establish trust quickly,
-                      and give prospective patients a clearer route to booking.
-                    </p>
-                  </div>
-
-                  <div>
-                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/45">
-                      Problem
+                    <p className="mt-7 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-muted">
+                      {project.category || "Digital project"}
                     </p>
 
-                    <p className="mt-2 text-sm leading-6 text-ink/65">
-                      Patients need to understand services, feel confident in
-                      the practice, and know what to do next. When that
-                      information is fragmented or difficult to navigate,
-                      important actions can become harder to find.
-                    </p>
-                  </div>
+                    <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight text-ink">
+                      {project.title}
+                    </h3>
 
-                  <div>
-                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/45">
-                      Approach
-                    </p>
+                    {project.subtitle && (
+                      <p className="mt-2 text-sm font-medium leading-6 text-ink/75">
+                        {project.subtitle}
+                      </p>
+                    )}
 
-                    <p className="mt-2 text-sm leading-6 text-ink/65">
-                      The concept uses clearer content hierarchy, focused
-                      service discovery, visible calls to action, and
-                      responsive layouts so the same journey remains usable
-                      across desktop and mobile.
-                    </p>
-                  </div>
+                    {project.summary && (
+                      <p className="mt-4 flex-1 text-sm leading-7 text-body">
+                        {project.summary}
+                      </p>
+                    )}
 
-                  <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full border border-black/8 bg-black/[0.025] px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-ink/55">
-                      Responsive
-                    </span>
-
-                    <span className="rounded-full border border-black/8 bg-black/[0.025] px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-ink/55">
-                      Desktop + Mobile
-                    </span>
-
-                    <span className="rounded-full border border-black/8 bg-black/[0.025] px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-ink/55">
-                      Healthcare
-                    </span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-3">
                     <Link
-                      href="/landing-pages/dentalcleans"
-                      className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-ink"
+                      href={`/work/${project.slug}`}
+                      className="mt-8 inline-flex w-fit items-center gap-2 text-sm font-semibold text-ink transition-all hover:gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
                     >
-                      View project
+                      View case study
                       <ArrowUpRight size={16} aria-hidden="true" />
                     </Link>
-
-                    <a
-                      href="https://dentalcleans.netlify.app/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-ink hover:text-ink"
-                    >
-                      View live concept
-                      <ExternalLink size={16} aria-hidden="true" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="lg:col-span-7">
-                <DentalWebsitePreview />
-              </div>
+                  </article>
+                </Reveal>
+              ))}
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ---------- How I solve problems ---------- */}
-      <section
-        className="border-t border-ink/10 bg-paper py-24 sm:py-28"
-        aria-labelledby="approach-heading"
-      >
-        <div className="site-container">
-          <div className="grid gap-12 md:grid-cols-12 md:items-end md:gap-16">
-            <Reveal className="md:col-span-7">
-              <div>
-                <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-white">
-                  How I approach the work
-                </p>
-
-                <h2
-                  id="approach-heading"
-                  className="mt-4 max-w-3xl text-4xl font-medium leading-[1.05] tracking-[-0.04em] sm:text-5xl"
-                >
-                  Start with the problem. Build around the outcome.
-                </h2>
-              </div>
-            </Reveal>
-
-            <Reveal delay={120} className="md:col-span-5">
-              <p className="max-w-xl text-base leading-7 text-[var(--body)]">
-                Good development starts before the first line of code. I focus
-                on understanding what is not working, what users need, and
-                which solution makes the most sense for the business.
+          ) : (
+            <div className="mt-12 rounded-3xl border border-dashed border-ink/20 px-6 py-12 text-center sm:px-10">
+              <p
+                id="featured-work-heading"
+                className="font-display text-xl font-medium text-ink"
+              >
+                Your projects will appear here
               </p>
-            </Reveal>
-          </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                number: "01",
-                title: "Understand",
-                text: "Identify the users, business goal, technical constraints, and friction that needs to be removed.",
-              },
-              {
-                number: "02",
-                title: "Design the solution",
-                text: "Turn the problem into a clear structure, user experience, and technical approach before development begins.",
-              },
-              {
-                number: "03",
-                title: "Build & improve",
-                text: "Develop the solution with modern technologies, test the experience, and refine it around real-world use.",
-              },
-            ].map((item) => (
-              <Reveal key={item.number}>
-                <article className="h-full border-t border-ink/15 pt-6">
-                  <span className="font-mono text-xs font-semibold text-white">
-                    {item.number}
-                  </span>
+              <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-body">
+                Publish projects through the admin dashboard and mark them as
+                featured to display them on the homepage.
+              </p>
 
-                  <h3 className="mt-5 text-xl font-semibold tracking-[-0.02em] text-[var(--ink)]">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-[var(--body)]">
-                    {item.text}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+              <Link
+                href="/work"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ink hover:gap-3"
+              >
+                Explore projects
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* ---------- Team ---------- */}
-      <TeamSection />
-
-      {/* ---------- Blog preview ---------- */}
+      {/* Blog preview */}
       <section
+        id="blog-preview"
         className="border-t border-ink/10 bg-paper py-24 sm:py-28"
-        aria-label="Blog preview"
+        aria-labelledby="blog-preview-heading"
       >
         <div className="site-container">
           <div className="flex flex-wrap items-end justify-between gap-8">
-            <SectionHeading
-              eyebrow="The Knowledge Hub"
-              title="Ideas, code & digital craft"
-              description="Notes from the workbench on users, interfaces, performance, development, and building useful digital products."
-            />
+            <Reveal>
+              <div id="blog-preview-heading">
+                <SectionHeading
+                  eyebrow="The Knowledge Hub"
+                  title="Ideas, code & digital craft"
+                  description="Notes on users, interfaces, performance, and building useful digital products."
+                />
+              </div>
+            </Reveal>
 
             <Reveal delay={120}>
               <Link href="/blog" className="btn btn-ghost-dark">
@@ -398,8 +314,8 @@ export default function HomePage() {
           </div>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {latestPosts.map((post, i) => (
-              <Reveal key={post.slug} delay={i * 90}>
+            {latestPosts.map((post, index) => (
+              <Reveal key={post.slug} delay={index * 90}>
                 <BlogCard post={post} />
               </Reveal>
             ))}

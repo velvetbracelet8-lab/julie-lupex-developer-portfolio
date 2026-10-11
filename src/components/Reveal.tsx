@@ -20,39 +20,54 @@ instant = false,
 const ref = useRef<HTMLDivElement>(null);
 
 useEffect(() => {
-const el = ref.current;
-if (!el || instant || el.classList.contains("is-visible")) {
-return;
+const element = ref.current;
+
+
+if (!element) {
+  return;
 }
 
+if (instant) {
+  element.classList.add("is-visible");
+  return;
+}
 
-const prefersReduced = window.matchMedia(
+const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
 ).matches;
 
-if (prefersReduced || !("IntersectionObserver" in window)) {
-  el.classList.add("is-visible");
+if (
+  prefersReducedMotion ||
+  typeof IntersectionObserver === "undefined"
+) {
+  element.classList.add("is-visible");
+  return;
+}
+
+if (element.classList.contains("is-visible")) {
   return;
 }
 
 const observer = new IntersectionObserver(
   (entries) => {
-    entries.forEach((entry) => {
+    for (const entry of entries) {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
         observer.unobserve(entry.target);
       }
-    });
+    }
   },
   {
     threshold: 0.05,
-    rootMargin: "0px",
+    rootMargin: "0px 0px 100px 0px",
   },
 );
 
-observer.observe(el);
+observer.observe(element);
 
-return () => observer.disconnect();
+return () => {
+  observer.disconnect();
+};
 
 
 }, [instant]);
@@ -66,13 +81,17 @@ variant === "left"
 ? "reveal-scale"
 : "";
 
-const visibilityClass = instant ? "is-visible" : "";
-
 return (
 <div
 ref={ref}
-className={`reveal ${variantClass} ${visibilityClass} ${className}`}
-style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+className={`reveal ${variantClass} ${
+        instant ? "is-visible" : ""
+      } ${className}`.trim()}
+style={
+delay > 0
+? { transitionDelay: `${delay}ms` }
+: undefined
+}
 >
 {children} </div>
 );

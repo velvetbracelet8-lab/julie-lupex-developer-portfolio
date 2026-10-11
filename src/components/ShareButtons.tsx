@@ -1,7 +1,8 @@
 "use client";
 
 import { Check, Link2, Share2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
+
 import { site } from "@/lib/site";
 
 type ShareButtonsProps = {
@@ -11,6 +12,21 @@ basePath?: string;
 url?: string;
 };
 
+function subscribeToShareCapability() {
+return () => {};
+}
+
+function getShareCapabilitySnapshot() {
+return (
+typeof navigator !== "undefined" &&
+typeof navigator.share === "function"
+);
+}
+
+function getShareCapabilityServerSnapshot() {
+return false;
+}
+
 export default function ShareButtons({
 slug,
 title,
@@ -18,11 +34,12 @@ basePath = "/blog",
 url,
 }: ShareButtonsProps) {
 const [copied, setCopied] = useState(false);
-const [canNativeShare, setCanNativeShare] = useState(false);
 
-useEffect(() => {
-setCanNativeShare(typeof navigator.share === "function");
-}, []);
+const canNativeShare = useSyncExternalStore(
+subscribeToShareCapability,
+getShareCapabilitySnapshot,
+getShareCapabilityServerSnapshot,
+);
 
 const normalizedSiteUrl = site.url.endsWith("/")
 ? site.url.slice(0, -1)
@@ -60,7 +77,7 @@ setCopied(true);
 }
 
 async function nativeShare() {
-if (!canNativeShare) {
+if (typeof navigator.share !== "function") {
 return;
 }
 
@@ -72,7 +89,7 @@ try {
     url: shareUrl,
   });
 } catch {
-  // Share sheet dismissed or unavailable.
+  // The share sheet was dismissed or sharing was unavailable.
 }
 
 
@@ -81,7 +98,7 @@ try {
 return ( <div className="flex flex-wrap items-center gap-3"> <span className="font-display text-sm font-bold text-ink">
 Share this blueprint </span>
 
-```
+
   <button
     type="button"
     onClick={copyLink}
@@ -119,10 +136,7 @@ Share this blueprint </span>
     className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold text-body transition-all hover:border-ink/30 hover:text-ink"
     aria-label="Share on X"
   >
-    <span
-      className="text-sm font-bold leading-none"
-      aria-hidden="true"
-    >
+    <span className="text-sm font-bold leading-none" aria-hidden="true">
       X
     </span>
     X

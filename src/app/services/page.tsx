@@ -3,17 +3,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services — Julie Lupex",
   description:
-    "Websites, web applications, backend APIs, e-commerce, WordPress, UI/UX, and ongoing web care built around real business problems.",
+    "Websites, web apps, e-commerce, APIs, WordPress, and UI/UX — scoped to the work involved.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "Services — Julie Lupex",
     description:
-      "Practical web development and digital solutions for websites, applications, backend systems, e-commerce, WordPress, UI/UX, and ongoing improvement.",
+      "Websites, web apps, e-commerce, APIs, WordPress, and UI/UX — scoped to the work involved.",
   },
 };
 
@@ -22,11 +21,11 @@ const services = [
     number: "01",
     id: "websites",
     title: "Websites",
-    problem:
-      "Your current website is outdated, unclear, slow, or not turning visitors into enquiries.",
+    challenge:
+      "Outdated pages, unclear messaging, slow performance, or weak paths from visitor to enquiry.",
     description:
       "Purpose-built websites designed around your business, audience, content, and the actions you want visitors to take.",
-    price: "TYPICALLY $2,900–$6,000",
+    price: "SCOPED & QUOTED",
     timeline: "2–4 WEEKS*",
     features: [
       "Custom design and development",
@@ -42,8 +41,8 @@ const services = [
     number: "02",
     id: "web-applications",
     title: "Web Applications",
-    problem:
-      "Your team relies on spreadsheets, disconnected tools, or manual processes that should be software.",
+    challenge:
+      "Spreadsheets, disconnected tools, and manual workflows that could be handled by one connected system.",
     description:
       "Custom applications, portals, dashboards, and SaaS MVPs built around the workflows your business or users actually need.",
     price: "SCOPED & QUOTED",
@@ -62,10 +61,10 @@ const services = [
     number: "03",
     id: "e-commerce",
     title: "E-commerce",
-    problem:
-      "Customers struggle to discover, trust, or purchase your products online.",
+    challenge:
+      "Customers struggling to discover products, trust the store, complete checkout, or track orders.",
     description:
-      "Online stores designed around the complete buying journey — from product discovery and evaluation through checkout and order management.",
+      "Online stores built around the complete buying journey — discovery, evaluation, checkout, and order management.",
     price: "SCOPED & QUOTED",
     timeline: "4–8 WEEKS*",
     features: [
@@ -82,10 +81,10 @@ const services = [
     number: "04",
     id: "wordpress",
     title: "WordPress",
-    problem:
-      "You need a manageable website your team can update without being trapped in unnecessary page-builder complexity.",
+    challenge:
+      "A website that needs to be easier for your team to manage without unnecessary page-builder complexity.",
     description:
-      "Custom WordPress websites built around maintainability, content management, performance, and the needs of your team.",
+      "Custom WordPress websites built for maintainability, performance, and your team's content workflow.",
     price: "SCOPED & QUOTED",
     timeline: "3–5 WEEKS*",
     features: [
@@ -102,8 +101,8 @@ const services = [
     number: "05",
     id: "backend-api",
     title: "Backend & APIs",
-    problem:
-      "Your product needs reliable data, authentication, integrations, or backend logic that your frontend cannot handle alone.",
+    challenge:
+      "A product that needs reliable data, authentication, integrations, or backend logic behind the interface.",
     description:
       "Backend systems and APIs that connect your application to databases, users, payments, third-party services, and the business logic behind the product.",
     price: "SCOPED & QUOTED",
@@ -122,10 +121,10 @@ const services = [
     number: "06",
     id: "ui-ux",
     title: "UI/UX Design",
-    problem:
-      "You have an idea or product, but the user journey is unclear or the interface is difficult to use.",
+    challenge:
+      "An idea or product where the user journey is unclear or the interface is difficult to use.",
     description:
-      "User-focused interface design that turns complex requirements into practical experiences developers can build and maintain.",
+      "Interface design that turns complex requirements into practical experiences developers can build.",
     price: "SCOPED & QUOTED",
     timeline: "1–2 WEEKS*",
     features: [
@@ -142,11 +141,11 @@ const services = [
     number: "07",
     id: "care-growth",
     title: "Care & Growth",
-    problem:
-      "Your website works, but nobody is consistently looking after updates, performance, fixes, or improvements.",
+    challenge:
+      "A website that needs consistent updates, monitoring, fixes, performance work, or continued improvements.",
     description:
-      "Ongoing technical support that keeps your website maintained, monitored, and ready for future improvements.",
-    price: "FROM $120/MO",
+      "Ongoing technical support — updates, monitoring, and a plan for what comes next.",
+    price: "SCOPED & QUOTED",
     timeline: "ONGOING",
     features: [
       "Updates and maintenance",
@@ -161,10 +160,9 @@ const services = [
 ];
 
 const trustPoints = [
-  "Clear scope and proposal before development begins",
-  "Project milestones agreed before work starts",
-  "Post-launch support defined by the project scope",
-  "You retain ownership of your website, content, and accounts",
+  "Scope, proposal, and milestones agreed before work starts",
+  "Post-launch support included based on project scope",
+  "You retain full ownership — code, content, and accounts",
 ];
 
 export default function ServicesPage() {
@@ -188,24 +186,15 @@ export default function ServicesPage() {
               <p className="mt-8 max-w-3xl text-lg leading-8 text-ink/65 sm:text-xl sm:leading-9">
                 You do not need to know which technology to choose. Start
                 with what is not working, what you need to build, or what you
-                want to improve. I&apos;ll help define the right solution and
-                then build it.
+                want to improve.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/contact"
-                  className="btn btn-primary inline-flex items-center"
-                >
-                  Describe your problem
-                  <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-
+              <div className="mt-8">
                 <a
                   href="#services-heading"
-                  className="btn btn-ghost-dark inline-flex items-center"
+                  className="btn btn-primary inline-flex items-center"
                 >
-                  Explore services
+                  See what I build
                   <ArrowRight size={16} aria-hidden="true" />
                 </a>
               </div>
@@ -230,13 +219,12 @@ export default function ServicesPage() {
                 id="services-heading"
                 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-5xl"
               >
-                The right solution depends on the problem.
+                Digital work shaped around what you need.
               </h2>
 
               <p className="mt-5 text-base leading-7 text-ink/65 sm:text-lg sm:leading-8">
-                These are the main ways I help. If your project does not fit
-                neatly into one category, that is fine — custom work starts
-                with understanding what you actually need.
+                These are the main ways I help. Custom work is scoped around
+                the work involved, not forced into a predefined package.
               </p>
             </Reveal>
           </div>
@@ -268,17 +256,11 @@ export default function ServicesPage() {
                     {service.title}
                   </h3>
 
-                  <div className="mt-5 rounded-2xl border border-ink/10 bg-paper-2 p-5">
-                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-ink/45">
-                      The problem
-                    </p>
+                  <p className="mt-5 max-w-xl text-base leading-7 text-ink/75 sm:text-lg sm:leading-8">
+                    {service.challenge}
+                  </p>
 
-                    <p className="mt-2 text-sm leading-6 text-ink/75">
-                      {service.problem}
-                    </p>
-                  </div>
-
-                  <p className="mt-5 max-w-xl text-base leading-7 text-ink/65 sm:text-lg sm:leading-8">
+                  <p className="mt-4 max-w-xl text-base leading-7 text-ink/65 sm:text-lg sm:leading-8">
                     {service.description}
                   </p>
 
@@ -351,14 +333,13 @@ export default function ServicesPage() {
                 id="not-sure-heading"
                 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-ink sm:text-5xl"
               >
-                Tell me the problem, not the service.
+                Start with what&apos;s not working.
               </h2>
 
               <p className="mt-6 max-w-3xl text-base leading-8 text-ink/65 sm:text-lg sm:leading-9">
-                Explain what is not working, what you are trying to build, or
-                what you want to improve. I&apos;ll help identify the smallest
-                practical solution. If custom development is not necessary,
-                I&apos;ll tell you that too.
+                I&apos;ll help identify the smallest practical solution — and
+                if custom development isn&apos;t the answer, I&apos;ll tell
+                you.
               </p>
 
               <Link
@@ -389,19 +370,17 @@ export default function ServicesPage() {
                 id="next-step-heading"
                 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl"
               >
-                Have a problem worth solving?
+                Ready to build?
                 <br />
                 Let&apos;s talk.
               </h2>
 
               <p className="mt-6 max-w-2xl text-base leading-8 text-ink/65 sm:text-lg sm:leading-9">
-                Describe what&apos;s not working, what you&apos;re building,
-                or what you want to improve. We can discuss the problem, the
-                possible solution, and the right scope before development
-                begins.
+                We can discuss what you need, the right scope, and what
+                development should look like before work begins.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8">
                 <Link
                   href="/contact"
                   className="btn btn-primary inline-flex items-center"
@@ -409,14 +388,6 @@ export default function ServicesPage() {
                   Start a project
                   <ArrowUpRight size={16} aria-hidden="true" />
                 </Link>
-
-                <a
-                  href={site.emailHref}
-                  className="btn btn-ghost-dark inline-flex items-center"
-                >
-                  {site.email}
-                  <ArrowUpRight size={16} aria-hidden="true" />
-                </a>
               </div>
             </Reveal>
 

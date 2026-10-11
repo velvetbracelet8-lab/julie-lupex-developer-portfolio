@@ -1,6 +1,6 @@
-
 "use client";
 
+import Image from "next/image";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -18,16 +18,24 @@ export default function HomeHero() {
   const [isTickerVisible, setIsTickerVisible] = useState(true);
 
   useEffect(() => {
-    const interval = window.setInterval(() => {
+    let timeoutId: number | undefined;
+
+    const intervalId = window.setInterval(() => {
       setIsTickerVisible(false);
 
-      window.setTimeout(() => {
+      timeoutId = window.setTimeout(() => {
         setCurrentItem((current) => (current + 1) % buildingItems.length);
         setIsTickerVisible(true);
       }, 180);
     }, 2600);
 
-    return () => window.clearInterval(interval);
+    return () => {
+      window.clearInterval(intervalId);
+
+      if (timeoutId !== undefined) {
+        window.clearTimeout(timeoutId);
+      }
+    };
   }, []);
 
   return (
@@ -43,13 +51,14 @@ export default function HomeHero() {
             srcSet="/images/julie-hero-mobile.png"
           />
 
-          <img
+          <Image
             src="/images/julie-hero.png"
             alt="Julie working at her desk"
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-            className="h-full w-full object-cover object-center"
+            fill
+            priority
+            sizes="100vw"
+           quality={70}
+            className="object-cover object-center"
           />
         </picture>
 
@@ -108,7 +117,7 @@ export default function HomeHero() {
         <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:-translate-y-0.5 hover:bg-white/90"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/20 px-5 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/5"
           >
             Discuss a problem
             <ArrowUpRight size={16} aria-hidden="true" />
@@ -151,4 +160,3 @@ export default function HomeHero() {
     </section>
   );
 }
-

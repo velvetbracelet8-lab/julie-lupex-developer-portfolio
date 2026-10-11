@@ -1,6 +1,5 @@
 
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
@@ -8,30 +7,30 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact — Julie Lupex",
   description:
-    "Tell Julie Lupex about your project or the problem you're trying to solve. Get clarity on the right solution, scope, timeline, and next steps.",
+    "No polished brief needed. Tell Julie what is not working and she'll help define the right solution.",
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact Julie Lupex — Start With the Problem",
+    title: "Contact Julie Lupex",
     description:
-      "Describe what you're building or the problem you're trying to solve. Let's work out the right solution, scope, timeline, and next steps.",
+      "Tell Julie what is not working, what you're building, or what you want to improve.",
   },
 };
 
 const nextSteps = [
   {
     number: "01",
-    title: "You get a considered reply",
-    text: "I'll review what you've shared, identify the important questions, and give you an honest first take.",
+    title: "I review your message",
+    text: "I’ll look at what you’ve shared and identify the important questions.",
   },
   {
     number: "02",
-    title: "We clarify the problem",
-    text: "We'll discuss your goals, users, technical needs, scope, and whether I'm the right fit for the work.",
+    title: "We clarify the work",
+    text: "We discuss your goals, requirements, scope, and whether I’m the right fit.",
   },
   {
     number: "03",
-    title: "You get a clear proposal",
-    text: "If we're a good fit, you'll receive the agreed scope, deliverables, timeline, milestones, and project investment in writing.",
+    title: "You get the plan",
+    text: "If we’re a good fit, you’ll receive the scope, timeline, milestones, and project cost in writing.",
   },
 ];
 
@@ -39,34 +38,36 @@ const faqs = [
   {
     question: "How much should I budget?",
     answer:
-      "It depends on the scope and requirements. Business websites typically fall within the $2,900–$6,000 range. Custom web applications and e-commerce projects are scoped individually. Before development begins, you'll receive a clear proposal covering the agreed deliverables, timeline, and investment.",
+      "It depends on scope. Business websites typically fall within the $2,900–$6,000 range. Custom web applications and e-commerce projects are scoped individually.",
   },
   {
     question: "How long does a typical project take?",
     answer:
-      "Most business websites take around 2–4 weeks. Larger websites, e-commerce platforms, and custom applications can take 4–10 weeks or more depending on scope, integrations, content readiness, and feedback. The final proposal will include a project-specific timeline and milestones.",
+      "Most business websites take around 2–4 weeks. Larger websites, e-commerce platforms, and custom applications can take 4–10 weeks or more depending on scope, integrations, content readiness, and feedback cycles.",
   },
   {
     question: "Do you work with clients internationally?",
     answer:
-      "Yes. I work with clients internationally through a fully remote process. Communication, project management, development, and delivery are handled online, making it easy to collaborate regardless of location.",
+      "Yes. I work with clients internationally — communication, project management, and delivery are handled fully online.",
   },
   {
     question: "I already have a website. Can you rebuild it?",
     answer:
-      "Yes. I can review what you already have, identify what is creating problems for users or the business, and recommend whether a full rebuild or targeted improvements make more sense. If a rebuild is unnecessary, I'll tell you that too.",
+      "Yes. I can review what you already have, identify what is creating problems for users or the business, and recommend whether a full rebuild or targeted improvements make more sense. If a rebuild is unnecessary, I’ll tell you that too.",
   },
   {
     question: "What happens after launch?",
     answer:
-      "Post-launch support depends on the project scope. Depending on the engagement, I can help with fixes, updates, monitoring, performance improvements, and ongoing Care & Growth support.",
+      "Depending on scope, I can help with fixes, updates, monitoring, performance improvements, and ongoing Care & Growth support.",
   },
 ];
+
+export const revalidate = 3600;
 
 export default function ContactPage() {
   return (
     <main id="main">
-      {/* ---------- Hero ---------- */}
+      {/* Hero */}
       <section className="border-b border-ink/10 bg-paper py-24 sm:py-32 lg:py-40">
         <div className="site-container">
           <Reveal>
@@ -76,8 +77,8 @@ export default function ContactPage() {
               </p>
 
               <h1 className="mt-5 max-w-4xl text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-8xl">
-                Start with the{" "}
-                <span className="text-ink/45">problem.</span>
+                Anchor on the{" "}
+                <span className="text-ink/45">struggle.</span>
               </h1>
 
               <p className="mt-8 max-w-3xl text-lg leading-8 text-ink/65 sm:text-xl sm:leading-9">
@@ -90,7 +91,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ---------- Contact Form ---------- */}
+      {/* Contact form */}
       <section
         className="bg-paper-2 py-24 sm:py-28 lg:py-32"
         aria-labelledby="contact-form-heading"
@@ -110,13 +111,6 @@ export default function ContactPage() {
                   >
                     Tell me what you&apos;re trying to solve.
                   </h2>
-
-                  <p className="mt-3 max-w-2xl text-sm leading-6 text-ink/60">
-                    Give me the rough version. Share what you&apos;re
-                    building, what is getting in the way, or what you want to
-                    improve, and I&apos;ll help turn it into something
-                    concrete.
-                  </p>
                 </div>
 
                 <ContactForm />
@@ -126,7 +120,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ---------- What Happens Next ---------- */}
+      {/* What happens next */}
       <section
         className="border-t border-ink/10 bg-paper py-24 sm:py-28 lg:py-32"
         aria-labelledby="next-steps-heading"
@@ -143,12 +137,12 @@ export default function ContactPage() {
                   id="next-steps-heading"
                   className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl"
                 >
-                  A clear process after you hit send.
+                  After you hit send.
                 </h2>
 
                 <p className="mt-4 max-w-2xl text-base leading-7 text-ink/60 sm:text-lg sm:leading-8">
-                  The first conversation is about understanding the problem,
-                  not pushing you into a predefined package.
+                  The first conversation is about understanding the work, not
+                  pushing you into a predefined package.
                 </p>
               </div>
             </Reveal>
@@ -179,7 +173,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ---------- FAQ ---------- */}
+      {/* Frequently asked questions */}
       <section
         className="border-t border-ink/10 bg-paper py-24 sm:py-28 lg:py-32"
         aria-labelledby="faq-heading"
@@ -195,8 +189,7 @@ export default function ContactPage() {
                 id="faq-heading"
                 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl"
               >
-                The things people ask{" "}
-                <span className="text-ink/45">before starting.</span>
+                Before you <span className="text-ink/45">start.</span>
               </h2>
 
               <a
@@ -237,4 +230,3 @@ export default function ContactPage() {
     </main>
   );
 }
-
